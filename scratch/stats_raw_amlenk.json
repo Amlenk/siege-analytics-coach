@@ -1,0 +1,67 @@
+{
+  "platform_families_full_profiles": [
+    {
+      "profile_id": "933f2045-c1a5-4b22-87cb-9dc8eb35e4fb",
+      "board_ids_full_profiles": [
+        {
+          "board_id": "ranked",
+          "full_profiles": [
+            {
+              "profile": {
+                "rank": 36,
+                "wins": 282,
+                "kills": 3166,
+                "deaths": 2352,
+                "losses": 296,
+                "abandon": 1,
+                "max_rank": 36,
+                "rank_points": 4516,
+                "update_time": "0001-01-01T00:00:00+00:00",
+                "max_rank_points": 4545
+              },
+              "season_id": 41,
+              "season_statistics": {
+                "kills": 3166,
+                "deaths": 2352,
+                "match_outcomes": {
+                  "wins": 282,
+                  "losses": 296,
+                  "abandons": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "board_id": "casual",
+          "full_profiles": [
+            {
+              "profile": {
+                "rank": 0,
+                "wins": 12,
+                "kills": 60,
+                "deaths": 35,
+                "losses": 5,
+                "abandon": 2,
+                "max_rank": 0,
+                "rank_points": 0,
+                "update_time": "0001-01-01T00:00:00+00:00",
+                "max_rank_points": 0
+              },
+              "season_id": 41,
+              "season_statistics": {
+                "kills": 60,
+                "deaths": 35,
+                "match_outcomes": {
+                  "wins": 12,
+                  "losses": 5,
+                  "abandons": 2
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

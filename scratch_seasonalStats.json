@@ -1,0 +1,3180 @@
+{
+  "data": {
+    "history": {
+      "data": [
+        [
+          "2026-05-26T17:56:49.696+00:00",
+          {
+            "value": 4516,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,516"
+          }
+        ],
+        [
+          "2026-05-26T17:29:19.868+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-26T17:00:01.72+00:00",
+          {
+            "value": 4516,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,516"
+          }
+        ],
+        [
+          "2026-05-26T16:35:32.22+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-26T14:27:23.891+00:00",
+          {
+            "value": 4516,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,516"
+          }
+        ],
+        [
+          "2026-05-26T14:10:03.199+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-25T16:24:04.915+00:00",
+          {
+            "value": 4516,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,516"
+          }
+        ],
+        [
+          "2026-05-25T15:52:25.453+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-25T15:15:34.496+00:00",
+          {
+            "value": 4516,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,516"
+          }
+        ],
+        [
+          "2026-05-25T08:26:58.048+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-24T17:18:57.828+00:00",
+          {
+            "value": 4505,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,505"
+          }
+        ],
+        [
+          "2026-05-24T16:50:43.644+00:00",
+          {
+            "value": 4489,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,489"
+          }
+        ],
+        [
+          "2026-05-24T16:13:13.83+00:00",
+          {
+            "value": 4473,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,473"
+          }
+        ],
+        [
+          "2026-05-24T11:42:46.278+00:00",
+          {
+            "value": 4493,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,493"
+          }
+        ],
+        [
+          "2026-05-24T11:11:12.929+00:00",
+          {
+            "value": 4477,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,477"
+          }
+        ],
+        [
+          "2026-05-23T17:50:27.776+00:00",
+          {
+            "value": 4460,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,460"
+          }
+        ],
+        [
+          "2026-05-23T17:30:21.815+00:00",
+          {
+            "value": 4480,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,480"
+          }
+        ],
+        [
+          "2026-05-23T17:00:11.903+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-23T16:22:19.07+00:00",
+          {
+            "value": 4524,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,524"
+          }
+        ],
+        [
+          "2026-05-23T15:51:49.243+00:00",
+          {
+            "value": 4545,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,545"
+          }
+        ],
+        [
+          "2026-05-23T15:24:17.366+00:00",
+          {
+            "value": 4531,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,531"
+          }
+        ],
+        [
+          "2026-05-23T14:43:10.032+00:00",
+          {
+            "value": 4516,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,516"
+          }
+        ],
+        [
+          "2026-05-23T14:05:12.571+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-23T12:16:26.265+00:00",
+          {
+            "value": 4516,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,516"
+          }
+        ],
+        [
+          "2026-05-23T11:05:35.861+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-22T17:41:56.897+00:00",
+          {
+            "value": 4512,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,512"
+          }
+        ],
+        [
+          "2026-05-22T17:05:58.759+00:00",
+          {
+            "value": 4496,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,496"
+          }
+        ],
+        [
+          "2026-05-22T16:09:12.623+00:00",
+          {
+            "value": 4480,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,480"
+          }
+        ],
+        [
+          "2026-05-22T12:22:41.745+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-22T11:52:48.479+00:00",
+          {
+            "value": 4516,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,516"
+          }
+        ],
+        [
+          "2026-05-22T08:35:24.695+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-22T08:00:55.74+00:00",
+          {
+            "value": 4516,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,516"
+          }
+        ],
+        [
+          "2026-05-21T17:22:11.318+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-21T16:55:06.211+00:00",
+          {
+            "value": 4506,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,506"
+          }
+        ],
+        [
+          "2026-05-20T17:05:37.22+00:00",
+          {
+            "value": 4471,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,471"
+          }
+        ],
+        [
+          "2026-05-20T16:27:44.437+00:00",
+          {
+            "value": 4454,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,454"
+          }
+        ],
+        [
+          "2026-05-20T16:01:29.041+00:00",
+          {
+            "value": 4436,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,436"
+          }
+        ],
+        [
+          "2026-05-20T15:31:31.449+00:00",
+          {
+            "value": 4455,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,455"
+          }
+        ],
+        [
+          "2026-05-20T15:02:41.625+00:00",
+          {
+            "value": 4437,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,437"
+          }
+        ],
+        [
+          "2026-05-20T11:32:36.042+00:00",
+          {
+            "value": 4400,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,400"
+          }
+        ],
+        [
+          "2026-05-20T11:09:48.38+00:00",
+          {
+            "value": 4403,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,403"
+          }
+        ],
+        [
+          "2026-05-19T17:58:52.62+00:00",
+          {
+            "value": 4422,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,422"
+          }
+        ],
+        [
+          "2026-05-19T17:37:54.987+00:00",
+          {
+            "value": 4403,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,403"
+          }
+        ],
+        [
+          "2026-05-19T13:33:11.803+00:00",
+          {
+            "value": 4422,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,422"
+          }
+        ],
+        [
+          "2026-05-19T13:04:48.503+00:00",
+          {
+            "value": 4441,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,441"
+          }
+        ],
+        [
+          "2026-05-19T12:42:44.442+00:00",
+          {
+            "value": 4423,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,423"
+          }
+        ],
+        [
+          "2026-05-19T12:19:11.675+00:00",
+          {
+            "value": 4442,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,442"
+          }
+        ],
+        [
+          "2026-05-18T17:30:25.039+00:00",
+          {
+            "value": 4461,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,461"
+          }
+        ],
+        [
+          "2026-05-18T17:03:09.732+00:00",
+          {
+            "value": 4444,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,444"
+          }
+        ],
+        [
+          "2026-05-18T13:10:12.753+00:00",
+          {
+            "value": 4464,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,464"
+          }
+        ],
+        [
+          "2026-05-18T12:27:16.292+00:00",
+          {
+            "value": 4465,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,465"
+          }
+        ],
+        [
+          "2026-05-18T12:07:07.531+00:00",
+          {
+            "value": 4448,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,448"
+          }
+        ],
+        [
+          "2026-05-18T11:33:30.182+00:00",
+          {
+            "value": 4430,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,430"
+          }
+        ],
+        [
+          "2026-05-17T14:26:26.361+00:00",
+          {
+            "value": 4412,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,412"
+          }
+        ],
+        [
+          "2026-05-17T14:03:35.11+00:00",
+          {
+            "value": 4431,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,431"
+          }
+        ],
+        [
+          "2026-05-17T13:34:47.762+00:00",
+          {
+            "value": 4450,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,450"
+          }
+        ],
+        [
+          "2026-05-17T13:05:11.821+00:00",
+          {
+            "value": 4470,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,470"
+          }
+        ],
+        [
+          "2026-05-16T16:17:42.296+00:00",
+          {
+            "value": 4453,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,453"
+          }
+        ],
+        [
+          "2026-05-16T15:43:02.738+00:00",
+          {
+            "value": 4435,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,435"
+          }
+        ],
+        [
+          "2026-05-16T14:29:05.616+00:00",
+          {
+            "value": 4454,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,454"
+          }
+        ],
+        [
+          "2026-05-16T14:06:34.554+00:00",
+          {
+            "value": 4436,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,436"
+          }
+        ],
+        [
+          "2026-05-16T12:19:54.002+00:00",
+          {
+            "value": 4455,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,455"
+          }
+        ],
+        [
+          "2026-05-16T11:43:47.981+00:00",
+          {
+            "value": 4437,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,437"
+          }
+        ],
+        [
+          "2026-05-16T11:08:29.779+00:00",
+          {
+            "value": 4419,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,419"
+          }
+        ],
+        [
+          "2026-05-16T10:28:11.657+00:00",
+          {
+            "value": 4438,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,438"
+          }
+        ],
+        [
+          "2026-05-15T18:40:31.16+00:00",
+          {
+            "value": 4420,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,420"
+          }
+        ],
+        [
+          "2026-05-15T18:12:51.103+00:00",
+          {
+            "value": 4401,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,401"
+          }
+        ],
+        [
+          "2026-05-15T17:13:36.741+00:00",
+          {
+            "value": 4382,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,382"
+          }
+        ],
+        [
+          "2026-05-15T16:31:36.349+00:00",
+          {
+            "value": 4400,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,400"
+          }
+        ],
+        [
+          "2026-05-15T16:01:07.428+00:00",
+          {
+            "value": 4401,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,401"
+          }
+        ],
+        [
+          "2026-05-15T15:25:02.53+00:00",
+          {
+            "value": 4382,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,382"
+          }
+        ],
+        [
+          "2026-05-15T14:35:30.45+00:00",
+          {
+            "value": 4400,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,400"
+          }
+        ],
+        [
+          "2026-05-15T13:53:54.268+00:00",
+          {
+            "value": 4418,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,418"
+          }
+        ],
+        [
+          "2026-05-15T13:10:04.826+00:00",
+          {
+            "value": 4437,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,437"
+          }
+        ],
+        [
+          "2026-05-15T12:46:19.582+00:00",
+          {
+            "value": 4419,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,419"
+          }
+        ],
+        [
+          "2026-05-15T11:21:13.055+00:00",
+          {
+            "value": 4400,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,400"
+          }
+        ],
+        [
+          "2026-05-15T10:40:00.898+00:00",
+          {
+            "value": 4445,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,445"
+          }
+        ],
+        [
+          "2026-05-14T18:02:52.643+00:00",
+          {
+            "value": 4465,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,465"
+          }
+        ],
+        [
+          "2026-05-14T17:19:12.716+00:00",
+          {
+            "value": 4485,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,485"
+          }
+        ],
+        [
+          "2026-05-14T16:54:43.969+00:00",
+          {
+            "value": 4468,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,468"
+          }
+        ],
+        [
+          "2026-05-14T14:48:04.459+00:00",
+          {
+            "value": 4488,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,488"
+          }
+        ],
+        [
+          "2026-05-14T14:05:24.026+00:00",
+          {
+            "value": 4472,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,472"
+          }
+        ],
+        [
+          "2026-05-14T13:36:00.621+00:00",
+          {
+            "value": 4455,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,455"
+          }
+        ],
+        [
+          "2026-05-14T12:01:40.737+00:00",
+          {
+            "value": 4437,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,437"
+          }
+        ],
+        [
+          "2026-05-14T11:37:03.04+00:00",
+          {
+            "value": 4419,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,419"
+          }
+        ],
+        [
+          "2026-05-13T17:13:54.797+00:00",
+          {
+            "value": 4400,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,400"
+          }
+        ],
+        [
+          "2026-05-13T16:39:46.05+00:00",
+          {
+            "value": 4405,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,405"
+          }
+        ],
+        [
+          "2026-05-13T16:10:38.637+00:00",
+          {
+            "value": 4424,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,424"
+          }
+        ],
+        [
+          "2026-05-12T17:19:38.325+00:00",
+          {
+            "value": 4443,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,443"
+          }
+        ],
+        [
+          "2026-05-12T16:53:09.028+00:00",
+          {
+            "value": 4462,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,462"
+          }
+        ],
+        [
+          "2026-05-12T16:33:41.186+00:00",
+          {
+            "value": 4445,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,445"
+          }
+        ],
+        [
+          "2026-05-12T16:08:51.711+00:00",
+          {
+            "value": 4465,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,465"
+          }
+        ],
+        [
+          "2026-05-12T15:32:21.566+00:00",
+          {
+            "value": 4485,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,485"
+          }
+        ],
+        [
+          "2026-05-11T20:29:54.674+00:00",
+          {
+            "value": 4468,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,468"
+          }
+        ],
+        [
+          "2026-05-11T20:04:36.1+00:00",
+          {
+            "value": 4451,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,451"
+          }
+        ],
+        [
+          "2026-05-11T19:15:06.41+00:00",
+          {
+            "value": 4471,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,471"
+          }
+        ],
+        [
+          "2026-05-11T18:36:14.527+00:00",
+          {
+            "value": 4454,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,454"
+          }
+        ],
+        [
+          "2026-05-11T17:53:03.789+00:00",
+          {
+            "value": 4474,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,474"
+          }
+        ],
+        [
+          "2026-05-11T16:53:09.358+00:00",
+          {
+            "value": 4457,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,457"
+          }
+        ],
+        [
+          "2026-05-11T16:26:01.503+00:00",
+          {
+            "value": 4439,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,439"
+          }
+        ],
+        [
+          "2026-05-10T17:30:30.377+00:00",
+          {
+            "value": 4402,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,402"
+          }
+        ],
+        [
+          "2026-05-10T16:54:25.636+00:00",
+          {
+            "value": 4421,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,421"
+          }
+        ],
+        [
+          "2026-05-10T16:33:21.089+00:00",
+          {
+            "value": 4440,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,440"
+          }
+        ],
+        [
+          "2026-05-10T14:17:26.576+00:00",
+          {
+            "value": 4422,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,422"
+          }
+        ],
+        [
+          "2026-05-09T20:39:47.208+00:00",
+          {
+            "value": 4400,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,400"
+          }
+        ],
+        [
+          "2026-05-09T19:55:13.817+00:00",
+          {
+            "value": 4417,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,417"
+          }
+        ],
+        [
+          "2026-05-09T19:16:24.838+00:00",
+          {
+            "value": 4436,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,436"
+          }
+        ],
+        [
+          "2026-05-09T18:29:10.587+00:00",
+          {
+            "value": 4418,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,418"
+          }
+        ],
+        [
+          "2026-05-09T17:47:09.814+00:00",
+          {
+            "value": 4437,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,437"
+          }
+        ],
+        [
+          "2026-05-09T17:16:10.875+00:00",
+          {
+            "value": 4419,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,419"
+          }
+        ],
+        [
+          "2026-05-09T11:16:53.523+00:00",
+          {
+            "value": 4400,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,400"
+          }
+        ],
+        [
+          "2026-05-09T11:01:17.402+00:00",
+          {
+            "value": 4403,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,403"
+          }
+        ],
+        [
+          "2026-05-08T20:55:37.098+00:00",
+          {
+            "value": 4384,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,384"
+          }
+        ],
+        [
+          "2026-05-08T20:36:16.414+00:00",
+          {
+            "value": 4364,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,364"
+          }
+        ],
+        [
+          "2026-05-08T20:10:07.31+00:00",
+          {
+            "value": 4343,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,343"
+          }
+        ],
+        [
+          "2026-05-08T19:49:40.109+00:00",
+          {
+            "value": 4322,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,322"
+          }
+        ],
+        [
+          "2026-05-08T19:28:58.16+00:00",
+          {
+            "value": 4300,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,300"
+          }
+        ],
+        [
+          "2026-05-08T19:06:00.689+00:00",
+          {
+            "value": 4313,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,313"
+          }
+        ],
+        [
+          "2026-05-08T18:35:56.432+00:00",
+          {
+            "value": 4330,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,330"
+          }
+        ],
+        [
+          "2026-05-08T18:06:22.833+00:00",
+          {
+            "value": 4347,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,347"
+          }
+        ],
+        [
+          "2026-05-08T17:38:21.361+00:00",
+          {
+            "value": 4326,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,326"
+          }
+        ],
+        [
+          "2026-05-08T14:14:30.122+00:00",
+          {
+            "value": 4343,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,343"
+          }
+        ],
+        [
+          "2026-05-08T13:32:24.374+00:00",
+          {
+            "value": 4322,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,322"
+          }
+        ],
+        [
+          "2026-05-08T13:14:20.533+00:00",
+          {
+            "value": 4300,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,300"
+          }
+        ],
+        [
+          "2026-05-08T12:46:18.895+00:00",
+          {
+            "value": 4315,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,315"
+          }
+        ],
+        [
+          "2026-05-08T08:42:23.084+00:00",
+          {
+            "value": 4332,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,332"
+          }
+        ],
+        [
+          "2026-05-08T08:07:03.828+00:00",
+          {
+            "value": 4349,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,349"
+          }
+        ],
+        [
+          "2026-05-08T07:39:36.273+00:00",
+          {
+            "value": 4367,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,367"
+          }
+        ],
+        [
+          "2026-05-07T18:34:55.094+00:00",
+          {
+            "value": 4346,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,346"
+          }
+        ],
+        [
+          "2026-05-07T18:06:43.884+00:00",
+          {
+            "value": 4382,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,382"
+          }
+        ],
+        [
+          "2026-05-07T17:29:50.538+00:00",
+          {
+            "value": 4400,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,400"
+          }
+        ],
+        [
+          "2026-05-07T15:30:51.075+00:00",
+          {
+            "value": 4407,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,407"
+          }
+        ],
+        [
+          "2026-05-07T14:50:22.625+00:00",
+          {
+            "value": 4426,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,426"
+          }
+        ],
+        [
+          "2026-05-07T14:14:02.25+00:00",
+          {
+            "value": 4445,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,445"
+          }
+        ],
+        [
+          "2026-05-07T12:24:26.807+00:00",
+          {
+            "value": 4427,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,427"
+          }
+        ],
+        [
+          "2026-05-07T11:49:35.449+00:00",
+          {
+            "value": 4446,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,446"
+          }
+        ],
+        [
+          "2026-05-07T11:19:02.441+00:00",
+          {
+            "value": 4466,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,466"
+          }
+        ],
+        [
+          "2026-05-07T08:52:51.821+00:00",
+          {
+            "value": 4449,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,449"
+          }
+        ],
+        [
+          "2026-05-06T22:13:21.55+00:00",
+          {
+            "value": 4469,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,469"
+          }
+        ],
+        [
+          "2026-05-06T20:56:28.479+00:00",
+          {
+            "value": 4489,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,489"
+          }
+        ],
+        [
+          "2026-05-06T20:13:32.167+00:00",
+          {
+            "value": 4473,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,473"
+          }
+        ],
+        [
+          "2026-05-06T19:34:34.324+00:00",
+          {
+            "value": 4456,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,456"
+          }
+        ],
+        [
+          "2026-05-06T19:08:59.234+00:00",
+          {
+            "value": 4476,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,476"
+          }
+        ],
+        [
+          "2026-05-06T17:27:12.555+00:00",
+          {
+            "value": 4496,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,496"
+          }
+        ],
+        [
+          "2026-05-06T16:59:11.012+00:00",
+          {
+            "value": 4480,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,480"
+          }
+        ],
+        [
+          "2026-05-06T16:40:10.755+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-06T16:09:36.059+00:00",
+          {
+            "value": 4512,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,512"
+          }
+        ],
+        [
+          "2026-05-06T13:46:44.633+00:00",
+          {
+            "value": 4496,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,496"
+          }
+        ],
+        [
+          "2026-05-06T13:04:36.661+00:00",
+          {
+            "value": 4480,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,480"
+          }
+        ],
+        [
+          "2026-05-06T12:36:15.706+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-05T17:40:47.222+00:00",
+          {
+            "value": 4512,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,512"
+          }
+        ],
+        [
+          "2026-05-05T16:54:09.049+00:00",
+          {
+            "value": 4533,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,533"
+          }
+        ],
+        [
+          "2026-05-05T13:39:06.972+00:00",
+          {
+            "value": 4518,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,518"
+          }
+        ],
+        [
+          "2026-05-05T13:17:51.793+00:00",
+          {
+            "value": 4539,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,539"
+          }
+        ],
+        [
+          "2026-05-05T12:46:52.183+00:00",
+          {
+            "value": 4524,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,524"
+          }
+        ],
+        [
+          "2026-05-04T17:35:30.115+00:00",
+          {
+            "value": 4509,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,509"
+          }
+        ],
+        [
+          "2026-05-04T17:05:26.065+00:00",
+          {
+            "value": 4530,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,530"
+          }
+        ],
+        [
+          "2026-05-04T13:11:59.275+00:00",
+          {
+            "value": 4515,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,515"
+          }
+        ],
+        [
+          "2026-05-03T17:14:28.741+00:00",
+          {
+            "value": 4480,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,480"
+          }
+        ],
+        [
+          "2026-05-03T16:48:37.533+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-05-03T16:25:38.617+00:00",
+          {
+            "value": 4516,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,516"
+          }
+        ],
+        [
+          "2026-05-03T13:51:51.508+00:00",
+          {
+            "value": 4501,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,501"
+          }
+        ],
+        [
+          "2026-05-03T13:07:20.493+00:00",
+          {
+            "value": 4485,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,485"
+          }
+        ],
+        [
+          "2026-05-03T11:23:34.408+00:00",
+          {
+            "value": 4468,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,468"
+          }
+        ],
+        [
+          "2026-05-03T11:00:45.07+00:00",
+          {
+            "value": 4451,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,451"
+          }
+        ],
+        [
+          "2026-05-03T10:41:13.126+00:00",
+          {
+            "value": 4433,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,433"
+          }
+        ],
+        [
+          "2026-05-03T08:32:59.297+00:00",
+          {
+            "value": 4452,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,452"
+          }
+        ],
+        [
+          "2026-05-03T08:09:02.174+00:00",
+          {
+            "value": 4472,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,472"
+          }
+        ],
+        [
+          "2026-05-02T20:10:53.825+00:00",
+          {
+            "value": 4455,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,455"
+          }
+        ],
+        [
+          "2026-05-02T19:39:08.776+00:00",
+          {
+            "value": 4437,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,437"
+          }
+        ],
+        [
+          "2026-05-02T18:50:34.449+00:00",
+          {
+            "value": 4419,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,419"
+          }
+        ],
+        [
+          "2026-05-02T18:28:37.89+00:00",
+          {
+            "value": 4400,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,400"
+          }
+        ],
+        [
+          "2026-05-02T18:06:52.026+00:00",
+          {
+            "value": 4404,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,404"
+          }
+        ],
+        [
+          "2026-05-02T15:02:45.918+00:00",
+          {
+            "value": 4423,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,423"
+          }
+        ],
+        [
+          "2026-05-02T14:32:26.385+00:00",
+          {
+            "value": 4442,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,442"
+          }
+        ],
+        [
+          "2026-05-02T12:10:31.071+00:00",
+          {
+            "value": 4461,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,461"
+          }
+        ],
+        [
+          "2026-05-02T11:35:25.942+00:00",
+          {
+            "value": 4481,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,481"
+          }
+        ],
+        [
+          "2026-05-02T11:14:27.351+00:00",
+          {
+            "value": 4464,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,464"
+          }
+        ],
+        [
+          "2026-05-02T10:46:00.705+00:00",
+          {
+            "value": 4447,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,447"
+          }
+        ],
+        [
+          "2026-05-02T10:00:30.041+00:00",
+          {
+            "value": 4467,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,467"
+          }
+        ],
+        [
+          "2026-05-01T19:33:23.757+00:00",
+          {
+            "value": 4450,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,450"
+          }
+        ],
+        [
+          "2026-05-01T18:51:04.366+00:00",
+          {
+            "value": 4470,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,470"
+          }
+        ],
+        [
+          "2026-05-01T18:02:02.309+00:00",
+          {
+            "value": 4453,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,453"
+          }
+        ],
+        [
+          "2026-05-01T17:27:50.109+00:00",
+          {
+            "value": 4473,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,473"
+          }
+        ],
+        [
+          "2026-05-01T15:06:28.306+00:00",
+          {
+            "value": 4456,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,456"
+          }
+        ],
+        [
+          "2026-05-01T14:49:11.302+00:00",
+          {
+            "value": 4438,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,438"
+          }
+        ],
+        [
+          "2026-05-01T12:50:55.038+00:00",
+          {
+            "value": 4420,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,420"
+          }
+        ],
+        [
+          "2026-05-01T12:14:58.134+00:00",
+          {
+            "value": 4439,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,439"
+          }
+        ],
+        [
+          "2026-05-01T11:51:25.31+00:00",
+          {
+            "value": 4421,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,421"
+          }
+        ],
+        [
+          "2026-05-01T11:31:36.091+00:00",
+          {
+            "value": 4440,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,440"
+          }
+        ],
+        [
+          "2026-04-30T19:25:07.64+00:00",
+          {
+            "value": 4422,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,422"
+          }
+        ],
+        [
+          "2026-04-30T18:36:39.891+00:00",
+          {
+            "value": 4403,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,403"
+          }
+        ],
+        [
+          "2026-04-30T17:54:43.757+00:00",
+          {
+            "value": 4422,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,422"
+          }
+        ],
+        [
+          "2026-04-30T17:23:03.838+00:00",
+          {
+            "value": 4441,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,441"
+          }
+        ],
+        [
+          "2026-04-30T17:00:35.006+00:00",
+          {
+            "value": 4460,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,460"
+          }
+        ],
+        [
+          "2026-04-30T13:58:53.055+00:00",
+          {
+            "value": 4480,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,480"
+          }
+        ],
+        [
+          "2026-04-30T13:17:36.35+00:00",
+          {
+            "value": 4500,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,500"
+          }
+        ],
+        [
+          "2026-04-30T12:44:53.305+00:00",
+          {
+            "value": 4508,
+            "metadata": {
+              "rank": "Champion",
+              "color": "#d0073c",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,508"
+          }
+        ],
+        [
+          "2026-04-29T19:51:00.84+00:00",
+          {
+            "value": 4492,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,492"
+          }
+        ],
+        [
+          "2026-04-29T17:19:29.502+00:00",
+          {
+            "value": 4476,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,476"
+          }
+        ],
+        [
+          "2026-04-29T16:48:46.462+00:00",
+          {
+            "value": 4459,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,459"
+          }
+        ],
+        [
+          "2026-04-29T16:17:02.581+00:00",
+          {
+            "value": 4442,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,442"
+          }
+        ],
+        [
+          "2026-04-29T14:34:19.184+00:00",
+          {
+            "value": 4424,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,424"
+          }
+        ],
+        [
+          "2026-04-29T14:05:20.139+00:00",
+          {
+            "value": 4405,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,405"
+          }
+        ],
+        [
+          "2026-04-29T13:34:32.57+00:00",
+          {
+            "value": 4424,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,424"
+          }
+        ],
+        [
+          "2026-04-29T11:39:40.724+00:00",
+          {
+            "value": 4443,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,443"
+          }
+        ],
+        [
+          "2026-04-29T11:12:55.47+00:00",
+          {
+            "value": 4425,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,425"
+          }
+        ],
+        [
+          "2026-04-28T22:16:14.302+00:00",
+          {
+            "value": 4406,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,406"
+          }
+        ],
+        [
+          "2026-04-28T21:43:14.297+00:00",
+          {
+            "value": 4387,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,387"
+          }
+        ],
+        [
+          "2026-04-28T21:13:00.273+00:00",
+          {
+            "value": 4367,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,367"
+          }
+        ],
+        [
+          "2026-04-28T20:30:43.669+00:00",
+          {
+            "value": 4346,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,346"
+          }
+        ],
+        [
+          "2026-04-28T19:50:15.2+00:00",
+          {
+            "value": 4364,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,364"
+          }
+        ],
+        [
+          "2026-04-28T19:06:49.417+00:00",
+          {
+            "value": 4382,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,382"
+          }
+        ],
+        [
+          "2026-04-28T18:47:27.688+00:00",
+          {
+            "value": 4400,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,400"
+          }
+        ],
+        [
+          "2026-04-28T17:39:45.462+00:00",
+          {
+            "value": 4418,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,418"
+          }
+        ],
+        [
+          "2026-04-28T17:09:56.461+00:00",
+          {
+            "value": 4437,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,437"
+          }
+        ],
+        [
+          "2026-04-28T16:24:42.728+00:00",
+          {
+            "value": 4419,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,419"
+          }
+        ],
+        [
+          "2026-04-28T13:35:54.19+00:00",
+          {
+            "value": 4400,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,400"
+          }
+        ],
+        [
+          "2026-04-28T12:54:14.991+00:00",
+          {
+            "value": 4401,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,401"
+          }
+        ],
+        [
+          "2026-04-28T07:55:52.854+00:00",
+          {
+            "value": 4382,
+            "metadata": {
+              "rank": "Diamond 2",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-2.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,382"
+          }
+        ],
+        [
+          "2026-04-28T07:33:18.487+00:00",
+          {
+            "value": 4400,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,400"
+          }
+        ],
+        [
+          "2026-04-28T07:12:30.676+00:00",
+          {
+            "value": 4403,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,403"
+          }
+        ],
+        [
+          "2026-04-27T17:33:55.995+00:00",
+          {
+            "value": 4422,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,422"
+          }
+        ],
+        [
+          "2026-04-27T16:44:08.492+00:00",
+          {
+            "value": 4403,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,403"
+          }
+        ],
+        [
+          "2026-04-27T14:09:49.963+00:00",
+          {
+            "value": 4422,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,422"
+          }
+        ],
+        [
+          "2026-04-27T13:30:22.18+00:00",
+          {
+            "value": 4403,
+            "metadata": {
+              "rank": "Diamond 1",
+              "color": "#b093ff",
+              "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
+            },
+            "displayName": "Rank Points",
+            "displayType": "Number",
+            "displayValue": "4,403"
+          }
+        ]
+      ],
+      "metadata": {
+        "key": "RankPoints",
+        "name": "Rank Points",
+        "description": null
+      }
+    },
+    "expiryDate": "0001-01-01T00:00:00+00:00",
+    "bestMatches": null,
+    "leaderboard": null
+  }
+}

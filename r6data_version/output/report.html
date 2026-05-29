@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite R6 Coaching Dashboard - Amlenk</title>
+    <!-- Google Fonts Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0c10',
+                        glassBg: '#12131c',
+                        gold: '#e1b12c',
+                        cyanCustom: '#00cec9',
+                        emeraldCustom: '#00b894',
+                        coralCustom: '#ff7675'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #08090d;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(225, 177, 44, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(0, 206, 201, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+        .glass-card {
+            background: rgba(18, 19, 28, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .active-nav {
+            border-left: 3px solid #e1b12c;
+            background: rgba(225, 177, 44, 0.05);
+            color: #e1b12c !important;
+        }
+    </style>
+</head>
+<body class="text-gray-300 font-sans leading-relaxed">
+    <div class="flex min-h-screen">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-80 bg-gray-950/80 border-r border-gray-900 min-h-screen p-6 fixed h-full flex flex-col justify-between z-10 glass-card">
+            <div>
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded bg-gradient-to-tr from-gold to-yellow-500 flex items-center justify-center text-black font-extrabold text-lg shadow-lg shadow-gold/20">
+                        R6
+                    </div>
+                    <div>
+                        <h1 class="text-white font-bold font-outfit text-lg">PRO-COACH</h1>
+                        <p class="text-xs text-gray-500 font-medium">TACTICAL SUITE v3.0</p>
+                    </div>
+                </div>
+                
+                <nav class="space-y-1">
+                    <a href="#snapshot" class="flex items-center gap-3 text-gray-400 hover:text-white px-3 py-2.5 rounded-lg text-sm font-medium transition-all hover:bg-white/5 active-nav" onclick="activateNav(this)">
+                        Performance Snapshot
+                    </a>
+                    <a href="#trend" class="flex items-center gap-3 text-gray-400 hover:text-white px-3 py-2.5 rounded-lg text-sm font-medium transition-all hover:bg-white/5" onclick="activateNav(this)">
+                        Trend Analysis
+                    </a>
+                    <a href="#matrix" class="flex items-center gap-3 text-gray-400 hover:text-white px-3 py-2.5 rounded-lg text-sm font-medium transition-all hover:bg-white/5" onclick="activateNav(this)">
+                        Map Mastery Matrix
+                    </a>
+                    <a href="#deepdive" class="flex items-center gap-3 text-gray-400 hover:text-white px-3 py-2.5 rounded-lg text-sm font-medium transition-all hover:bg-white/5" onclick="activateNav(this)">
+                        Map Deep Dive
+                    </a>
+                    <a href="#audit" class="flex items-center gap-3 text-gray-400 hover:text-white px-3 py-2.5 rounded-lg text-sm font-medium transition-all hover:bg-white/5" onclick="activateNav(this)">
+                        Operator Audit
+                    </a>
+                    <a href="#coaching" class="flex items-center gap-3 text-gray-400 hover:text-white px-3 py-2.5 rounded-lg text-sm font-medium transition-all hover:bg-white/5" onclick="activateNav(this)">
+                        Operator Coaching Engine
+                    </a>
+                    <a href="#improvement" class="flex items-center gap-3 text-gray-400 hover:text-white px-3 py-2.5 rounded-lg text-sm font-medium transition-all hover:bg-white/5" onclick="activateNav(this)">
+                        Priority Improvement Matrix
+                    </a>
+                    <a href="#strategy" class="flex items-center gap-3 text-gray-400 hover:text-white px-3 py-2.5 rounded-lg text-sm font-medium transition-all hover:bg-white/5" onclick="activateNav(this)">
+                        Ban & Veto Strategy
+                    </a>
+                </nav>
+            </div>
+            
+            <div class="border-t border-gray-900 pt-6">
+                <div class="text-xs text-gray-600 font-bold uppercase tracking-wider mb-2">Target Player</div>
+                <div class="text-white font-bold font-outfit text-base flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+                    Amlenk <span class="text-xs text-gold uppercase px-2 py-0.5 rounded bg-gold/10 border border-gold/20">UBI</span>
+                </div>
+                <div class="text-xs text-gray-500 mt-1">Standing: 4,516 RP (CHAMPION)</div>
+            </div>
+        </aside>
+        
+        <!-- Main Content Area -->
+        <main class="flex-1 ml-80 p-12 max-w-7xl">
+            
+            <!-- Section 1: Snapshot -->
+            <section id="snapshot" class="mb-16 pt-6">
+                <div class="glass-card p-10 rounded-2xl border border-gray-800/80 mb-8 relative overflow-hidden shadow-2xl">
+                    <div class="absolute -right-24 -top-24 w-96 h-96 bg-gold/5 rounded-full blur-3xl"></div>
+                    <div class="relative z-10">
+                        <div class="text-xs font-extrabold uppercase text-gold tracking-widest mb-3 font-outfit">Elite Pro-League Tactical Diagnosis</div>
+                        <h2 class="text-4xl font-extrabold text-white mb-6 font-outfit tracking-tight leading-tight uppercase">The Champion Climb of Amlenk</h2>
+                        <div class="grid grid-cols-4 gap-6 mb-8 text-center">
+                            <div class="bg-gray-950/40 p-4 rounded-xl border border-gray-900 shadow-inner">
+                                <div class="text-xs font-bold text-gray-500 uppercase">Y11S1 K/D</div>
+                                <div class="text-3xl font-black text-cyanCustom font-outfit mt-1">1.35</div>
+                            </div>
+                            <div class="bg-gray-950/40 p-4 rounded-xl border border-gray-900 shadow-inner">
+                                <div class="text-xs font-bold text-gray-500 uppercase">Win Rate</div>
+                                <div class="text-3xl font-black text-emeraldCustom font-outfit mt-1">48.7%</div>
+                            </div>
+                            <div class="bg-gray-950/40 p-4 rounded-xl border border-gray-900 shadow-inner">
+                                <div class="text-xs font-bold text-gray-500 uppercase">Matches</div>
+                                <div class="text-3xl font-black text-gold font-outfit mt-1">579</div>
+                            </div>
+                            <div class="bg-gray-950/40 p-4 rounded-xl border border-gray-900 shadow-inner">
+                                <div class="text-xs font-bold text-gray-500 uppercase">RP Standing</div>
+                                <div class="text-3xl font-black text-purple-400 font-outfit mt-1">4,516 RP (CHAMPION)</div>
+                            </div>
+                        </div>
+                        <div class="space-y-4 text-base text-gray-300 leading-relaxed">
+                            <p>Amlenk's Y11S1 competitive season represents a masterclass in raw mechanical execution and pure fragging dominance. Across a staggering <strong>579 matches</strong>, they have maintained an elite <strong>1.35 K/D</strong> and a robust <strong>48.7% win rate</strong>, cementing their standing in the most prestigious tier of competitive play with a <strong>4,516 RP (CHAMPION)</strong> at <strong>Level 702</strong>.</p>
+                            <p>However, in the elite lobbies of Ranked 2.0, mechanical supremacy alone hits a ceiling. An executive tactical analysis reveals a critical bottleneck: while Amlenk's defensive anchoring is near-impenetrable, their offensive executes are frequently plagued by stalled momentum, slow utility clears, and late-round post-plant collapses. To transition from a raw mechanical carry to a true pro-league style coordinator, Amlenk must systematically adjust their attack executions and discipline their operator selection.</p>
+                        </div>
+                        <div class="mt-6 border-t border-gray-800/80 pt-6">
+                            <span class="text-gold font-bold font-outfit uppercase tracking-widest text-xs block mb-1">Season Objective</span>
+                            <p class="text-white font-bold text-lg">Systematically bridge the tactical execution gap to achieve a dominant 55%+ win rate and secure top-100 Champion status.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl border border-gray-800/80 shadow-lg">
+                    <h3 class="text-lg font-bold text-white mb-4 uppercase tracking-wider font-outfit">Skill Radar Overview</h3>
+                    <div class="flex justify-center bg-gray-950/40 rounded-xl border border-gray-900 p-4">
+                        <img src="charts/skill_radar.png" alt="Skill Radar Chart" class="max-w-xl w-full">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 2: Trend Analysis -->
+            <section id="trend" class="mb-16 pt-6">
+                <h3 class="text-2xl font-bold text-white mb-6 uppercase tracking-wider font-outfit border-b border-gray-800 pb-2">Trend Analysis — Y11S1 vs Lifetime</h3>
+                <div class="glass-card rounded-2xl border border-gray-800/80 overflow-hidden mb-6 shadow-lg">
+                    <table class="w-full text-left text-sm text-gray-400">
+                        <thead class="text-xs uppercase font-extrabold bg-gray-950/80 text-gray-400 border-b border-gray-900">
+                            <tr>
+                                <th class="p-4">Performance Metric</th>
+                                <th class="p-4 text-center">Y11S1 Seasonal</th>
+                                <th class="p-4 text-center">Lifetime Overall</th>
+                                <th class="p-4 text-center">Lifetime Ranked</th>
+                                <th class="p-4 text-center">Exact Delta</th>
+                                <th class="p-4">Progress Verdict</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-900 bg-gray-950/20">
+                            <tr>
+                                <td class="p-4 font-bold text-white">Kill/Death Ratio (K/D)</td>
+                                <td class="p-4 text-center font-black text-cyanCustom">1.35</td>
+                                <td class="p-4 text-center">1.36</td>
+                                <td class="p-4 text-center">1.33</td>
+                                <td class="p-4 text-center font-bold text-cyanCustom">-0.01 / +0.02</td>
+                                <td class="p-4 font-medium text-gray-300">Consistent Fragging Power: Maintaining an elite level close to your lifetime peak.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-bold text-white">Win Rate (WR)</td>
+                                <td class="p-4 text-center font-black text-emeraldCustom">48.7%</td>
+                                <td class="p-4 text-center">54.8%</td>
+                                <td class="p-4 text-center">51.8%</td>
+                                <td class="p-4 text-center font-bold text-emeraldCustom">-6.1% / -3.1%</td>
+                                <td class="p-4 font-medium text-gray-300">Team Execution Bottleneck: Round conversions have dipped, indicating coordination issues in Champion lobbies.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-bold text-white">Headshot % (HS%)</td>
+                                <td class="p-4 text-center font-black text-gold">58.2%</td>
+                                <td class="p-4 text-center">56.5%</td>
+                                <td class="p-4 text-center">--</td>
+                                <td class="p-4 text-center font-bold text-gold">+1.7%</td>
+                                <td class="p-4 font-medium text-gray-300">Masterclass Aim: Crosshair placement has reached professional standard.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-gray-800/80 shadow-md">
+                    <strong class="text-gold uppercase tracking-widest text-xs block mb-2 font-outfit">Pro-League Analytical Verdict</strong>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        The seasonal metrics (1.35 K/D, 48.7% WR, and 58.2% HS%) show that Amlenk continues to operate at the absolute highest level of mechanical and raw tactical play. Their aim is exceptionally precise with a 58.2% headshot rate (a delta of +1.7% relative to lifetime overall stats). However, the seasonal win rate of 48.7% represents a drop of -6.1% vs. lifetime overall and -3.1% vs. lifetime ranked. This delta confirms that while Amlenk's individual combat mechanics remain top-tier (+0.02 vs lifetime ranked K/D), they are experiencing a critical bottleneck in round conversion. To sustain their climb in the Ranked 2.0 meta, they must prioritize entry-fragging utility, objective play, and team coordination to turn these high-impact kills into consistent victories.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Section 3: Map Mastery Matrix -->
+            <section id="matrix" class="mb-16 pt-6">
+                <h3 class="text-2xl font-bold text-white mb-6 uppercase tracking-wider font-outfit border-b border-gray-800 pb-2">Map Mastery Matrix</h3>
+                <div class="glass-card rounded-2xl border border-gray-800/80 overflow-hidden mb-8 shadow-lg">
+                    <table class="w-full text-left text-sm text-gray-400">
+                        <thead class="text-xs uppercase font-extrabold bg-gray-950/80 text-gray-400 border-b border-gray-900">
+                            <tr>
+                                <th class="p-4">Map</th>
+                                <th class="p-4">Matches</th>
+                                <th class="p-4">Win%</th>
+                                <th class="p-4">Attack Win%</th>
+                                <th class="p-4">Defence Win%</th>
+                                <th class="p-4">K/D</th>
+                                <th class="p-4">HS%</th>
+                                <th class="p-4">ESR</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-900 bg-gray-950/20">
+                            
+        <tr>
+            <td class="font-semibold text-white">Kafe Dostoyevsky</td>
+            <td>23</td>
+            <td class="font-bold text-green-400">52.3%</td>
+            <td>40.6%</td>
+            <td>55.9%</td>
+            <td class="font-bold text-cyan-400">1.44</td>
+            <td>56.0%</td>
+            <td>0.63</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Chalet</td>
+            <td>19</td>
+            <td class="font-bold text-red-400">49.6%</td>
+            <td>36.1%</td>
+            <td>57.7%</td>
+            <td class="font-bold text-cyan-400">1.31</td>
+            <td>56.0%</td>
+            <td>0.54</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Outback</td>
+            <td>10</td>
+            <td class="font-bold text-red-400">49.6%</td>
+            <td>38.8%</td>
+            <td>55.0%</td>
+            <td class="font-bold text-cyan-400">1.43</td>
+            <td>56.0%</td>
+            <td>0.62</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Bank</td>
+            <td>15</td>
+            <td class="font-bold text-red-400">48.7%</td>
+            <td>38.8%</td>
+            <td>55.0%</td>
+            <td class="font-bold text-cyan-400">1.41</td>
+            <td>56.0%</td>
+            <td>0.60</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Border</td>
+            <td>22</td>
+            <td class="font-bold text-red-400">47.8%</td>
+            <td>41.5%</td>
+            <td>52.3%</td>
+            <td class="font-bold text-cyan-400">1.34</td>
+            <td>56.0%</td>
+            <td>0.65</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Nighthaven Labs</td>
+            <td>20</td>
+            <td class="font-bold text-red-400">47.8%</td>
+            <td>40.6%</td>
+            <td>53.2%</td>
+            <td class="font-bold text-cyan-400">1.42</td>
+            <td>56.0%</td>
+            <td>0.62</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Consulate</td>
+            <td>17</td>
+            <td class="font-bold text-red-400">46.9%</td>
+            <td>39.7%</td>
+            <td>54.1%</td>
+            <td class="font-bold text-cyan-400">1.35</td>
+            <td>56.0%</td>
+            <td>0.56</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Theme Park</td>
+            <td>13</td>
+            <td class="font-bold text-red-400">46.9%</td>
+            <td>37.0%</td>
+            <td>53.2%</td>
+            <td class="font-bold text-cyan-400">1.37</td>
+            <td>56.0%</td>
+            <td>0.58</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Kanal</td>
+            <td>8</td>
+            <td class="font-bold text-red-400">46.0%</td>
+            <td>36.1%</td>
+            <td>52.3%</td>
+            <td class="font-bold text-cyan-400">1.38</td>
+            <td>56.0%</td>
+            <td>0.59</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Oregon</td>
+            <td>24</td>
+            <td class="font-bold text-red-400">45.1%</td>
+            <td>36.1%</td>
+            <td>54.1%</td>
+            <td class="font-bold text-cyan-400">1.48</td>
+            <td>56.0%</td>
+            <td>0.57</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Clubhouse</td>
+            <td>22</td>
+            <td class="font-bold text-red-400">45.1%</td>
+            <td>37.9%</td>
+            <td>52.3%</td>
+            <td class="font-bold text-cyan-400">1.29</td>
+            <td>56.0%</td>
+            <td>0.61</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Lair</td>
+            <td>5</td>
+            <td class="font-bold text-red-400">45.1%</td>
+            <td>35.2%</td>
+            <td>54.1%</td>
+            <td class="font-bold text-cyan-400">1.32</td>
+            <td>56.0%</td>
+            <td>0.58</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Villa</td>
+            <td>20</td>
+            <td class="font-bold text-red-400">43.3%</td>
+            <td>32.5%</td>
+            <td>55.9%</td>
+            <td class="font-bold text-cyan-400">1.39</td>
+            <td>56.0%</td>
+            <td>0.70</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Skyscraper</td>
+            <td>12</td>
+            <td class="font-bold text-red-400">42.4%</td>
+            <td>34.3%</td>
+            <td>54.1%</td>
+            <td class="font-bold text-cyan-400">1.30</td>
+            <td>56.0%</td>
+            <td>0.56</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Emerald Plains</td>
+            <td>7</td>
+            <td class="font-bold text-red-400">41.5%</td>
+            <td>32.5%</td>
+            <td>53.2%</td>
+            <td class="font-bold text-cyan-400">1.27</td>
+            <td>56.0%</td>
+            <td>0.54</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Fortress</td>
+            <td>3</td>
+            <td class="font-bold text-red-400">41.5%</td>
+            <td>29.8%</td>
+            <td>55.0%</td>
+            <td class="font-bold text-cyan-400">1.24</td>
+            <td>56.0%</td>
+            <td>0.52</td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Coastline</td>
+            <td>20</td>
+            <td class="font-bold text-red-400">37.9%</td>
+            <td>36.1%</td>
+            <td>50.5%</td>
+            <td class="font-bold text-cyan-400">1.40</td>
+            <td>56.0%</td>
+            <td>0.65</td>
+        </tr>
+        
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800/80 shadow-md">
+                        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 font-outfit">Map Winrate Overview</h4>
+                        <div class="flex justify-center bg-gray-950/40 rounded-xl border border-gray-900 p-2">
+                            <img src="charts/map_winrate_overview.png" alt="Map Winrates Overview" class="w-full rounded-lg">
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800/80 shadow-md">
+                        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 font-outfit">Attack vs Defence Win%</h4>
+                        <div class="flex justify-center bg-gray-950/40 rounded-xl border border-gray-900 p-2">
+                            <img src="charts/map_attack_vs_defence.png" alt="Attack vs Defense Chart" class="w-full rounded-lg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 4: Map Deep Dive -->
+            <section id="deepdive" class="mb-16 pt-6">
+                <h3 class="text-2xl font-bold text-white mb-6 uppercase tracking-wider font-outfit border-b border-gray-800 pb-2">Map Deep Dive</h3>
+                <div class="grid grid-cols-2 gap-8 mb-8">
+                    <!-- Comfort Zones -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800/80 shadow-lg">
+                        <h4 class="text-xl font-bold text-green-400 mb-4 flex items-center gap-2 font-outfit uppercase">
+                            Comfort Zones (Top 3 Comfort Maps)
+                        </h4>
+                        <div class="space-y-6 text-sm">
+                            <div class='border-l-2 border-green-500 pl-4 py-1'>**Kafe Dostoyevsky** (23 matches | 52.3% Win% | 1.44 K/D | Att WR: 40.6% | Def WR: 55.9%): Deep vertical comfort and dominant top-down setups. The high K/D shows Amlenk excels at clearing the 3F piano and cocktail lounge, giving their team safe rotations and control over the kitchen/2F sites.</div><div class='border-l-2 border-green-500 pl-4 py-1'><div class='border-l-2 border-green-500 pl-4 py-1'>**Chalet** (19 matches | 49.6% Win% | 1.31 K/D | Att WR: 36.1% | Def WR: 57.7%): Excellent master bedroom and garage holdings. Structured anchor play paired with aggressive fireplace swings ensures that the site is rarely breached, while their attacks are spearheaded by solar room clearances.</div><div class='border-l-2 border-green-500 pl-4 py-1'><div class='border-l-2 border-green-500 pl-4 py-1'>**Outback** (10 matches | 49.6% Win% | 1.43 K/D | Att WR: 38.8% | Def WR: 55.0%): Superior mechanical spacing and roam control. Outback rewards horizontal gunfighting, and Amlenk's K/D here highlights their ability to win early entry duels around the garage and dormitory hall.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Struggle Zones -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800/80 shadow-lg">
+                        <h4 class="text-xl font-bold text-coralCustom mb-4 flex items-center gap-2 font-outfit uppercase">
+                            Struggle Zones (Bottom 3 Struggle Maps)
+                        </h4>
+                        <div class="space-y-6 text-sm">
+                            <div class='border-l-2 border-red-500 pl-4 py-1'>**Emerald Plains** (7 matches | 41.5% Win% | 1.27 K/D | Att WR: 32.5% | Def WR: 53.2%): Poor rotation awareness and floor navigation. Amlenk struggles to clear the top floor systematically, leaving hard breachers exposed to vertical runs and complex corridor rotations.
+</div><div class='border-l-2 border-red-500 pl-4 py-1'>**Fortress** (3 matches | 41.5% Win% | 1.24 K/D | Att WR: 29.8% | Def WR: 55.0%): Sluggish executes and heavy corridor choke points. Heavy reliance on horizontal entries makes them easy targets for defender crossfires and active wall denial (Kaid/Bandit).
+</div><div class='border-l-2 border-red-500 pl-4 py-1'>**Coastline** (20 matches | 37.9% Win% | 1.40 K/D | Att WR: 36.1% | Def WR: 50.5%): Fragging in isolation without team trade support. Despite maintaining a high K/D, the low win rate indicates that kills are 'empty frags' that do not stop the defuser plant or protect active sites.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl border border-gray-800/80 shadow-lg">
+                    <h4 class="text-xl font-bold text-white mb-4 uppercase tracking-wider font-outfit">Attack vs Defence Asymmetry Rules</h4>
+                    <p class="text-sm text-gray-400 mb-6">Amlenk exhibits a critical round execution gap between Attack and Defence exceeding <strong>10 percentage points</strong> on almost the entire map pool. This indicates a severe systematic imbalance where defensive setups save rounds, while offensive pushes stall out. Implement these map-specific tactical corrections immediately:</p>
+                    <div class="space-y-4 text-sm leading-relaxed">
+                        <div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Kafe Dostoyevsky** (40.6% Att WR vs 55.9% Def WR — **15.3% Gap**): Ensure a structured flank watch and speed up your hard breach executes to balance the offense-defense discrepancy.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Chalet** (36.1% Att WR vs 57.7% Def WR — **21.6% Gap**): Clear solar/trophy rooms when pushing kitchen site. Put flank watch gadgets on library stairs and fireplace run-outs to ensure anchors cannot pinch the execute.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Outback** (38.8% Att WR vs 55.0% Def WR — **16.2% Gap**): Coordinate a swift sweep of the garage and reptile hallway. Use active drone surveillance to clear the shark stairs roamer before hard breaching the dorm wall.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Bank** (38.8% Att WR vs 55.0% Def WR — **16.2% Gap**): Prioritize CEO offices control before breaching the lobby walls, and use flank-watching tools on the square stairs to catch rotating roamers.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Border** (41.5% Att WR vs 52.3% Def WR — **10.8% Gap**): Initiate vertical pressure by breaching the floor of armory lockers from security room below, flushing out anchors behind the half-wall.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Nighthaven Labs** (40.6% Att WR vs 53.2% Def WR — **12.6% Gap**): Take kitchen/pantry hallway control early, and deploy flank-watch drones to spot roamer run-outs from warehouse.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Consulate** (39.7% Att WR vs 54.1% Def WR — **14.4% Gap**): Take control of the yellow stairs and security room first to neutralize basement active denial before opening the main garage breach.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Theme Park** (37.0% Att WR vs 53.2% Def WR — **16.2% Gap**): Sweep drug lab and yellow corridor, and deploy Gridlock Trax to secure the bunk room rotations.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Kanal** (36.1% Att WR vs 52.3% Def WR — **16.2% Gap**): Establish a secure crossfire on the bridge connecting the two buildings to isolate roamers and prevent late-round flanks.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Oregon** (36.1% Att WR vs 54.1% Def WR — **18.0% Gap**): Execute vertical clear of the meeting room and kitchen from below using buck or ash, systematically clearing the laundry basement anchors instead of funneling down white/main stairs.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Clubhouse** (37.9% Att WR vs 52.3% Def WR — **14.4% Gap**): Ensure garage control is secured early to establish a safe crossfire and protect the hard breacher on the CCTV wall.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Lair** (35.2% Att WR vs 54.1% Def WR — **18.9% Gap**): Clear the weapon maintenance room and use vertical play to deny anchors behind the generator desk before entering site.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Villa** (32.5% Att WR vs 55.9% Def WR — **23.4% Gap**): Establish a top-down clear of the study/aviary area first. Bring Thatcher or Flores to disable active defensive denial (such as Kaid claws or Mute jammers) from the floor below.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Skyscraper** (34.3% Att WR vs 54.1% Def WR — **19.8% Gap**): Improve external balcony control on exhibition and tea room. Deploy Nomad's Airjabs or Gridlock's Trax on the terrace stairs to prevent aggressive roamer run-outs, allowing Amlenk to safely execute from the windows.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Emerald Plains** (32.5% Att WR vs 53.2% Def WR — **20.7% Gap**): Establish top-down control of the administrative offices to clear out vertical denial on the ground floor sites.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Fortress** (29.8% Att WR vs 55.0% Def WR — **25.2% Gap**): Utilize rooftop hatches and vertical destruction to bypass the heavily choke-pointed horizontal corridors.</div><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'><div class='bg-gray-950/40 p-4 border border-gray-900 rounded-lg hover:border-gold/20 transition-all duration-300'>**Coastline** (36.1% Att WR vs 50.5% Def WR — **14.4% Gap**): Coordinate roof and window crossfires to lock roamers inside penthouse or kitchen, avoiding uncoordinated individual entry duels.</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 5: Operator Audit -->
+            <section id="audit" class="mb-16 pt-6">
+                <h3 class="text-2xl font-bold text-white mb-6 uppercase tracking-wider font-outfit border-b border-gray-800 pb-2">Operator Audit</h3>
+                <div class="glass-card p-6 rounded-2xl border border-gray-800/80 mb-8 shadow-lg">
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 font-outfit">Operator Performance Quadrant</h4>
+                    <div class="flex justify-center bg-gray-950/40 rounded-xl border border-gray-900 p-2">
+                        <img src="charts/operator_quadrant.png" alt="Operator Quadrant Scatter Plot" class="max-w-xl w-full rounded-lg">
+                    </div>
+                </div>
+                
+                <div class="glass-card rounded-2xl border border-gray-800/80 overflow-hidden mb-8 shadow-lg">
+                    <div class="bg-gray-950/80 px-6 py-4 border-b border-gray-900">
+                        <h4 class="text-base font-bold text-white uppercase tracking-wider font-outfit">Attackers Performance (Rounds >= 20)</h4>
+                    </div>
+                    <table class="w-full text-left text-sm text-gray-400">
+                        <thead class="text-xs uppercase font-extrabold bg-gray-950/80 text-gray-400 border-b border-gray-900">
+                            <tr>
+                                <th class="p-4">Operator</th>
+                                <th class="p-4">Rounds</th>
+                                <th class="p-4">K/D</th>
+                                <th class="p-4">Win%</th>
+                                <th class="p-4">HS%</th>
+                                <th class="p-4">Success Index</th>
+                                <th class="p-4">Diagnosis</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-900 bg-gray-950/20">
+                            
+        <tr>
+            <td class="font-semibold text-white">Thermite</td>
+            <td>157</td>
+            <td class="font-bold text-cyan-400">1.35</td>
+            <td class="font-bold text-green-400">38.85%</td>
+            <td>55.03%</td>
+            <td>0.3636</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-red-500/10 text-red-400 border border-red-500/20">DROP</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Gridlock</td>
+            <td>134</td>
+            <td class="font-bold text-cyan-400">1.34</td>
+            <td class="font-bold text-green-400">44.03%</td>
+            <td>66.39%</td>
+            <td>0.3877</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-red-500/10 text-red-400 border border-red-500/20">DROP</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Rauora</td>
+            <td>132</td>
+            <td class="font-bold text-cyan-400">1.06</td>
+            <td class="font-bold text-green-400">44.7%</td>
+            <td>49.47%</td>
+            <td>0.3555</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-red-500/10 text-red-400 border border-red-500/20">DROP</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Grim</td>
+            <td>120</td>
+            <td class="font-bold text-cyan-400">0.96</td>
+            <td class="font-bold text-green-400">35.83%</td>
+            <td>58.14%</td>
+            <td>0.2986</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-red-500/10 text-red-400 border border-red-500/20">DROP</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Nomad</td>
+            <td>100</td>
+            <td class="font-bold text-cyan-400">1.22</td>
+            <td class="font-bold text-green-400">37%</td>
+            <td>46.99%</td>
+            <td>0.3376</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-red-500/10 text-red-400 border border-red-500/20">DROP</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Hibana</td>
+            <td>92</td>
+            <td class="font-bold text-cyan-400">1.06</td>
+            <td class="font-bold text-green-400">32.61%</td>
+            <td>59.72%</td>
+            <td>0.2954</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-red-500/10 text-red-400 border border-red-500/20">DROP</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Flores</td>
+            <td>84</td>
+            <td class="font-bold text-cyan-400">1.10</td>
+            <td class="font-bold text-green-400">45.24%</td>
+            <td>56.25%</td>
+            <td>0.3641</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-blue-500/10 text-blue-400 border border-blue-500/20">SOLID</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Twitch</td>
+            <td>72</td>
+            <td class="font-bold text-cyan-400">1.41</td>
+            <td class="font-bold text-green-400">45.83%</td>
+            <td>53.23%</td>
+            <td>0.4053</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-blue-500/10 text-blue-400 border border-blue-500/20">SOLID</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Osa</td>
+            <td>71</td>
+            <td class="font-bold text-cyan-400">1.49</td>
+            <td class="font-bold text-green-400">47.89%</td>
+            <td>58.21%</td>
+            <td>0.4256</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-blue-500/10 text-blue-400 border border-blue-500/20">SOLID</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Blackbeard</td>
+            <td>64</td>
+            <td class="font-bold text-cyan-400">0.65</td>
+            <td class="font-bold text-green-400">35.94%</td>
+            <td>29.03%</td>
+            <td>0.2604</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-red-500/10 text-red-400 border border-red-500/20">DROP</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Ace</td>
+            <td>61</td>
+            <td class="font-bold text-cyan-400">1.09</td>
+            <td class="font-bold text-green-400">34.43%</td>
+            <td>66.67%</td>
+            <td>0.3085</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-red-500/10 text-red-400 border border-red-500/20">DROP</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Solid Snake</td>
+            <td>59</td>
+            <td class="font-bold text-cyan-400">0.92</td>
+            <td class="font-bold text-green-400">38.98%</td>
+            <td>63.04%</td>
+            <td>0.3099</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-red-500/10 text-red-400 border border-red-500/20">DROP</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Maverick</td>
+            <td>58</td>
+            <td class="font-bold text-cyan-400">1.16</td>
+            <td class="font-bold text-green-400">44.83%</td>
+            <td>55.81%</td>
+            <td>0.3694</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-red-500/10 text-red-400 border border-red-500/20">DROP</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Thatcher</td>
+            <td>56</td>
+            <td class="font-bold text-cyan-400">1.47</td>
+            <td class="font-bold text-green-400">48.21%</td>
+            <td>47.17%</td>
+            <td>0.4251</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-blue-500/10 text-blue-400 border border-blue-500/20">SOLID</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Lion</td>
+            <td>52</td>
+            <td class="font-bold text-cyan-400">1.14</td>
+            <td class="font-bold text-green-400">36.54%</td>
+            <td>45%</td>
+            <td>0.3256</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-red-500/10 text-red-400 border border-red-500/20">DROP</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Jackal</td>
+            <td>51</td>
+            <td class="font-bold text-cyan-400">1.50</td>
+            <td class="font-bold text-green-400">41.18%</td>
+            <td>72.22%</td>
+            <td>0.3934</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-red-500/10 text-red-400 border border-red-500/20">DROP</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Fuze</td>
+            <td>46</td>
+            <td class="font-bold text-cyan-400">1.69</td>
+            <td class="font-bold text-green-400">41.3%</td>
+            <td>51.02%</td>
+            <td>0.4177</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Ram</td>
+            <td>46</td>
+            <td class="font-bold text-cyan-400">1.59</td>
+            <td class="font-bold text-green-400">41.3%</td>
+            <td>52.17%</td>
+            <td>0.4048</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Brava</td>
+            <td>44</td>
+            <td class="font-bold text-cyan-400">1.17</td>
+            <td class="font-bold text-green-400">34.09%</td>
+            <td>58.82%</td>
+            <td>0.3170</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Sledge</td>
+            <td>43</td>
+            <td class="font-bold text-cyan-400">1.11</td>
+            <td class="font-bold text-green-400">46.51%</td>
+            <td>61.54%</td>
+            <td>0.3718</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Zero</td>
+            <td>28</td>
+            <td class="font-bold text-cyan-400">1.12</td>
+            <td class="font-bold text-green-400">39.29%</td>
+            <td>57.89%</td>
+            <td>0.3361</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Blitz</td>
+            <td>27</td>
+            <td class="font-bold text-cyan-400">1.05</td>
+            <td class="font-bold text-green-400">29.63%</td>
+            <td>52.38%</td>
+            <td>0.2794</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Deimos</td>
+            <td>24</td>
+            <td class="font-bold text-cyan-400">1.00</td>
+            <td class="font-bold text-green-400">37.5%</td>
+            <td>44.44%</td>
+            <td>0.3125</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Dokkaebi</td>
+            <td>23</td>
+            <td class="font-bold text-cyan-400">1.40</td>
+            <td class="font-bold text-green-400">39.13%</td>
+            <td>61.9%</td>
+            <td>0.3707</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Striker</td>
+            <td>22</td>
+            <td class="font-bold text-cyan-400">1.13</td>
+            <td class="font-bold text-green-400">45.45%</td>
+            <td>64.71%</td>
+            <td>0.3689</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Zofia</td>
+            <td>21</td>
+            <td class="font-bold text-cyan-400">0.93</td>
+            <td class="font-bold text-green-400">38.1%</td>
+            <td>78.57%</td>
+            <td>0.3072</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-gray-800/80 overflow-hidden mb-8 shadow-lg">
+                    <div class="bg-gray-950/80 px-6 py-4 border-b border-gray-900">
+                        <h4 class="text-base font-bold text-white uppercase tracking-wider font-outfit">Defenders Performance (Rounds >= 20)</h4>
+                    </div>
+                    <table class="w-full text-left text-sm text-gray-400">
+                        <thead class="text-xs uppercase font-extrabold bg-gray-950/80 text-gray-400 border-b border-gray-900">
+                            <tr>
+                                <th class="p-4">Operator</th>
+                                <th class="p-4">Rounds</th>
+                                <th class="p-4">K/D</th>
+                                <th class="p-4">Win%</th>
+                                <th class="p-4">HS%</th>
+                                <th class="p-4">Success Index</th>
+                                <th class="p-4">Diagnosis</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-900 bg-gray-950/20">
+                            
+        <tr>
+            <td class="font-semibold text-white">Azami</td>
+            <td>265</td>
+            <td class="font-bold text-cyan-400">1.36</td>
+            <td class="font-bold text-green-400">60.38%</td>
+            <td>49.33%</td>
+            <td>0.4713</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-green-500/10 text-green-400 border border-green-500/20">STAR</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Aruni</td>
+            <td>234</td>
+            <td class="font-bold text-cyan-400">1.61</td>
+            <td class="font-bold text-green-400">53.42%</td>
+            <td>44.35%</td>
+            <td>0.4690</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-blue-500/10 text-blue-400 border border-blue-500/20">SOLID</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Thorn</td>
+            <td>216</td>
+            <td class="font-bold text-cyan-400">1.90</td>
+            <td class="font-bold text-green-400">59.26%</td>
+            <td>48.24%</td>
+            <td>0.5342</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-green-500/10 text-green-400 border border-green-500/20">STAR</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Mute</td>
+            <td>155</td>
+            <td class="font-bold text-cyan-400">1.49</td>
+            <td class="font-bold text-green-400">60%</td>
+            <td>46.48%</td>
+            <td>0.4868</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-green-500/10 text-green-400 border border-green-500/20">STAR</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Melusi</td>
+            <td>138</td>
+            <td class="font-bold text-cyan-400">1.67</td>
+            <td class="font-bold text-green-400">63.04%</td>
+            <td>63.31%</td>
+            <td>0.5245</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-green-500/10 text-green-400 border border-green-500/20">STAR</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Smoke</td>
+            <td>72</td>
+            <td class="font-bold text-cyan-400">1.18</td>
+            <td class="font-bold text-green-400">59.72%</td>
+            <td>71.7%</td>
+            <td>0.4458</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">CARRY</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Fenrir</td>
+            <td>71</td>
+            <td class="font-bold text-cyan-400">1.29</td>
+            <td class="font-bold text-green-400">57.75%</td>
+            <td>62.07%</td>
+            <td>0.4499</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">CARRY</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Denari</td>
+            <td>65</td>
+            <td class="font-bold text-cyan-400">1.17</td>
+            <td class="font-bold text-green-400">55.38%</td>
+            <td>67.35%</td>
+            <td>0.4227</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-blue-500/10 text-blue-400 border border-blue-500/20">SOLID</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Tubarão</td>
+            <td>63</td>
+            <td class="font-bold text-cyan-400">1.39</td>
+            <td class="font-bold text-green-400">55.56%</td>
+            <td>28.3%</td>
+            <td>0.4521</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">CARRY</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Lesion</td>
+            <td>62</td>
+            <td class="font-bold text-cyan-400">0.98</td>
+            <td class="font-bold text-green-400">53.23%</td>
+            <td>69.77%</td>
+            <td>0.3883</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-blue-500/10 text-blue-400 border border-blue-500/20">SOLID</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Bandit</td>
+            <td>47</td>
+            <td class="font-bold text-cyan-400">2.04</td>
+            <td class="font-bold text-green-400">53.19%</td>
+            <td>61.82%</td>
+            <td>0.5206</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Alibi</td>
+            <td>41</td>
+            <td class="font-bold text-cyan-400">1.92</td>
+            <td class="font-bold text-green-400">65.85%</td>
+            <td>60%</td>
+            <td>0.5696</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Mozzie</td>
+            <td>40</td>
+            <td class="font-bold text-cyan-400">2.05</td>
+            <td class="font-bold text-green-400">57.5%</td>
+            <td>57.78%</td>
+            <td>0.5432</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Valkyrie</td>
+            <td>38</td>
+            <td class="font-bold text-cyan-400">1.36</td>
+            <td class="font-bold text-green-400">63.16%</td>
+            <td>55.88%</td>
+            <td>0.4858</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Jäger</td>
+            <td>37</td>
+            <td class="font-bold text-cyan-400">1.95</td>
+            <td class="font-bold text-green-400">59.46%</td>
+            <td>65.12%</td>
+            <td>0.5416</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Castle</td>
+            <td>29</td>
+            <td class="font-bold text-cyan-400">1.33</td>
+            <td class="font-bold text-green-400">65.52%</td>
+            <td>33.33%</td>
+            <td>0.4943</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Maestro</td>
+            <td>25</td>
+            <td class="font-bold text-cyan-400">1.69</td>
+            <td class="font-bold text-green-400">60%</td>
+            <td>54.55%</td>
+            <td>0.5115</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Goyo</td>
+            <td>25</td>
+            <td class="font-bold text-cyan-400">0.89</td>
+            <td class="font-bold text-green-400">40%</td>
+            <td>50%</td>
+            <td>0.3111</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Vigil</td>
+            <td>25</td>
+            <td class="font-bold text-cyan-400">1.15</td>
+            <td class="font-bold text-green-400">44%</td>
+            <td>43.48%</td>
+            <td>0.3638</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+        <tr>
+            <td class="font-semibold text-white">Echo</td>
+            <td>20</td>
+            <td class="font-bold text-cyan-400">2.00</td>
+            <td class="font-bold text-green-400">65%</td>
+            <td>35%</td>
+            <td>0.5750</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-semibold uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20">SAMPLE</span></td>
+        </tr>
+        
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="grid grid-cols-3 gap-6">
+                    <div class="glass-card p-4 rounded-xl border border-gray-800/80 shadow-md">
+                        <h5 class="text-xs font-bold text-gray-400 uppercase text-center mb-2 font-outfit">Operator Winrates</h5>
+                        <img src="charts/operator_winrate.png" alt="Operator Winrates Overview" class="w-full rounded border border-gray-900">
+                    </div>
+                    <div class="glass-card p-4 rounded-xl border border-gray-800/80 shadow-md">
+                        <h5 class="text-xs font-bold text-gray-400 uppercase text-center mb-2 font-outfit">Attacker K/D</h5>
+                        <img src="charts/attacker_kd.png" alt="Attacker KD" class="w-full rounded border border-gray-900">
+                    </div>
+                    <div class="glass-card p-4 rounded-xl border border-gray-800/80 shadow-md">
+                        <h5 class="text-xs font-bold text-gray-400 uppercase text-center mb-2 font-outfit">Defender K/D</h5>
+                        <img src="charts/defender_kd.png" alt="Defender KD" class="w-full rounded border border-gray-900">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 6: Operator Coaching Engine -->
+            <section id="coaching" class="mb-16 pt-6">
+                <h3 class="text-2xl font-bold text-white mb-6 uppercase tracking-wider font-outfit border-b border-gray-800 pb-2">Operator Coaching Engine</h3>
+                <div class="grid grid-cols-2 gap-6">
+                    
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Azami
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">Defender</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">265 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.36</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">60.38%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Dynamic anchor dominance with 265 rounds played, maintaining an elite K/D ratio of 1.36 and a highly impressive win rate of 60.38%.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Over-aggression on terraces or early swings. While your 1.36 K/D is great, ensure you don't throw your life away in the first 30 seconds.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">Use Kiba Barriers to construct custom tight angles in the tea room and karaoke site on Skyscraper, denying long terrace sightlines and forcing close-quarter shotgun/SMG duels.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Aruni
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">Defender</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">234 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.61</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">53.42%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Exceptional zone denial over a large sample of 234 rounds, with a stellar K/D ratio of 1.61 and a stable 53.42% win rate.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Surya Gate uptime. Avoid throwing them in easily clearable windows without a teammate actively contesting the entry.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Clubhouse, place Surya Gates on the main bedroom and construction doors, forcing attackers to burn valuable utility (such as flashbangs or grenades) before attempting to enter the site.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Thorn
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">Defender</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">216 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.90</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">59.26%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Exceptional fragging performance, posting an elite 1.90 K/D and a very strong 59.26% win rate across 216 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Razorbloom placement efficiency. Razorblooms should be placed in areas that force attackers to either swing into your crosshair or retreat into a trap.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Oregon, hide Razorbloom Shells at the landing of the white stairs and under the window vault in the master bedroom, creating lethal choke points that catch aggressive entries.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Thermite
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">157 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.35</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">38.85%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Phenomenal mechanical gunplay for a primary hard breacher, achieving a K/D of 1.35 over 157 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Round conversion failure. A devastating win rate of 38.85% on a primary support shows a severe disconnect between opening walls and winning the round.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Clubhouse, prioritize the CCTV outer wall and do not seek active gunfights until the wall is completely opened and entry lines are secured for your team.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Mute
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">Defender</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">155 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.49</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">60%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Outstanding site support and drone denial, holding an elite win rate of 60% and a K/D of 1.49 over 155 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Placement of jammers. Ensure you are blocking both intelligence drones and hard breaches on crucial walls.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Oregon, place Signal Jammers at the top of laundry stairs and in the meeting room corridor to blind attacker drones during the prep phase, keeping your defense setup fully hidden.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Melusi
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">Defender</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">138 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.67</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">63.04%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Masterclass site control, boasting a spectacular win rate of 63.04% and an elite K/D of 1.67 over 138 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Banshee longevity. Avoid putting Banshees in direct lines of sight where they can be easily shot from outside windows.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Chalet, place Banshees around the fireplace hallway and trophy stairs to slow down attacker rushes, giving your roamer stack ample time to rotate and pinch them.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Gridlock
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">134 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.34</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">44.03%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Solid individual fire support, achieving a K/D of 1.34 across 134 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Post-plant conversion. A sub-optimal win rate of 44.03% indicates you are failing to block roamer rotations during the execute phase.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Bank, deploy Trax Stingers on the square stairs and elevator shafts to block defender roamers from retaking the basement, securing the defuser plant.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Rauora
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">132 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.06</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">44.7%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Highly active round presence, logging 132 rounds with a decent K/D of 1.06.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Round conversion. A poor win rate of 44.7% indicates that your utility is not being capitalized on by your entry stack.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Nighthaven Labs, use your unique barrier systems to seal off the main warehouse rotations, allowing your hard breachers to establish secure vertical lines from above.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Grim
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">120 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">0.96</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">35.83%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> High mechanical effort over 120 rounds, maintaining a K/D of 0.96.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Poor utility conversion. A low win rate of 35.83% shows that your Kawan Bee Hives are not being used to isolate and drive out roamers.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Skyscraper, launch your Bee Hives into the tea room and lounge rotations to spot active defenders, paving the way for your entry fraggers to clear the site.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Nomad
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">100 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.22</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">37%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Excellent individual survivability and gunplay, achieving a strong 1.22 K/D over 100 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Flank watch conversion. A terrible win rate of 37% indicates that your Airjabs are being placed in ineffective areas or are easily destroyed by defender runouts.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Border, place Airjabs on the ventilation and valley runouts to completely eliminate aggressive defender flanks, securing your hard breacher's angles.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Hibana
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">92 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.06</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">32.61%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Competent individual gunfights, maintaining a K/D of 1.06 across 92 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Hatch conversion failure. An abysmal win rate of 32.61% demonstrates a lack of vertical execution follow-up after hatches are opened.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Clubhouse, focus strictly on opening the kitchen and server hatches to force the basement anchors out of church and blue boxes.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Flores
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">84 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.10</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">45.24%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Good trade efficiency with a 1.10 K/D ratio and solid headshot accuracy over 84 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Utility denial impact. A mediocre win rate of 45.24% suggests that you are not destroying the critical bulletproof defender utility.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Kafe Dostoyevsky, use your Ratero drones to destroy deployable shields and Kaid claws on the 3F piano site before your team initiates their push.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Twitch
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">72 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.41</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">45.83%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Phenomenal mechanical fragging power, boasting a K/D of 1.41 over 72 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Shock Drone utility vs. individual kills. Your low win rate of 45.83% indicates that you are hunting for kills instead of destroying active defender gadgets.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Oregon, use your Shock Drone in the prep phase to destroy Mute jammers and Bandit batteries, allowing your team to easily open the main laundry hatch and wall.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Smoke
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">Defender</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">72 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.18</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">59.72%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Superb late-round control and plant denial, holding an elite win rate of 59.72% and a strong K/D of 1.18 over 72 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Early round survival. Ensure you are not taking aggressive spawn peeks or early roaming fights, as your survival is key to winning late-round executes.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Clubhouse, anchor in church or blue and save your gas canisters to shut down late basement executes through the main dirt tunnel or stairs.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Osa
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">71 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.49</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">47.89%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> High-impact mechanical execution, posting an outstanding K/D of 1.49 across 71 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Talon Shield placement. Your mediocre win rate of 47.89% indicates that your shields are being used too passively rather than securing active offensive sightlines.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Chalet, deploy your Talon Shield on the master bedroom window to cut off the solarium rotations, preventing defenders from reclaiming the balcony.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Fenrir
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">Defender</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">71 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.29</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">57.75%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Strong site presence and utility efficiency, holding a win rate of 57.75% and a K/D of 1.29 over 71 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> F-NATT mine placement. Make sure your mines are placed in blind spots where attackers cannot easily shoot them without being blinded.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Border, place your F-NATT mines inside the ventilation and workshop doorways, and swing immediately as soon as an attacker triggers the blind effect.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Denari
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">Defender</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">65 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.17</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">55.38%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Consistent site control and rounds contribution, posting a win rate of 55.38% and a K/D of 1.17 over 65 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Gadget uptime. Ensure your unique utility remains active during the late-round executes when attackers are low on time.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Skyscraper, utilize your unique gadget to delay attacks on the exhibition site, coordinating with an active roamer to pinch attackers.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Blackbeard
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">64 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">0.65</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">35.94%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> High mechanical effort over 64 rounds, despite operating with a very low win rate of 35.94%.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Operator selection liability. An abysmal K/D of 0.65 and 35.94% win rate indicate that Blackbeard is a major liability in your current playstyle.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Kafe Dostoyevsky, if you must play Blackbeard, hold tight angles on the skylight or 3F windows to cut off defender rotations, avoiding direct horizontal entry gunfights.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Tubarão
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">Defender</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">63 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.39</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">55.56%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Excellent utility-fragging hybrid, holding a strong win rate of 55.56% and a K/D of 1.39 over 63 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Zoto Canister coordination. Make sure you coordinate your canisters with active breach denial to completely neutralize hard breach charges.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Chalet, use your Zoto Canisters on the main garage wall to freeze and delay hard breachers, buying valuable time for your basement anchors.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Lesion
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">Defender</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">62 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">0.98</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">53.23%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Great defensive consistency and rounds commitment, posting a solid win rate of 53.23% over 62 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Gunfight positioning. A K/D of 0.98 is slightly below average, indicating you are taking early fights before your Gu Mines can accumulate.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Oregon, throw Gu Mines at the bottom of white stairs and attic drop-downs to gain early intel and prevent quick, silent plays by the attackers.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Ace
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">61 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.09</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">34.43%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Dynamic hard-breaching presence, maintaining a positive K/D of 1.09 over 61 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Breach execution. A devastating win rate of 34.43% suggests that you are failing to open primary walls or getting picked off early in the round.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Clubhouse, prioritize opening the CCTV outer wall from the safety of the platform, and do not peek the garage or red stairs until the breach is secured.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Solid Snake
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">59 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">0.92</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">38.98%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Good round commitment and utility usage, posting 59 rounds played.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Fragging power and round conversion. A low K/D of 0.92 and a win rate of 38.98% suggest you are struggling to secure key entries.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Villa, utilize your stealth and flanking capability to clear the top-floor roamers before they can rotate back to site, coordinating with your main entry tools to pinpoint active anchors.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Maverick
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">58 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.16</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">44.83%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Competent entry gunplay, achieving a K/D of 1.16 over 58 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Blowtorch speed and safety. Your 44.83% win rate indicates you are getting cut off during vertical execute setups.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Clubhouse, open a line of sight at the bottom of the CCTV wall to clear defender utility anchoring behind the server rack before your main breacher opens the wall.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Thatcher
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">56 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.47</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">48.21%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Incredible mechanical execution, posting an outstanding K/D of 1.47 over 56 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Win rate conversion. A sub-par win rate of 48.21% indicates you are surviving too long without getting the main walls open or assisting the execute.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Kafe Dostoyevsky, ensure your EMPs are deployed to clear Kaid claws on the kitchen wall, and play close to your hard breacher to trade them out immediately.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Lion
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">52 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.14</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">36.54%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> High mechanical performance, posting a K/D of 1.14 over 52 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> EE-ONE-D scan timing. A low win rate of 36.54% suggests that your scans are being used randomly rather than during active plants.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Bank, activate your scans precisely when your team starts smoke-planting in the basement, freezing defenders in place and allowing easy vertical sprays.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-6 rounded-xl border border-gray-800/50 hover:border-gold/30 transition-all duration-300">
+                <div class="flex justify-between items-center border-b border-gray-800/80 pb-4 mb-4">
+                    <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                        Jackal
+                        <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Attacker</span>
+                    </h4>
+                    <span class="text-sm font-semibold text-gray-400">51 Rounds</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-center mb-6 bg-gray-950/40 py-3 rounded-lg border border-gray-900">
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">K/D Ratio</div>
+                        <div class="text-xl font-extrabold text-cyan-400 mt-1">1.50</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 uppercase font-bold tracking-wider">Win Rate</div>
+                        <div class="text-xl font-extrabold text-green-400 mt-1">41.18%</div>
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-300">
+                    <p><strong class="text-green-400 uppercase tracking-wide text-xs block mb-1">PROS:</strong> Stellar individual mechanical threat, posting an exceptional K/D of 1.50 over 51 rounds.</p>
+                    <p><strong class="text-red-400 uppercase tracking-wide text-xs block mb-1">FOCUS AREAS:</strong> Roamer tracking impact. A low win rate of 41.18% suggests you are hunting footprints in isolated areas rather than tracking roamers that threaten the main execute.</p>
+                    <p><strong class="text-gold uppercase tracking-wide text-xs block mb-1">TACTICAL STRATEGY:</strong> <span class="text-gray-200">On Coastline, scan footprints early in the penthouse and theater areas to flush out roamers, driving them into the crosshairs of your rooftop anchors.</span></p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Bandit</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 ml-2">Defender</span>
+                    <div class="text-xs text-gray-400 mt-1">47 rounds | K/D: 2.04 | Win%: 53.19%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Fuze</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 ml-2">Attacker</span>
+                    <div class="text-xs text-gray-400 mt-1">46 rounds | K/D: 1.69 | Win%: 41.3%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Ram</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 ml-2">Attacker</span>
+                    <div class="text-xs text-gray-400 mt-1">46 rounds | K/D: 1.59 | Win%: 41.3%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Brava</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 ml-2">Attacker</span>
+                    <div class="text-xs text-gray-400 mt-1">44 rounds | K/D: 1.17 | Win%: 34.09%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Sledge</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 ml-2">Attacker</span>
+                    <div class="text-xs text-gray-400 mt-1">43 rounds | K/D: 1.11 | Win%: 46.51%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Alibi</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 ml-2">Defender</span>
+                    <div class="text-xs text-gray-400 mt-1">41 rounds | K/D: 1.92 | Win%: 65.85%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Mozzie</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 ml-2">Defender</span>
+                    <div class="text-xs text-gray-400 mt-1">40 rounds | K/D: 2.05 | Win%: 57.5%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Valkyrie</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 ml-2">Defender</span>
+                    <div class="text-xs text-gray-400 mt-1">38 rounds | K/D: 1.36 | Win%: 63.16%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Jäger</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 ml-2">Defender</span>
+                    <div class="text-xs text-gray-400 mt-1">37 rounds | K/D: 1.95 | Win%: 59.46%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Castle</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 ml-2">Defender</span>
+                    <div class="text-xs text-gray-400 mt-1">29 rounds | K/D: 1.33 | Win%: 65.52%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Zero</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 ml-2">Attacker</span>
+                    <div class="text-xs text-gray-400 mt-1">28 rounds | K/D: 1.12 | Win%: 39.29%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Blitz</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 ml-2">Attacker</span>
+                    <div class="text-xs text-gray-400 mt-1">27 rounds | K/D: 1.05 | Win%: 29.63%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Maestro</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 ml-2">Defender</span>
+                    <div class="text-xs text-gray-400 mt-1">25 rounds | K/D: 1.69 | Win%: 60%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Goyo</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 ml-2">Defender</span>
+                    <div class="text-xs text-gray-400 mt-1">25 rounds | K/D: 0.89 | Win%: 40%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Vigil</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 ml-2">Defender</span>
+                    <div class="text-xs text-gray-400 mt-1">25 rounds | K/D: 1.15 | Win%: 44%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Deimos</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 ml-2">Attacker</span>
+                    <div class="text-xs text-gray-400 mt-1">24 rounds | K/D: 1.00 | Win%: 37.5%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Dokkaebi</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 ml-2">Attacker</span>
+                    <div class="text-xs text-gray-400 mt-1">23 rounds | K/D: 1.40 | Win%: 39.13%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Striker</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 ml-2">Attacker</span>
+                    <div class="text-xs text-gray-400 mt-1">22 rounds | K/D: 1.13 | Win%: 45.45%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Zofia</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 ml-2">Attacker</span>
+                    <div class="text-xs text-gray-400 mt-1">21 rounds | K/D: 0.93 | Win%: 38.1%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+            <div class="glass-card p-4 rounded-xl border border-gray-800/30 opacity-60 flex justify-between items-center">
+                <div>
+                    <span class="text-lg font-bold text-white">Echo</span>
+                    <span class="text-xs px-2 py-0.5 rounded uppercase font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 ml-2">Defender</span>
+                    <div class="text-xs text-gray-400 mt-1">20 rounds | K/D: 2.00 | Win%: 65%</div>
+                </div>
+                <span class="text-xs font-semibold text-orange-400 italic bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded">⚠️ Small Sample</span>
+            </div>
+            
+                </div>
+            </section>
+            
+            <!-- Section 7: Priority Improvement Matrix -->
+            <section id="improvement" class="mb-16 pt-6">
+                <h3 class="text-2xl font-bold text-white mb-6 uppercase tracking-wider font-outfit border-b border-gray-800 pb-2">Priority Improvement Matrix</h3>
+                <div class="glass-card rounded-2xl border border-gray-800/80 overflow-hidden shadow-lg">
+                    <table class="w-full text-left text-sm text-gray-400">
+                        <thead class="text-xs uppercase font-extrabold bg-gray-950/80 text-gray-400 border-b border-gray-900">
+                            <tr>
+                                <th class="p-4 w-1/4">Focus Area</th>
+                                <th class="p-4 w-1/4">Current State</th>
+                                <th class="p-4 w-1/4">Target State</th>
+                                <th class="p-4 w-1/4">Strategic Rationale</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-900 bg-gray-950/20 text-gray-300">
+                            <tr>
+                                <td class="p-4 font-bold text-white">1. Entry Success Rate (ESR) Optimization</td>
+                                <td class="p-4">High mechanical skill but low opening duel survival on attack side (average ESR: 0.60).</td>
+                                <td class="p-4">Achieve a target ESR of 0.70+ through drone-assisted entries.</td>
+                                <td class="p-4">Winning the opening duel increases the round win probability by over 30%, especially in Champion lobbies.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-bold text-white">2. Attack Execute Conversion</td>
+                                <td class="p-4">Sub-optimal attack win rates on comfort maps (e.g. Kafe Attack WR: 40.6%) due to late executes.</td>
+                                <td class="p-4">Raise Attack Win Rate to 48.0%+ by initiating the site push by 45s remaining.</td>
+                                <td class="p-4">Opening walls earlier prevents defenders from using late-round time and plant denial (like Smoke/Tubarão).</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-bold text-white">3. Operator Selection Discipline</td>
+                                <td class="p-4">Playing underperforming operators like Blackbeard (35.94% WR, 0.65 K/D) and Ace (34.43% WR).</td>
+                                <td class="p-4">Strictly ban underperforming operators and flex to high-impact picks (Azami, Thorn, Thermite).</td>
+                                <td class="p-4">Eliminating bottom-tier operators immediately increases the team's average combat effectiveness.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-bold text-white">4. Flank & Intel Denial</td>
+                                <td class="p-4">Frequently dying to roamer flanks on attack, negating strong individual entry frags.</td>
+                                <td class="p-4">Deploy 100% reliable flank watch using Nomad Airjabs and Gridlock Trax.</td>
+                                <td class="p-4">Securing the flank allows the entry stack to focus entirely on clearing site anchors without fear of being pinched.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-bold text-white">5. Offense-Defense Symmetry</td>
+                                <td class="p-4">Massive win rate asymmetry on maps like Skyscraper (54.1% Def vs 34.3% Att WR).</td>
+                                <td class="p-4">Achieve a maximum win rate variance of less than 10% between attack and defense.</td>
+                                <td class="p-4">Consistent climbing in Ranked 2.0 requires winning rounds on both sides, rather than relying on defensive saves.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Section 8: Strategy -->
+            <section id="strategy" class="mb-16 pt-6">
+                <h3 class="text-2xl font-bold text-white mb-6 uppercase tracking-wider font-outfit border-b border-gray-800 pb-2">Ban & Veto Strategy (Y11S1 — Ranked 2.0)</h3>
+                
+                <div class="grid grid-cols-2 gap-8 mb-8">
+                    <!-- Maps to Ban -->
+                    <div class="glass-card p-6 rounded-2xl border border-red-500/10 shadow-lg relative overflow-hidden">
+                        <div class="absolute -right-16 -top-16 w-48 h-48 bg-red-500/5 rounded-full blur-2xl"></div>
+                        <h4 class="text-xl font-bold text-red-400 mb-4 uppercase tracking-wider font-outfit flex items-center gap-2">
+                            Top 2 Maps to Ban
+                        </h4>
+                        <div class="space-y-4 text-sm">
+                            <div class="bg-gray-950/40 p-4 border border-gray-900 rounded-lg">
+                                <strong class="text-white text-base block mb-1">Coastline</strong>
+                                <p class="text-gray-400">37.9% WR | 1.40 K/D. Amlenk's worst-performing map. Despite high fragging output, structural site defenses constantly fail due to a lack of roamer containment. Ban immediately.</p>
+                            </div>
+                            <div class="bg-gray-950/40 p-4 border border-gray-900 rounded-lg">
+                                <strong class="text-white text-base block mb-1">Fortress</strong>
+                                <p class="text-gray-400">41.5% WR | 1.24 K/D. Highly dangerous terrain where uncoordinated attacks result in early breacher deaths. Eliminate from the pool to avoid structural liabilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Maps to Protect -->
+                    <div class="glass-card p-6 rounded-2xl border border-green-500/10 shadow-lg relative overflow-hidden">
+                        <div class="absolute -right-16 -top-16 w-48 h-48 bg-green-500/5 rounded-full blur-2xl"></div>
+                        <h4 class="text-xl font-bold text-green-400 mb-4 uppercase tracking-wider font-outfit flex items-center gap-2">
+                            Top 2 Maps to Protect
+                        </h4>
+                        <div class="space-y-4 text-sm">
+                            <div class="bg-gray-950/40 p-4 border border-gray-900 rounded-lg">
+                                <strong class="text-white text-base block mb-1">Kafe Dostoyevsky</strong>
+                                <p class="text-gray-400">52.3% WR | 1.44 K/D. The absolute premier map for Amlenk. They dominate the horizontal planes with exceptional trade mechanics. Force opponents here at all costs.</p>
+                            </div>
+                            <div class="bg-gray-950/40 p-4 border border-gray-900 rounded-lg">
+                                <strong class="text-white text-base block mb-1">Chalet</strong>
+                                <p class="text-gray-400">49.6% WR | 1.31 K/D. Exceptional defensive anchor configurations. Protect in draft and exploit your highly polished setups.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl border border-gray-800/80 mb-8 shadow-md">
+                    <h4 class="text-lg font-bold text-white uppercase tracking-wider mb-3 font-outfit">Veto Watchlist</h4>
+                    <p class="text-sm text-gray-300">
+                        <strong>Bank</strong> (48.7% WR) & <strong>Border</strong> (47.8% WR): These are situational comfort zones. Amlenk holds strong individual combat effectiveness (1.41 K/D on Bank, 1.34 K/D on Border), but round wins are lost during uncoordinated entries. Only pick if your 5-stack has dedicated entry/support roles pre-assigned.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl border border-gray-800/80 mb-8 shadow-lg">
+                    <h4 class="text-xl font-bold text-white mb-4 uppercase tracking-wider font-outfit">3 Actionable Climbing Tips</h4>
+                    <div class="space-y-6 text-sm">
+                        <div class="border-l-2 border-gold pl-4">
+                            <strong class="text-gold text-base block mb-1">1. Hidden MMR 5-Stack Queueing</strong>
+                            <p class="text-gray-400">Since Ranked 2.0 utilizes hidden MMR matchmaking, solo-queuing heavily penalizes Amlenk's high individual performance by matching them against coordinated Champion stacks. Pre-stack with a consistent team and assign rigid roles.</p>
+                        </div>
+                        <div class="border-l-2 border-gold pl-4">
+                            <strong class="text-gold text-base block mb-1">2. Role-Queue Adjustment</strong>
+                            <p class="text-gray-400">Transition away from underperforming, low-value operators like Blackbeard and Ace. Shift to core anchors on defense (Azami/Mute) and primary hard breach on attack (Thermite) to actively influence the round win conditions.</p>
+                        </div>
+                        <div class="border-l-2 border-gold pl-4">
+                            <strong class="text-gold text-base block mb-1">3. Utility-First Attack Executes</strong>
+                            <p class="text-gray-400">Solve the offensive win rate bottlenecks by establishing a 'prep-phase drone save' rule. Maintain two active drones for Amlenk's entry route, clearing active defensive utility before the 1:30 mark to allow ample time for site executes.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl border border-gray-800/80 shadow-md">
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 font-outfit">Map Ban Spectrum Overview</h4>
+                    <div class="flex justify-center bg-gray-950/40 rounded-xl border border-gray-900 p-2">
+                        <img src="charts/map_ban_spectrum.png" alt="Map Ban Spectrum Overview" class="max-w-xl w-full rounded-lg">
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+    </div>
+    
+    <script>
+        function activateNav(el) {
+            const navs = document.querySelectorAll('aside nav a');
+            navs.forEach(nav => nav.classList.remove('active-nav'));
+            el.classList.add('active-nav');
+        }
+    </script>
+</body>
+</html>

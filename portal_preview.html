@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siege Coaching Portal | Stack Dashboard</title>
+    <meta name="description" content="AI-powered Rainbow Six Siege tactical coaching portal for your competitive stack.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:        #0a0b0f;
+            --bg2:       #12141a;
+            --bg3:       #1a1d26;
+            --bg3h:      #1f2330;
+            --border:    #2a2d3a;
+            --primary:   #4a90e2;
+            --primary-d: #3578c8;
+            --accent:    #f59e0b;
+            --green:     #10b981;
+            --red:       #ef4444;
+            --purple:    #8b5cf6;
+            --cyan:      #06b6d4;
+            --text:      #f0f2ff;
+            --text2:     #8892b0;
+            --text3:     #5a6480;
+            --glow:      0 0 40px rgba(74,144,226,.15);
+            --r:         16px;
+            --r2:        10px;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar{width:6px}
+        ::-webkit-scrollbar-track{background:var(--bg2)}
+        ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+        /* ── Status Bar ── */
+        .status-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 2rem;display:flex;align-items:center;gap:1.5rem;font-size:.75rem;color:var(--text3);flex-wrap:wrap}
+        .si{display:flex;align-items:center;gap:6px;white-space:nowrap}
+        .dot{width:7px;height:7px;border-radius:50%}
+        .g{background:var(--green);box-shadow:0 0 6px var(--green)}
+        .y{background:var(--accent);box-shadow:0 0 6px var(--accent)}
+        .ml{margin-left:auto}
+
+        /* ── Hero ── */
+        .hero{
+            background:linear-gradient(135deg,#0a0b0f 0%,#1a1d3a 50%,#0d1117 100%);
+            border-bottom:1px solid var(--border);
+            padding:3.5rem 2rem 3rem;
+            text-align:center;
+            position:relative;overflow:hidden;
+        }
+        .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(74,144,226,.12) 0%,transparent 70%);pointer-events:none}
+        /* floating particles */
+        .hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a90e2' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none;opacity:.4}
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(74,144,226,.1);border:1px solid rgba(74,144,226,.3);border-radius:999px;padding:6px 18px;font-size:.72rem;font-weight:600;color:var(--primary);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.5rem;position:relative;z-index:1}
+        .hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.85)}}
+        h1{font-family:'Orbitron',monospace;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-.02em;background:linear-gradient(135deg,#fff 0%,#a0b4e0 50%,#4a90e2 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.75rem;position:relative;z-index:1}
+        .hero-sub{color:var(--text2);font-size:1rem;max-width:480px;margin:.5rem auto 2rem;line-height:1.65;position:relative;z-index:1}
+        .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+
+        /* ── Layout ── */
+        .container{max-width:1280px;margin:0 auto;padding:0 2rem}
+        .section{padding:2.5rem 0}
+        .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:1.75rem}
+        .sec-title{font-size:1.1rem;font-weight:700;white-space:nowrap}
+        .sec-line{flex:1;height:1px;background:var(--border)}
+        .sec-sub{font-size:.78rem;color:var(--text3);white-space:nowrap}
+
+        /* ── Buttons ── */
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 22px;border-radius:var(--r2);font-size:.875rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all .2s ease;font-family:'Inter',sans-serif}
+        .btn-p{background:linear-gradient(135deg,var(--primary),var(--primary-d));color:#fff;box-shadow:0 4px 18px rgba(74,144,226,.3)}
+        .btn-p:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(74,144,226,.45)}
+        .btn-a{background:linear-gradient(135deg,var(--accent),#d97706);color:#000;box-shadow:0 4px 18px rgba(245,158,11,.3)}
+        .btn-a:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(245,158,11,.45)}
+        .btn-s{background:rgba(255,255,255,.05);color:var(--text2);border:1px solid var(--border)}
+        .btn-s:hover{background:rgba(255,255,255,.08);color:var(--text);border-color:var(--primary)}
+        .btn-sm{padding:7px 16px;font-size:.8rem;border-radius:8px}
+
+        /* ── Stack Cards ── */
+        .stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:1.5rem}
+        .player-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;transition:all .25s ease;position:relative;overflow:hidden;cursor:default}
+        .player-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--primary),var(--purple));opacity:0;transition:opacity .25s}
+        .player-card:hover{background:var(--bg3h);border-color:rgba(74,144,226,.4);transform:translateY(-3px);box-shadow:var(--glow)}
+        .player-card:hover::before{opacity:1}
+        .card-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem}
+        .avatar{width:54px;height:54px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-weight:900;font-size:1.1rem;color:#fff;flex-shrink:0}
+        .av-a{background:linear-gradient(135deg,#4a90e2,#8b5cf6)}
+        .av-w{background:linear-gradient(135deg,#06b6d4,#10b981)}
+        .av-c{background:linear-gradient(135deg,#f59e0b,#ef4444)}
+        .pinfo{flex:1;min-width:0}
+        .pname{font-size:1rem;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .palias{font-size:.75rem;color:var(--text3);font-weight:400;margin-top:2px}
+        .badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:6px;font-size:.7rem;font-weight:600;white-space:nowrap}
+        .b-ready{background:rgba(16,185,129,.12);color:var(--green);border:1px solid rgba(16,185,129,.25)}
+        .b-pend{background:rgba(245,158,11,.1);color:var(--accent);border:1px solid rgba(245,158,11,.25)}
+
+        /* Stats rows */
+        .stats-grid{display:grid;gap:7px;margin-bottom:1rem}
+        .stat-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--bg2);border-radius:8px;border:1px solid var(--border)}
+        .sl{font-size:.78rem;color:var(--text2);font-weight:500}
+        .sv{font-size:.9rem;font-weight:700;font-variant-numeric:tabular-nums}
+        .sv-b{color:var(--primary)}
+        .sv-g{color:var(--green)}
+        .sv-y{color:var(--accent)}
+        .sv-r{color:var(--red)}
+
+        /* Mini rank bar */
+        .rank-bar{height:4px;border-radius:2px;margin-top:4px;background:var(--border);overflow:hidden}
+        .rank-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--primary))}
+
+        .ts{font-size:.72rem;color:var(--text3);text-align:right;margin-bottom:.9rem}
+        .card-actions{display:flex;gap:9px}
+        .card-actions .btn{flex:1}
+
+        /* ── Operator Table ── */
+        .op-table-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+        .op-table-head{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;border-bottom:1px solid var(--border)}
+        .op-table-title{font-size:.95rem;font-weight:700}
+        table{width:100%;border-collapse:collapse}
+        th{background:var(--bg2);padding:10px 14px;text-align:left;font-size:.72rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border)}
+        td{padding:9px 14px;font-size:.82rem;border-bottom:1px solid rgba(42,45,58,.5)}
+        tr:last-child td{border-bottom:none}
+        tr:hover td{background:rgba(255,255,255,.02)}
+        .op-name{font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px}
+        .role-badge{font-size:.62rem;padding:2px 6px;border-radius:4px;font-weight:700}
+        .atk{background:rgba(74,144,226,.12);color:var(--primary);border:1px solid rgba(74,144,226,.2)}
+        .def{background:rgba(16,185,129,.1);color:var(--green);border:1px solid rgba(16,185,129,.2)}
+        .kd-pos{color:var(--cyan);font-weight:700}
+        .kd-neg{color:var(--red);font-weight:700}
+        .wr-pos{color:var(--green);font-weight:700}
+        .wr-neg{color:var(--red);font-weight:700}
+        .wr-mid{color:var(--accent);font-weight:700}
+        .si-bar{width:60px;height:6px;background:var(--border);border-radius:3px;overflow:hidden;display:inline-block;vertical-align:middle}
+        .si-fill{height:100%;border-radius:3px}
+
+        /* ── API Ref ── */
+        .api-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+        .api-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r2);padding:1.2rem;transition:border-color .2s}
+        .api-card:hover{border-color:rgba(74,144,226,.35)}
+        .method-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.68rem;font-weight:700;background:rgba(74,144,226,.15);color:var(--primary);margin-bottom:6px;font-family:monospace}
+        .api-path{font-family:monospace;font-size:.82rem;color:var(--text);display:block;margin-bottom:4px}
+        .api-desc{font-size:.76rem;color:var(--text2)}
+
+        /* ── Charts mini ── */
+        .charts-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin-top:1.5rem}
+        .chart-mini{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r2);padding:1rem;text-align:center}
+        .chart-num{font-family:'Orbitron',monospace;font-size:1.8rem;font-weight:900;margin:.25rem 0}
+        .chart-lbl{font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:.05em}
+
+        /* ── Footer ── */
+        footer{border-top:1px solid var(--border);padding:1.75rem 2rem;text-align:center;color:var(--text3);font-size:.78rem}
+        footer a{color:var(--primary);text-decoration:none}
+        footer a:hover{text-decoration:underline}
+
+        /* ── Tooltip ── */
+        [data-tip]{position:relative}
+        [data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#1f2330;border:1px solid var(--border);color:var(--text2);font-size:.72rem;padding:4px 8px;border-radius:6px;white-space:nowrap;z-index:100;pointer-events:none}
+
+        /* ── Tabs ── */
+        .tabs{display:flex;gap:4px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:4px;width:fit-content}
+        .tab{padding:7px 18px;border-radius:7px;font-size:.82rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text2);transition:all .2s}
+        .tab.active{background:var(--bg3);color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+        .tab:hover:not(.active){color:var(--text)}
+
+        /* ── Announcement ── */
+        .alert{display:flex;align-items:flex-start;gap:10px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.25);border-radius:var(--r2);padding:1rem 1.25rem;font-size:.83rem;color:var(--text2);line-height:1.5;margin-bottom:1.5rem}
+        .alert-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+
+        @media(max-width:640px){
+            .stack-grid{grid-template-columns:1fr}
+            .hero{padding:2.5rem 1rem 2rem}
+            .container{padding:0 1rem}
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Status Bar ── -->
+<div class="status-bar">
+    <div class="si"><div class="dot g"></div><span>Portal Online</span></div>
+    <div class="si"><div class="dot g"></div><span>R6Data API Connected</span></div>
+    <div class="si"><div class="dot y"></div><span>Gemini AI Ready (rate-limit cooldown)</span></div>
+    <div class="si"><div class="dot g"></div><span>FastAPI on :8000</span></div>
+    <div class="si ml"><span>Stack: Amlenk · WamaiDoingThis · Covetous_Demon</span></div>
+</div>
+
+<!-- ── Hero ── -->
+<div class="hero">
+    <div class="hero-badge">🎯 Rainbow Six Siege — Y11S1 Season</div>
+    <h1>SIEGE COACHING<br>PORTAL</h1>
+    <p class="hero-sub">AI-powered tactical analysis for your competitive 3-man stack. Real data from R6Data API. Coaching by Gemini.</p>
+    <div class="hero-actions">
+        <a href="output/Amlenk_report.html" class="btn btn-p" target="_blank">📊 Amlenk Report</a>
+        <a href="output/WamaiDoingThis_report.html" class="btn btn-a" target="_blank">📊 WamaiDoingThis Report</a>
+        <a href="http://127.0.0.1:8000" class="btn btn-s" target="_blank">🌐 Live API Portal</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- ── Gemini Note ── -->
+    <div class="section" style="padding-bottom:0">
+        <div class="alert">
+            <span class="alert-icon">⚡</span>
+            <div>
+                <strong style="color:var(--accent)">Gemini AI Quota Note:</strong> The free-tier daily limit was hit during testing today. The AI coaching in <code>report.py</code> has automatic 3× retry built in — it'll generate unique, data-grounded coaching paragraphs automatically on next run tomorrow, or once you switch to Pay-as-you-go billing in Google AI Studio (fractions of a cent per call).
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Stack Cards ── -->
+    <div class="section">
+        <div class="sec-head">
+            <span class="sec-title">🏆 Stack Members</span>
+            <div class="sec-line"></div>
+            <span class="sec-sub">3 players · Y11S1 Season</span>
+        </div>
+
+        <div class="stack-grid">
+
+            <!-- Amlenk -->
+            <div class="player-card">
+                <div class="card-head">
+                    <div class="avatar av-a">AM</div>
+                    <div class="pinfo">
+                        <div class="pname">Amlenk</div>
+                        <div class="palias">@Amlenk · Ubisoft PC</div>
+                    </div>
+                    <span class="badge b-ready">✓ Report Ready</span>
+                </div>
+                <div class="stats-grid">
+                    <!-- Tab Switcher -->
+                    <div class="card-tabs" style="display: flex; gap: 4px; background: rgba(0,0,0,0.25); padding: 3px; border-radius: 10px; margin-bottom: 8px; border: 1px solid var(--border);">
+                        <button class="tab-btn active" onclick="switchCardTab(this, 'overall')" style="flex: 1; background: var(--bg3); border: 1px solid rgba(74, 144, 226, 0.15); color: var(--primary); box-shadow: 0 2px 6px rgba(0,0,0,0.3); padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; cursor: pointer; transition: all 0.2s; outline: none;">Overall</button>
+                        <button class="tab-btn" onclick="switchCardTab(this, 'y11s1')" style="flex: 1; background: transparent; border: none; color: var(--text2); padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; cursor: pointer; transition: all 0.2s; outline: none;">Y11S1 Season</button>
+                    </div>
+
+                    <!-- Overall Stats Group -->
+                    <div class="stats-overall stats-group" style="display: grid; gap: 7px;">
+                        <div class="stat-row">
+                            <span class="sl">Ranked Overall K/D</span>
+                            <span class="sv sv-b">1.35</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="sl">Overall Win Rate</span>
+                            <span class="sv sv-y">50.4%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="sl">Overall Rank</span>
+                            <span class="sv sv-y" style="font-weight: 800; font-size: 0.8rem;">4,516 RP (Champion)</span>
+                        </div>
+                    </div>
+
+                    <!-- Y11S1 Stats Group -->
+                    <div class="stats-y11s1 stats-group" style="display: none; gap: 7px;">
+                        <div class="stat-row">
+                            <span class="sl">Y11S1 Season K/D</span>
+                            <span class="sv" style="color: var(--purple); font-weight: 700;">1.35</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="sl">Season Win Rate</span>
+                            <span class="sv" style="color: var(--purple); font-weight: 700;">50.4%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="sl">Season Rank</span>
+                            <span class="sv" style="color: var(--purple); font-weight: 800; font-size: 0.8rem;">4,516 RP (Champion)</span>
+                        </div>
+                    </div>
+
+                    <!-- Always Visible Bottom Info -->
+                    <div class="stat-row">
+                        <span class="sl">Operators Tracked</span>
+                        <span class="sv sv-g">77 operators</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="sl">Main Operator</span>
+                        <span class="sv sv-b">Azami (697r · 1.41 K/D)</span>
+                    </div>
+                </div>
+                <p class="ts">Updated: 2026-05-27 · Source: R6Data API (live)</p>
+                <div class="card-actions">
+                    <a href="output/Amlenk_report.html" class="btn btn-p btn-sm" target="_blank">View Full Report</a>
+                    <a href="http://127.0.0.1:8000/api/coach?username=Amlenk" class="btn btn-s btn-sm" target="_blank">Re-run Pipeline</a>
+                </div>
+            </div>
+
+            <!-- WamaiDoingThis -->
+            <div class="player-card">
+                <div class="card-head">
+                    <div class="avatar av-w">WD</div>
+                    <div class="pinfo">
+                        <div class="pname">WamaiDoingThis</div>
+                        <div class="palias">@WamaiDoingThis · aka yeetingyeti</div>
+                    </div>
+                    <span class="badge b-ready">✓ Report Ready</span>
+                </div>
+                <div class="stats-grid">
+                    <!-- Tab Switcher -->
+                    <div class="card-tabs" style="display: flex; gap: 4px; background: rgba(0,0,0,0.25); padding: 3px; border-radius: 10px; margin-bottom: 8px; border: 1px solid var(--border);">
+                        <button class="tab-btn active" onclick="switchCardTab(this, 'overall')" style="flex: 1; background: var(--bg3); border: 1px solid rgba(74, 144, 226, 0.15); color: var(--primary); box-shadow: 0 2px 6px rgba(0,0,0,0.3); padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; cursor: pointer; transition: all 0.2s; outline: none;">Overall</button>
+                        <button class="tab-btn" onclick="switchCardTab(this, 'y11s1')" style="flex: 1; background: transparent; border: none; color: var(--text2); padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; cursor: pointer; transition: all 0.2s; outline: none;">Y11S1 Season</button>
+                    </div>
+
+                    <!-- Overall Stats Group -->
+                    <div class="stats-overall stats-group" style="display: grid; gap: 7px;">
+                        <div class="stat-row">
+                            <span class="sl">Ranked Overall K/D</span>
+                            <span class="sv sv-b">0.61</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="sl">Overall Win Rate</span>
+                            <span class="sv sv-y">49.7%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="sl">Overall Rank</span>
+                            <span class="sv sv-y" style="font-weight: 800; font-size: 0.8rem;">2,451 RP (Silver 1)</span>
+                        </div>
+                    </div>
+
+                    <!-- Y11S1 Stats Group -->
+                    <div class="stats-y11s1 stats-group" style="display: none; gap: 7px;">
+                        <div class="stat-row">
+                            <span class="sl">Y11S1 Season K/D</span>
+                            <span class="sv" style="color: var(--purple); font-weight: 700;">0.61</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="sl">Season Win Rate</span>
+                            <span class="sv" style="color: var(--purple); font-weight: 700;">49.7%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="sl">Season Rank</span>
+                            <span class="sv" style="color: var(--purple); font-weight: 800; font-size: 0.8rem;">2,451 RP (Silver 1)</span>
+                        </div>
+                    </div>
+
+                    <!-- Always Visible Bottom Info -->
+                    <div class="stat-row">
+                        <span class="sl">Operators Tracked</span>
+                        <span class="sv sv-g">76 operators</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="sl">Main Operator</span>
+                        <span class="sv sv-b">Mute (637r · 0.67 K/D)</span>
+                    </div>
+                </div>
+                <p class="ts">Updated: 2026-05-27 · Source: R6Data API (live)</p>
+                <div class="card-actions">
+                    <a href="output/WamaiDoingThis_report.html" class="btn btn-p btn-sm" target="_blank">View Full Report</a>
+                    <a href="http://127.0.0.1:8000/api/coach?username=WamaiDoingThis" class="btn btn-s btn-sm" target="_blank">Re-run Pipeline</a>
+                </div>
+            </div>
+
+            <!-- Covetous_Demon -->
+            <div class="player-card">
+                <div class="card-head">
+                    <div class="avatar av-c">CD</div>
+                    <div class="pinfo">
+                        <div class="pname">Covetous_Demon</div>
+                        <div class="palias">@Covetous_Demon · Stack Member #3</div>
+                    </div>
+                    <span class="badge b-ready">✓ Report Ready</span>
+                </div>
+                <div class="stats-grid">
+                    <!-- Tab Switcher -->
+                    <div class="card-tabs" style="display: flex; gap: 4px; background: rgba(0,0,0,0.25); padding: 3px; border-radius: 10px; margin-bottom: 8px; border: 1px solid var(--border);">
+                        <button class="tab-btn active" onclick="switchCardTab(this, 'overall')" style="flex: 1; background: var(--bg3); border: 1px solid rgba(74, 144, 226, 0.15); color: var(--primary); box-shadow: 0 2px 6px rgba(0,0,0,0.3); padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; cursor: pointer; transition: all 0.2s; outline: none;">Overall</button>
+                        <button class="tab-btn" onclick="switchCardTab(this, 'y11s1')" style="flex: 1; background: transparent; border: none; color: var(--text2); padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; cursor: pointer; transition: all 0.2s; outline: none;">Y11S1 Season</button>
+                    </div>
+
+                    <!-- Overall Stats Group -->
+                    <div class="stats-overall stats-group" style="display: grid; gap: 7px;">
+                        <div class="stat-row">
+                            <span class="sl">Ranked Overall K/D</span>
+                            <span class="sv sv-b">1.36</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="sl">Overall Win Rate</span>
+                            <span class="sv sv-y">50.3%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="sl">Overall Rank</span>
+                            <span class="sv sv-y" style="font-weight: 800; font-size: 0.8rem;">3,820 RP (Emerald 2)</span>
+                        </div>
+                    </div>
+
+                    <!-- Y11S1 Stats Group -->
+                    <div class="stats-y11s1 stats-group" style="display: none; gap: 7px;">
+                        <div class="stat-row">
+                            <span class="sl">Y11S1 Season K/D</span>
+                            <span class="sv" style="color: var(--purple); font-weight: 700;">1.36</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="sl">Season Win Rate</span>
+                            <span class="sv" style="color: var(--purple); font-weight: 700;">50.3%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="sl">Season Rank</span>
+                            <span class="sv" style="color: var(--purple); font-weight: 800; font-size: 0.8rem;">3,820 RP (Emerald 2)</span>
+                        </div>
+                    </div>
+
+                    <!-- Always Visible Bottom Info -->
+                    <div class="stat-row">
+                        <span class="sl">Operators Tracked</span>
+                        <span class="sv sv-g">49 operators</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="sl">Main Operator</span>
+                        <span class="sv sv-b">Bandit (1278r · 1.46 K/D)</span>
+                    </div>
+                </div>
+                <p class="ts">Updated: 2026-05-27 · Source: R6Data API (live)</p>
+                <div class="card-actions">
+                    <a href="output/Covetous_Demon_report.html" class="btn btn-p btn-sm" target="_blank">View Full Report</a>
+                    <a href="http://127.0.0.1:8000/api/coach?username=Covetous_Demon" class="btn btn-s btn-sm" target="_blank">Re-run Pipeline</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ── Operator Breakdown (Amlenk real data) ── -->
+    <div class="section">
+        <div class="sec-head">
+            <span class="sec-title">⚔️ Amlenk — Top Operators (Live from R6Data API)</span>
+            <div class="sec-line"></div>
+            <span class="sec-sub">77 tracked · filtered ≥50 rounds</span>
+        </div>
+
+        <div class="op-table-wrap">
+            <div class="op-table-head">
+                <span class="op-table-title">Operator Performance — Y11S1 Ranked</span>
+                <div class="tabs">
+                    <div class="tab active" onclick="filterOps('all',this)">All</div>
+                    <div class="tab" onclick="filterOps('atk',this)">Attackers</div>
+                    <div class="tab" onclick="filterOps('def',this)">Defenders</div>
+                </div>
+            </div>
+            <div style="overflow-x:auto">
+            <table id="op-table">
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Rounds</th>
+                        <th>K/D</th>
+                        <th>Win%</th>
+                        <th>HS%</th>
+                        <th>Success Index</th>
+                        <th>Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-role="def">
+                        <td class="op-name">Azami <span class="role-badge def">DEF</span></td>
+                        <td>697</td>
+                        <td class="kd-pos">1.41</td>
+                        <td class="wr-pos">60.4%</td>
+                        <td>44.9%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:65%;background:linear-gradient(90deg,#10b981,#4a90e2)"></span></span> 0.479</td>
+                        <td style="color:var(--green);font-size:.75rem">🏆 Main</td>
+                    </tr>
+                    <tr data-role="atk">
+                        <td class="op-name">Ace <span class="role-badge atk">ATK</span></td>
+                        <td>620</td>
+                        <td class="kd-pos">1.12</td>
+                        <td class="wr-neg">40.8%</td>
+                        <td>65.1%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:44%;background:linear-gradient(90deg,#f59e0b,#ef4444)"></span></span> 0.344</td>
+                        <td style="color:var(--red);font-size:.75rem">⚠️ WR Drop</td>
+                    </tr>
+                    <tr data-role="def">
+                        <td class="op-name">Lesion <span class="role-badge def">DEF</span></td>
+                        <td>567</td>
+                        <td class="kd-pos">1.42</td>
+                        <td class="wr-pos">60.1%</td>
+                        <td>67.8%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:64%;background:linear-gradient(90deg,#10b981,#4a90e2)"></span></span> 0.479</td>
+                        <td style="color:var(--green);font-size:.75rem">✅ Solid</td>
+                    </tr>
+                    <tr data-role="def">
+                        <td class="op-name">Thorn <span class="role-badge def">DEF</span></td>
+                        <td>387</td>
+                        <td class="kd-pos" style="color:#f59e0b">1.95</td>
+                        <td class="wr-pos">60.0%</td>
+                        <td>54.5%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:72%;background:linear-gradient(90deg,#8b5cf6,#4a90e2)"></span></span> 0.544</td>
+                        <td style="color:#8b5cf6;font-size:.75rem">🔥 Elite</td>
+                    </tr>
+                    <tr data-role="atk">
+                        <td class="op-name">Nomad <span class="role-badge atk">ATK</span></td>
+                        <td>351</td>
+                        <td class="kd-pos">1.23</td>
+                        <td class="wr-neg">39.3%</td>
+                        <td>60.5%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:45%;background:linear-gradient(90deg,#f59e0b,#ef4444)"></span></span> 0.351</td>
+                        <td style="color:var(--red);font-size:.75rem">⚠️ WR Drop</td>
+                    </tr>
+                    <tr data-role="atk">
+                        <td class="op-name">Gridlock <span class="role-badge atk">ATK</span></td>
+                        <td>287</td>
+                        <td class="kd-pos">1.23</td>
+                        <td class="wr-neg">39.7%</td>
+                        <td>61.3%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:46%;background:linear-gradient(90deg,#f59e0b,#ef4444)"></span></span> 0.352</td>
+                        <td style="color:var(--red);font-size:.75rem">⚠️ WR Drop</td>
+                    </tr>
+                    <tr data-role="def">
+                        <td class="op-name">Aruni <span class="role-badge def">DEF</span></td>
+                        <td>266</td>
+                        <td class="kd-pos">1.50</td>
+                        <td class="wr-mid">53.0%</td>
+                        <td>44.4%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:59%;background:linear-gradient(90deg,#4a90e2,#8b5cf6)"></span></span> 0.453</td>
+                        <td style="color:var(--text2);font-size:.75rem">👍 Balanced</td>
+                    </tr>
+                    <tr data-role="def">
+                        <td class="op-name">Mute <span class="role-badge def">DEF</span></td>
+                        <td>259</td>
+                        <td class="kd-pos">1.68</td>
+                        <td class="wr-pos">62.9%</td>
+                        <td>43.5%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:69%;background:linear-gradient(90deg,#10b981,#4a90e2)"></span></span> 0.524</td>
+                        <td style="color:var(--green);font-size:.75rem">✅ Strong</td>
+                    </tr>
+                    <tr data-role="atk">
+                        <td class="op-name">Thermite <span class="role-badge atk">ATK</span></td>
+                        <td>239</td>
+                        <td class="kd-pos">1.43</td>
+                        <td class="wr-mid">43.5%</td>
+                        <td>54.5%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:51%;background:linear-gradient(90deg,#f59e0b,#4a90e2)"></span></span> 0.397</td>
+                        <td style="color:var(--accent);font-size:.75rem">⚡ Review</td>
+                    </tr>
+                    <tr data-role="def">
+                        <td class="op-name">Melusi <span class="role-badge def">DEF</span></td>
+                        <td>236</td>
+                        <td class="kd-pos">1.59</td>
+                        <td class="wr-pos">61.9%</td>
+                        <td>66.2%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:67%;background:linear-gradient(90deg,#10b981,#4a90e2)"></span></span> 0.509</td>
+                        <td style="color:var(--green);font-size:.75rem">✅ Strong</td>
+                    </tr>
+                    <tr data-role="def">
+                        <td class="op-name">Bandit <span class="role-badge def">DEF</span></td>
+                        <td>199</td>
+                        <td class="kd-pos">1.69</td>
+                        <td class="wr-pos">62.8%</td>
+                        <td>71.6%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:69%;background:linear-gradient(90deg,#10b981,#8b5cf6)"></span></span> 0.525</td>
+                        <td style="color:#8b5cf6;font-size:.75rem">🔥 Hidden Gem</td>
+                    </tr>
+                    <tr data-role="def">
+                        <td class="op-name">Mozzie <span class="role-badge def">DEF</span></td>
+                        <td>122</td>
+                        <td class="kd-pos" style="color:#f59e0b">1.99</td>
+                        <td class="wr-pos">56.6%</td>
+                        <td>62.8%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:70%;background:linear-gradient(90deg,#8b5cf6,#f59e0b)"></span></span> 0.531</td>
+                        <td style="color:#8b5cf6;font-size:.75rem">🔥 Underplayed</td>
+                    </tr>
+                    <tr data-role="def">
+                        <td class="op-name">Frost <span class="role-badge def">DEF</span></td>
+                        <td>123</td>
+                        <td class="kd-pos">1.64</td>
+                        <td class="wr-pos">65.0%</td>
+                        <td>64.8%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:70%;background:linear-gradient(90deg,#10b981,#8b5cf6)"></span></span> 0.530</td>
+                        <td style="color:#8b5cf6;font-size:.75rem">🔥 Sleeper</td>
+                    </tr>
+                    <tr data-role="atk">
+                        <td class="op-name">Blackbeard <span class="role-badge atk">ATK</span></td>
+                        <td>66</td>
+                        <td class="kd-neg">0.72</td>
+                        <td class="wr-neg">34.9%</td>
+                        <td>30.6%</td>
+                        <td><span class="si-bar"><span class="si-fill" style="width:26%;background:linear-gradient(90deg,#ef4444,#f59e0b)"></span></span> 0.265</td>
+                        <td style="color:var(--red);font-size:.75rem">🚫 Drop</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Key Stats Summary ── -->
+    <div class="section">
+        <div class="sec-head">
+            <span class="sec-title">📈 Amlenk — Season Snapshot</span>
+            <div class="sec-line"></div>
+            <span class="sec-sub">From R6Data API · 77 operators tracked</span>
+        </div>
+        <div class="charts-strip">
+            <div class="chart-mini">
+                <div class="chart-lbl">Ranked Rating</div>
+                <div class="chart-num" style="color:var(--accent);font-size:1.3rem">4,516 RP</div>
+                <div style="font-size:.72rem;color:var(--text2);margin-top:4px">Champion</div>
+            </div>
+            <div class="chart-mini">
+                <div class="chart-lbl">Season K/D</div>
+                <div class="chart-num" style="color:var(--cyan)">1.35</div>
+                <div class="rank-bar"><div class="rank-fill" style="width:68%"></div></div>
+            </div>
+            <div class="chart-mini">
+                <div class="chart-lbl">Win Rate</div>
+                <div class="chart-num" style="color:var(--primary)">50.4%</div>
+                <div class="rank-bar"><div class="rank-fill" style="width:50.4%"></div></div>
+            </div>
+            <div class="chart-mini">
+                <div class="chart-lbl">Best K/D Op</div>
+                <div class="chart-num" style="color:var(--purple);font-size:1.1rem">Mozzie</div>
+                <div style="font-size:.72rem;color:var(--text2);margin-top:4px">1.99 K/D · 56.6% WR</div>
+            </div>
+            <div class="chart-mini">
+                <div class="chart-lbl">Best WR Op</div>
+                <div class="chart-num" style="color:var(--green);font-size:1.1rem">Valkyrie</div>
+                <div style="font-size:.72rem;color:var(--text2);margin-top:4px">66.7% WR · 114r</div>
+            </div>
+            <div class="chart-mini">
+                <div class="chart-lbl">Ops Tracked</div>
+                <div class="chart-num" style="color:var(--accent)">77</div>
+                <div style="font-size:.72rem;color:var(--text2);margin-top:4px">53 with ≥50 rounds</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Key Coaching Insights ── -->
+    <div class="section">
+        <div class="sec-head">
+            <span class="sec-title">💡 Key Coaching Insights (Static Analysis)</span>
+            <div class="sec-line"></div>
+            <span class="sec-sub">Based on live R6Data API results</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem">
+            <div style="background:var(--bg3);border:1px solid rgba(239,68,68,.25);border-left:4px solid var(--red);border-radius:var(--r2);padding:1.25rem">
+                <div style="font-weight:700;color:var(--red);font-size:.85rem;margin-bottom:.5rem">🚨 Critical: Attack Win Rate</div>
+                <p style="font-size:.8rem;color:var(--text2);line-height:1.55">Ace (40.8% WR), Nomad (39.3%), and Gridlock (39.7%) all have strong K/Ds but poor win rates — you're winning your individual duels but not converting to round wins. Shift from entry fragging to objective-focused play: get the breach or plant done <em>before</em> seeking kills.</p>
+            </div>
+            <div style="background:var(--bg3);border:1px solid rgba(16,185,129,.25);border-left:4px solid var(--green);border-radius:var(--r2);padding:1.25rem">
+                <div style="font-weight:700;color:var(--green);font-size:.85rem;margin-bottom:.5rem">✅ Strength: Defender Pool</div>
+                <p style="font-size:.8rem;color:var(--text2);line-height:1.55">Thorn (1.95 K/D, 60%), Mute (1.68 K/D, 62.9%), Melusi (1.59 K/D, 61.9%), Bandit (1.69 K/D, 62.8%) — your defence pool is elite. This is your anchor. When attacking, bring the aggression and trust your stack to support the execute.</p>
+            </div>
+            <div style="background:var(--bg3);border:1px solid rgba(139,92,246,.25);border-left:4px solid var(--purple);border-radius:var(--r2);padding:1.25rem">
+                <div style="font-weight:700;color:var(--purple);font-size:.85rem;margin-bottom:.5rem">🔥 Hidden Gem: Mozzie & Frost</div>
+                <p style="font-size:.8rem;color:var(--text2);line-height:1.55">Mozzie at 1.99 K/D and Frost at 1.64 K/D / 65% WR are underplayed gems with only 122r and 123r respectively. Both massively outperform your average. Consider slotting them more — especially Mozzie, whose drone denial pairs perfectly with Mute's jammer setups in your stack.</p>
+            </div>
+            <div style="background:var(--bg3);border:1px solid rgba(245,158,11,.25);border-left:4px solid var(--accent);border-radius:var(--r2);padding:1.25rem">
+                <div style="font-weight:700;color:var(--accent);font-size:.85rem;margin-bottom:.5rem">⚡ Stack Synergy</div>
+                <p style="font-size:.8rem;color:var(--text2);line-height:1.55">With WamaiDoingThis (yeetingyeti) and Covetous_Demon in your stack: designate clear roles. You (Amlenk) anchor on defence with Thorn/Mute, have one stack member run entry on attack (Thermite + Thatcher pairing), and the third on flank watch (Gridlock/Nomad). Stop doubling up on utility roles.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── API Endpoints ── -->
+    <div class="section">
+        <div class="sec-head">
+            <span class="sec-title">🔌 API Endpoints</span>
+            <div class="sec-line"></div>
+            <span class="sec-sub">FastAPI on http://127.0.0.1:8000</span>
+        </div>
+        <div class="api-grid">
+            <a class="api-card" href="http://127.0.0.1:8000/" target="_blank" style="text-decoration:none">
+                <span class="method-badge">GET</span>
+                <span class="api-path">/</span>
+                <p class="api-desc">Live portal dashboard with real-time data</p>
+            </a>
+            <a class="api-card" href="http://127.0.0.1:8000/api/players" target="_blank" style="text-decoration:none">
+                <span class="method-badge">GET</span>
+                <span class="api-path">/api/players</span>
+                <p class="api-desc">Stack member list with report status and stats</p>
+            </a>
+            <a class="api-card" href="http://127.0.0.1:8000/api/coach?username=Amlenk" target="_blank" style="text-decoration:none">
+                <span class="method-badge">GET</span>
+                <span class="api-path">/api/coach?username=X</span>
+                <p class="api-desc">Full pipeline: fetch → stats → charts → AI report</p>
+            </a>
+            <a class="api-card" href="http://127.0.0.1:8000/api/report/Amlenk" target="_blank" style="text-decoration:none">
+                <span class="method-badge">GET</span>
+                <span class="api-path">/api/report/{username}</span>
+                <p class="api-desc">Serve cached HTML coaching report inline</p>
+            </a>
+            <a class="api-card" href="http://127.0.0.1:8000/api/stack" target="_blank" style="text-decoration:none">
+                <span class="method-badge">GET</span>
+                <span class="api-path">/api/stack</span>
+                <p class="api-desc">Gemini AI team stack role assignment analysis</p>
+            </a>
+            <a class="api-card" href="http://127.0.0.1:8000/docs" target="_blank" style="text-decoration:none">
+                <span class="method-badge">GET</span>
+                <span class="api-path">/docs</span>
+                <p class="api-desc">Interactive OpenAPI / Swagger documentation</p>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Siege Coaching Portal v2.0 &nbsp;·&nbsp; Powered by <a href="https://r6data.com" target="_blank">R6Data API</a> &amp; <a href="https://deepmind.google/technologies/gemini/" target="_blank">Gemini AI</a> &nbsp;·&nbsp; Stack: Amlenk · WamaiDoingThis · Covetous_Demon</p>
+    <p style="margin-top:.5rem">Static preview — open <a href="http://127.0.0.1:8000" target="_blank">http://127.0.0.1:8000</a> for the live version</p>
+</footer>
+
+<script>
+function filterOps(role, el) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    document.querySelectorAll('#op-table tbody tr').forEach(row => {
+        if (role === 'all') { row.style.display = ''; return; }
+        row.style.display = row.dataset.role === role ? '' : 'none';
+    });
+}
+
+function switchCardTab(btn, tabType) {
+    const card = btn.closest('.player-card');
+    
+    // Toggle active button style
+    card.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.style.background = 'transparent';
+        b.style.color = 'var(--text2)';
+        b.style.boxShadow = 'none';
+        b.style.border = 'none';
+    });
+    
+    btn.classList.add('active');
+    btn.style.background = 'var(--bg3)';
+    btn.style.color = 'var(--primary)';
+    btn.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
+    btn.style.border = '1px solid rgba(74, 144, 226, 0.15)';
+    
+    // Toggle visible stats group
+    if (tabType === 'overall') {
+        card.querySelector('.stats-overall').style.display = 'grid';
+        card.querySelector('.stats-y11s1').style.display = 'none';
+    } else {
+        card.querySelector('.stats-overall').style.display = 'none';
+        card.querySelector('.stats-y11s1').style.display = 'grid';
+    }
+}
+
+// Subtle entrance animations
+document.querySelectorAll('.player-card, .api-card, .chart-mini').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+        el.style.transition = 'opacity .4s ease, transform .4s ease';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+    }, 80 + i * 60);
+});
+</script>
+</body>
+</html>

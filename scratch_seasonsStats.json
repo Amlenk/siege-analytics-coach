@@ -1,0 +1,3458 @@
+{
+  "data": {
+    "metadata": {
+      "currentSeason": 41,
+      "clearanceLevel": 702,
+      "battlepassLevel": 449
+    },
+    "segments": [
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 3166,
+            "displayValue": "3,166"
+          },
+          "deaths": {
+            "value": 2352,
+            "displayValue": "2,352"
+          },
+          "kdRatio": {
+            "value": 1.3460884353741496,
+            "displayValue": "1.35"
+          },
+          "matchesWon": {
+            "value": 282,
+            "displayValue": "282"
+          },
+          "rankPoints": {
+            "value": 4516,
+            "displayValue": "4,516"
+          },
+          "matchesLost": {
+            "value": 296,
+            "displayValue": "296"
+          },
+          "matchesPlayed": {
+            "value": 579,
+            "displayValue": "579"
+          },
+          "maxRankPoints": {
+            "value": 4545,
+            "displayValue": "4,545"
+          }
+        },
+        "metadata": {
+          "name": "Silent Hunt",
+          "color": "#a0daae",
+          "rankType": "rp",
+          "shortName": "Y11S1",
+          "seasonName": "Silent Hunt"
+        },
+        "attributes": {
+          "season": 41,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 28,
+            "displayValue": "28"
+          },
+          "deaths": {
+            "value": 25,
+            "displayValue": "25"
+          },
+          "kdRatio": {
+            "value": 1.12,
+            "displayValue": "1.12"
+          },
+          "matchesWon": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "rankPoints": {
+            "value": 1114,
+            "displayValue": "1,114"
+          },
+          "matchesLost": {
+            "value": 4,
+            "displayValue": "4"
+          },
+          "matchesPlayed": {
+            "value": 6,
+            "displayValue": "6"
+          },
+          "maxRankPoints": {
+            "value": 1236,
+            "displayValue": "1,236"
+          }
+        },
+        "metadata": {
+          "name": "Daybreak",
+          "color": "#e55536",
+          "rankType": "rp",
+          "shortName": "Y10S2",
+          "seasonName": "Daybreak"
+        },
+        "attributes": {
+          "season": 38,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 2002,
+            "displayValue": "2,002"
+          },
+          "deaths": {
+            "value": 1443,
+            "displayValue": "1,443"
+          },
+          "kdRatio": {
+            "value": 1.3873873873873874,
+            "displayValue": "1.39"
+          },
+          "matchesWon": {
+            "value": 190,
+            "displayValue": "190"
+          },
+          "rankPoints": {
+            "value": 4252,
+            "displayValue": "4,252"
+          },
+          "matchesLost": {
+            "value": 169,
+            "displayValue": "169"
+          },
+          "matchesPlayed": {
+            "value": 360,
+            "displayValue": "360"
+          },
+          "maxRankPoints": {
+            "value": 4323,
+            "displayValue": "4,323"
+          }
+        },
+        "metadata": {
+          "name": "Prep Phase",
+          "color": "#e87930",
+          "rankType": "rp",
+          "shortName": "Y10S1",
+          "seasonName": "Prep Phase"
+        },
+        "attributes": {
+          "season": 37,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 27,
+            "displayValue": "27"
+          },
+          "deaths": {
+            "value": 28,
+            "displayValue": "28"
+          },
+          "kdRatio": {
+            "value": 0.9642857142857143,
+            "displayValue": "0.96"
+          },
+          "matchesWon": {
+            "value": 3,
+            "displayValue": "3"
+          },
+          "rankPoints": {
+            "value": 1335,
+            "displayValue": "1,335"
+          },
+          "matchesLost": {
+            "value": 3,
+            "displayValue": "3"
+          },
+          "matchesPlayed": {
+            "value": 6,
+            "displayValue": "6"
+          },
+          "maxRankPoints": {
+            "value": 1335,
+            "displayValue": "1,335"
+          }
+        },
+        "metadata": {
+          "name": "Collision Point",
+          "color": "#c1922c",
+          "rankType": "rp",
+          "shortName": "Y9S4",
+          "seasonName": "Collision Point"
+        },
+        "attributes": {
+          "season": 36,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 305,
+            "displayValue": "305"
+          },
+          "deaths": {
+            "value": 225,
+            "displayValue": "225"
+          },
+          "kdRatio": {
+            "value": 1.3555555555555556,
+            "displayValue": "1.36"
+          },
+          "matchesWon": {
+            "value": 26,
+            "displayValue": "26"
+          },
+          "rankPoints": {
+            "value": 3098,
+            "displayValue": "3,098"
+          },
+          "matchesLost": {
+            "value": 31,
+            "displayValue": "31"
+          },
+          "matchesPlayed": {
+            "value": 57,
+            "displayValue": "57"
+          },
+          "maxRankPoints": {
+            "value": 3098,
+            "displayValue": "3,098"
+          }
+        },
+        "metadata": {
+          "name": "Twin Shells",
+          "color": "#9e3cc2",
+          "rankType": "rp",
+          "shortName": "Y9S3",
+          "seasonName": "Twin Shells"
+        },
+        "attributes": {
+          "season": 35,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 107,
+            "displayValue": "107"
+          },
+          "deaths": {
+            "value": 84,
+            "displayValue": "84"
+          },
+          "kdRatio": {
+            "value": 1.2738095238095237,
+            "displayValue": "1.27"
+          },
+          "matchesWon": {
+            "value": 8,
+            "displayValue": "8"
+          },
+          "rankPoints": {
+            "value": 1827,
+            "displayValue": "1,827"
+          },
+          "matchesLost": {
+            "value": 12,
+            "displayValue": "12"
+          },
+          "matchesPlayed": {
+            "value": 20,
+            "displayValue": "20"
+          },
+          "maxRankPoints": {
+            "value": 1835,
+            "displayValue": "1,835"
+          }
+        },
+        "metadata": {
+          "name": "New Blood",
+          "color": "#f58223",
+          "rankType": "rp",
+          "shortName": "Y9S2",
+          "seasonName": "New Blood"
+        },
+        "attributes": {
+          "season": 34,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 1357,
+            "displayValue": "1,357"
+          },
+          "deaths": {
+            "value": 1086,
+            "displayValue": "1,086"
+          },
+          "kdRatio": {
+            "value": 1.2495395948434622,
+            "displayValue": "1.25"
+          },
+          "matchesWon": {
+            "value": 131,
+            "displayValue": "131"
+          },
+          "rankPoints": {
+            "value": 3652,
+            "displayValue": "3,652"
+          },
+          "matchesLost": {
+            "value": 134,
+            "displayValue": "134"
+          },
+          "matchesPlayed": {
+            "value": 266,
+            "displayValue": "266"
+          },
+          "maxRankPoints": {
+            "value": 3998,
+            "displayValue": "3,998"
+          }
+        },
+        "metadata": {
+          "name": "Deadly Omen",
+          "color": "#f14b37",
+          "rankType": "rp",
+          "shortName": "Y9S1",
+          "seasonName": "Deadly Omen"
+        },
+        "attributes": {
+          "season": 33,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 525,
+            "displayValue": "525"
+          },
+          "deaths": {
+            "value": 352,
+            "displayValue": "352"
+          },
+          "kdRatio": {
+            "value": 1.4914772727272727,
+            "displayValue": "1.49"
+          },
+          "matchesWon": {
+            "value": 54,
+            "displayValue": "54"
+          },
+          "rankPoints": {
+            "value": 3921,
+            "displayValue": "3,921"
+          },
+          "matchesLost": {
+            "value": 39,
+            "displayValue": "39"
+          },
+          "matchesPlayed": {
+            "value": 93,
+            "displayValue": "93"
+          },
+          "maxRankPoints": {
+            "value": 3981,
+            "displayValue": "3,981"
+          }
+        },
+        "metadata": {
+          "name": "Deep Freeze",
+          "color": "#55a1aa",
+          "rankType": "rp",
+          "shortName": "Y8S4",
+          "seasonName": "Deep Freeze"
+        },
+        "attributes": {
+          "season": 32,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 606,
+            "displayValue": "606"
+          },
+          "deaths": {
+            "value": 397,
+            "displayValue": "397"
+          },
+          "kdRatio": {
+            "value": 1.526448362720403,
+            "displayValue": "1.53"
+          },
+          "matchesWon": {
+            "value": 48,
+            "displayValue": "48"
+          },
+          "rankPoints": {
+            "value": 3578,
+            "displayValue": "3,578"
+          },
+          "matchesLost": {
+            "value": 51,
+            "displayValue": "51"
+          },
+          "matchesPlayed": {
+            "value": 101,
+            "displayValue": "101"
+          },
+          "maxRankPoints": {
+            "value": 3635,
+            "displayValue": "3,635"
+          }
+        },
+        "metadata": {
+          "name": "Heavy Mettle",
+          "color": "#fe7e00",
+          "rankType": "rp",
+          "shortName": "Y8S3",
+          "seasonName": "Heavy Mettle"
+        },
+        "attributes": {
+          "season": 31,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 117,
+            "displayValue": "117"
+          },
+          "deaths": {
+            "value": 84,
+            "displayValue": "84"
+          },
+          "kdRatio": {
+            "value": 1.3928571428571428,
+            "displayValue": "1.39"
+          },
+          "matchesWon": {
+            "value": 14,
+            "displayValue": "14"
+          },
+          "rankPoints": {
+            "value": 2474,
+            "displayValue": "2,474"
+          },
+          "matchesLost": {
+            "value": 8,
+            "displayValue": "8"
+          },
+          "matchesPlayed": {
+            "value": 22,
+            "displayValue": "22"
+          },
+          "maxRankPoints": {
+            "value": 2482,
+            "displayValue": "2,482"
+          }
+        },
+        "metadata": {
+          "name": "Dread Factor",
+          "color": "#6432ef",
+          "rankType": "rp",
+          "shortName": "Y8S2",
+          "seasonName": "Dread Factor"
+        },
+        "attributes": {
+          "season": 30,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 148,
+            "displayValue": "148"
+          },
+          "deaths": {
+            "value": 113,
+            "displayValue": "113"
+          },
+          "kdRatio": {
+            "value": 1.3097345132743363,
+            "displayValue": "1.31"
+          },
+          "matchesWon": {
+            "value": 12,
+            "displayValue": "12"
+          },
+          "rankPoints": {
+            "value": 2191,
+            "displayValue": "2,191"
+          },
+          "matchesLost": {
+            "value": 15,
+            "displayValue": "15"
+          },
+          "matchesPlayed": {
+            "value": 29,
+            "displayValue": "29"
+          },
+          "maxRankPoints": {
+            "value": 2191,
+            "displayValue": "2,191"
+          }
+        },
+        "metadata": {
+          "name": "Commanding Force",
+          "color": "#45abf3",
+          "rankType": "rp",
+          "shortName": "Y8S1",
+          "seasonName": "Commanding Force"
+        },
+        "attributes": {
+          "season": 29,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 630,
+            "displayValue": "630"
+          },
+          "deaths": {
+            "value": 457,
+            "displayValue": "457"
+          },
+          "kdRatio": {
+            "value": 1.3785557986870898,
+            "displayValue": "1.38"
+          },
+          "matchesWon": {
+            "value": 62,
+            "displayValue": "62"
+          },
+          "rankPoints": {
+            "value": 3703,
+            "displayValue": "3,703"
+          },
+          "matchesLost": {
+            "value": 48,
+            "displayValue": "48"
+          },
+          "matchesPlayed": {
+            "value": 113,
+            "displayValue": "113"
+          },
+          "maxRankPoints": {
+            "value": 3766,
+            "displayValue": "3,766"
+          }
+        },
+        "metadata": {
+          "name": "Solar Raid",
+          "color": "#d03314",
+          "rankType": "rp",
+          "shortName": "Y7S4",
+          "seasonName": "Solar Raid"
+        },
+        "attributes": {
+          "season": 28,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 2543,
+            "displayValue": "2,543"
+          },
+          "kills": {
+            "value": 25,
+            "displayValue": "25"
+          },
+          "deaths": {
+            "value": 20,
+            "displayValue": "20"
+          },
+          "kdRatio": {
+            "value": 1.25,
+            "displayValue": "1.25"
+          },
+          "matchesWon": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "matchesLost": {
+            "value": 4,
+            "displayValue": "4"
+          },
+          "matchesPlayed": {
+            "value": 5,
+            "displayValue": "5"
+          }
+        },
+        "metadata": {
+          "name": "Brutal Swarm",
+          "color": "#dac925",
+          "rankType": "mmr",
+          "shortName": "Y7S3",
+          "seasonName": "Brutal Swarm"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 27,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3255,
+            "displayValue": "3,255"
+          },
+          "kills": {
+            "value": 71,
+            "displayValue": "71"
+          },
+          "deaths": {
+            "value": 52,
+            "displayValue": "52"
+          },
+          "maxMmr": {
+            "value": 3345,
+            "displayValue": "3,345"
+          },
+          "kdRatio": {
+            "value": 1.3653846153846154,
+            "displayValue": "1.37"
+          },
+          "matchesWon": {
+            "value": 10,
+            "displayValue": "10"
+          },
+          "matchesLost": {
+            "value": 6,
+            "displayValue": "6"
+          },
+          "matchesPlayed": {
+            "value": 16,
+            "displayValue": "16"
+          }
+        },
+        "metadata": {
+          "name": "Vector Glare",
+          "color": "#60cdb0",
+          "rankType": "mmr",
+          "shortName": "Y7S2",
+          "seasonName": "Vector Glare"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 26,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3356,
+            "displayValue": "3,356"
+          },
+          "kills": {
+            "value": 209,
+            "displayValue": "209"
+          },
+          "deaths": {
+            "value": 161,
+            "displayValue": "161"
+          },
+          "maxMmr": {
+            "value": 3533,
+            "displayValue": "3,533"
+          },
+          "kdRatio": {
+            "value": 1.2981366459627328,
+            "displayValue": "1.30"
+          },
+          "matchesWon": {
+            "value": 23,
+            "displayValue": "23"
+          },
+          "matchesLost": {
+            "value": 20,
+            "displayValue": "20"
+          },
+          "matchesPlayed": {
+            "value": 45,
+            "displayValue": "45"
+          }
+        },
+        "metadata": {
+          "name": "Demon Veil",
+          "color": "#ffb52c",
+          "rankType": "mmr",
+          "shortName": "Y7S1",
+          "seasonName": "Demon Veil"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 25,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3815,
+            "displayValue": "3,815"
+          },
+          "kills": {
+            "value": 496,
+            "displayValue": "496"
+          },
+          "deaths": {
+            "value": 367,
+            "displayValue": "367"
+          },
+          "maxMmr": {
+            "value": 3815,
+            "displayValue": "3,815"
+          },
+          "kdRatio": {
+            "value": 1.3514986376021798,
+            "displayValue": "1.35"
+          },
+          "matchesWon": {
+            "value": 57,
+            "displayValue": "57"
+          },
+          "matchesLost": {
+            "value": 46,
+            "displayValue": "46"
+          },
+          "matchesPlayed": {
+            "value": 103,
+            "displayValue": "103"
+          }
+        },
+        "metadata": {
+          "name": "High Calibre",
+          "color": "#587624",
+          "rankType": "mmr",
+          "shortName": "Y6S4",
+          "seasonName": "High Calibre"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 24,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3659,
+            "displayValue": "3,659"
+          },
+          "kills": {
+            "value": 71,
+            "displayValue": "71"
+          },
+          "deaths": {
+            "value": 38,
+            "displayValue": "38"
+          },
+          "maxMmr": {
+            "value": 3659,
+            "displayValue": "3,659"
+          },
+          "kdRatio": {
+            "value": 1.868421052631579,
+            "displayValue": "1.87"
+          },
+          "matchesWon": {
+            "value": 8,
+            "displayValue": "8"
+          },
+          "matchesLost": {
+            "value": 3,
+            "displayValue": "3"
+          },
+          "matchesPlayed": {
+            "value": 11,
+            "displayValue": "11"
+          }
+        },
+        "metadata": {
+          "name": "Crystal Guard",
+          "color": "#ffa200",
+          "rankType": "mmr",
+          "shortName": "Y6S3",
+          "seasonName": "Crystal Guard"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 23,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3642,
+            "displayValue": "3,642"
+          },
+          "kills": {
+            "value": 198,
+            "displayValue": "198"
+          },
+          "deaths": {
+            "value": 141,
+            "displayValue": "141"
+          },
+          "maxMmr": {
+            "value": 3742,
+            "displayValue": "3,742"
+          },
+          "kdRatio": {
+            "value": 1.4042553191489362,
+            "displayValue": "1.40"
+          },
+          "matchesWon": {
+            "value": 22,
+            "displayValue": "22"
+          },
+          "matchesLost": {
+            "value": 15,
+            "displayValue": "15"
+          },
+          "matchesPlayed": {
+            "value": 37,
+            "displayValue": "37"
+          }
+        },
+        "metadata": {
+          "name": "North Star",
+          "color": "#009cbe",
+          "rankType": "mmr",
+          "shortName": "Y6S2",
+          "seasonName": "North Star"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 22,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3242,
+            "displayValue": "3,242"
+          },
+          "kills": {
+            "value": 126,
+            "displayValue": "126"
+          },
+          "deaths": {
+            "value": 85,
+            "displayValue": "85"
+          },
+          "maxMmr": {
+            "value": 3404,
+            "displayValue": "3,404"
+          },
+          "kdRatio": {
+            "value": 1.4823529411764707,
+            "displayValue": "1.48"
+          },
+          "matchesWon": {
+            "value": 11,
+            "displayValue": "11"
+          },
+          "matchesLost": {
+            "value": 11,
+            "displayValue": "11"
+          },
+          "matchesPlayed": {
+            "value": 22,
+            "displayValue": "22"
+          }
+        },
+        "metadata": {
+          "name": "Crimson Heist",
+          "color": "#ac0000",
+          "rankType": "mmr",
+          "shortName": "Y6S1",
+          "seasonName": "Crimson Heist"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 21,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 4026,
+            "displayValue": "4,026"
+          },
+          "kills": {
+            "value": 515,
+            "displayValue": "515"
+          },
+          "deaths": {
+            "value": 377,
+            "displayValue": "377"
+          },
+          "maxMmr": {
+            "value": 4026,
+            "displayValue": "4,026"
+          },
+          "kdRatio": {
+            "value": 1.3660477453580901,
+            "displayValue": "1.37"
+          },
+          "matchesWon": {
+            "value": 57,
+            "displayValue": "57"
+          },
+          "matchesLost": {
+            "value": 44,
+            "displayValue": "44"
+          },
+          "matchesPlayed": {
+            "value": 101,
+            "displayValue": "101"
+          }
+        },
+        "metadata": {
+          "name": "Neon Dawn",
+          "color": "#d14007",
+          "rankType": "mmr",
+          "shortName": "Y5S4",
+          "seasonName": "Neon Dawn"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 20,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3073,
+            "displayValue": "3,073"
+          },
+          "kills": {
+            "value": 21,
+            "displayValue": "21"
+          },
+          "deaths": {
+            "value": 15,
+            "displayValue": "15"
+          },
+          "kdRatio": {
+            "value": 1.4,
+            "displayValue": "1.40"
+          },
+          "matchesWon": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "matchesLost": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "matchesPlayed": {
+            "value": 4,
+            "displayValue": "4"
+          }
+        },
+        "metadata": {
+          "name": "Shadow Legacy",
+          "color": "#6ca511",
+          "rankType": "mmr",
+          "shortName": "Y5S3",
+          "seasonName": "Shadow Legacy"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 19,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3570,
+            "displayValue": "3,570"
+          },
+          "kills": {
+            "value": 594,
+            "displayValue": "594"
+          },
+          "deaths": {
+            "value": 367,
+            "displayValue": "367"
+          },
+          "maxMmr": {
+            "value": 3690,
+            "displayValue": "3,690"
+          },
+          "kdRatio": {
+            "value": 1.6185286103542234,
+            "displayValue": "1.62"
+          },
+          "matchesWon": {
+            "value": 60,
+            "displayValue": "60"
+          },
+          "matchesLost": {
+            "value": 44,
+            "displayValue": "44"
+          },
+          "matchesPlayed": {
+            "value": 104,
+            "displayValue": "104"
+          }
+        },
+        "metadata": {
+          "name": "Steel Wave",
+          "color": "#2b7f9b",
+          "rankType": "mmr",
+          "shortName": "Y5S2",
+          "seasonName": "Steel Wave"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 18,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3298,
+            "displayValue": "3,298"
+          },
+          "kills": {
+            "value": 2473,
+            "displayValue": "2,473"
+          },
+          "deaths": {
+            "value": 1887,
+            "displayValue": "1,887"
+          },
+          "maxMmr": {
+            "value": 3586,
+            "displayValue": "3,586"
+          },
+          "kdRatio": {
+            "value": 1.3105458399576047,
+            "displayValue": "1.31"
+          },
+          "matchesWon": {
+            "value": 242,
+            "displayValue": "242"
+          },
+          "matchesLost": {
+            "value": 240,
+            "displayValue": "240"
+          },
+          "matchesPlayed": {
+            "value": 484,
+            "displayValue": "484"
+          }
+        },
+        "metadata": {
+          "name": "Void Edge",
+          "color": "#946a97",
+          "rankType": "mmr",
+          "shortName": "Y5S1",
+          "seasonName": "Void Edge"
+        },
+        "attributes": {
+          "region": "apac",
+          "season": 17,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3210,
+            "displayValue": "3,210"
+          },
+          "kills": {
+            "value": 2836,
+            "displayValue": "2,836"
+          },
+          "deaths": {
+            "value": 2299,
+            "displayValue": "2,299"
+          },
+          "maxMmr": {
+            "value": 3246,
+            "displayValue": "3,246"
+          },
+          "kdRatio": {
+            "value": 1.2335798173118748,
+            "displayValue": "1.23"
+          },
+          "matchesWon": {
+            "value": 311,
+            "displayValue": "311"
+          },
+          "matchesLost": {
+            "value": 289,
+            "displayValue": "289"
+          },
+          "matchesPlayed": {
+            "value": 600,
+            "displayValue": "600"
+          }
+        },
+        "metadata": {
+          "name": "Shifting Tides",
+          "color": "#089eb3",
+          "rankType": "mmr",
+          "shortName": "Y4S4",
+          "seasonName": "Shifting Tides"
+        },
+        "attributes": {
+          "region": "apac",
+          "season": 16,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3034,
+            "displayValue": "3,034"
+          },
+          "kills": {
+            "value": 750,
+            "displayValue": "750"
+          },
+          "deaths": {
+            "value": 582,
+            "displayValue": "582"
+          },
+          "maxMmr": {
+            "value": 3157,
+            "displayValue": "3,157"
+          },
+          "kdRatio": {
+            "value": 1.288659793814433,
+            "displayValue": "1.29"
+          },
+          "matchesWon": {
+            "value": 86,
+            "displayValue": "86"
+          },
+          "matchesLost": {
+            "value": 64,
+            "displayValue": "64"
+          },
+          "matchesPlayed": {
+            "value": 156,
+            "displayValue": "156"
+          }
+        },
+        "metadata": {
+          "name": "Ember Rise",
+          "color": "#156309",
+          "rankType": "mmr",
+          "shortName": "Y4S3",
+          "seasonName": "Ember Rise"
+        },
+        "attributes": {
+          "region": "apac",
+          "season": 15,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 2468,
+            "displayValue": "2,468"
+          },
+          "kills": {
+            "value": 362,
+            "displayValue": "362"
+          },
+          "deaths": {
+            "value": 326,
+            "displayValue": "326"
+          },
+          "maxMmr": {
+            "value": 3239,
+            "displayValue": "3,239"
+          },
+          "kdRatio": {
+            "value": 1.1104294478527608,
+            "displayValue": "1.11"
+          },
+          "matchesWon": {
+            "value": 41,
+            "displayValue": "41"
+          },
+          "matchesLost": {
+            "value": 43,
+            "displayValue": "43"
+          },
+          "matchesPlayed": {
+            "value": 87,
+            "displayValue": "87"
+          }
+        },
+        "metadata": {
+          "name": "Phantom Sight",
+          "color": "#304395",
+          "rankType": "mmr",
+          "shortName": "Y4S2",
+          "seasonName": "Phantom Sight"
+        },
+        "attributes": {
+          "region": "apac",
+          "season": 14,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 2232,
+            "displayValue": "2,232"
+          },
+          "kills": {
+            "value": 645,
+            "displayValue": "645"
+          },
+          "deaths": {
+            "value": 406,
+            "displayValue": "406"
+          },
+          "maxMmr": {
+            "value": 2616,
+            "displayValue": "2,616"
+          },
+          "kdRatio": {
+            "value": 1.5886699507389161,
+            "displayValue": "1.59"
+          },
+          "matchesWon": {
+            "value": 69,
+            "displayValue": "69"
+          },
+          "matchesLost": {
+            "value": 59,
+            "displayValue": "59"
+          },
+          "matchesPlayed": {
+            "value": 132,
+            "displayValue": "132"
+          }
+        },
+        "metadata": {
+          "name": "Burnt Horizon",
+          "color": "#d2005a",
+          "rankType": "mmr",
+          "shortName": "Y4S1",
+          "seasonName": "Burnt Horizon"
+        },
+        "attributes": {
+          "region": "apac",
+          "season": 13,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 2749,
+            "displayValue": "2,749"
+          },
+          "kills": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "deaths": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "kdRatio": {
+            "value": 0,
+            "displayValue": "0.00"
+          },
+          "matchesWon": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "matchesLost": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesPlayed": {
+            "value": 2,
+            "displayValue": "2"
+          }
+        },
+        "metadata": {
+          "name": "Wind Bastion",
+          "color": "#aa854f",
+          "rankType": "mmr",
+          "shortName": "Y3S4",
+          "seasonName": "Wind Bastion"
+        },
+        "attributes": {
+          "region": "apac",
+          "season": 12,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 2424,
+            "displayValue": "2,424"
+          },
+          "kills": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "deaths": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "maxMmr": {
+            "value": 3299,
+            "displayValue": "3,299"
+          },
+          "kdRatio": {
+            "value": 0,
+            "displayValue": "0.00"
+          },
+          "matchesWon": {
+            "value": 33,
+            "displayValue": "33"
+          },
+          "matchesLost": {
+            "value": 38,
+            "displayValue": "38"
+          },
+          "matchesPlayed": {
+            "value": 71,
+            "displayValue": "71"
+          }
+        },
+        "metadata": {
+          "name": "Grim Sky",
+          "color": "#81a0c1",
+          "rankType": "mmr",
+          "shortName": "Y3S3",
+          "seasonName": "Grim Sky"
+        },
+        "attributes": {
+          "region": "apac",
+          "season": 11,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 2535,
+            "displayValue": "2,535"
+          },
+          "kills": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "deaths": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "maxMmr": {
+            "value": 2863,
+            "displayValue": "2,863"
+          },
+          "kdRatio": {
+            "value": 0,
+            "displayValue": "0.00"
+          },
+          "matchesWon": {
+            "value": 8,
+            "displayValue": "8"
+          },
+          "matchesLost": {
+            "value": 6,
+            "displayValue": "6"
+          },
+          "matchesPlayed": {
+            "value": 15,
+            "displayValue": "15"
+          }
+        },
+        "metadata": {
+          "name": "Para Bellum",
+          "color": "#949f39",
+          "rankType": "mmr",
+          "shortName": "Y3S2",
+          "seasonName": "Para Bellum"
+        },
+        "attributes": {
+          "region": "apac",
+          "season": 10,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 2127,
+            "displayValue": "2,127"
+          },
+          "kills": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "deaths": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "maxMmr": {
+            "value": 2755,
+            "displayValue": "2,755"
+          },
+          "kdRatio": {
+            "value": 0,
+            "displayValue": "0.00"
+          },
+          "matchesWon": {
+            "value": 5,
+            "displayValue": "5"
+          },
+          "matchesLost": {
+            "value": 7,
+            "displayValue": "7"
+          },
+          "matchesPlayed": {
+            "value": 13,
+            "displayValue": "13"
+          }
+        },
+        "metadata": {
+          "name": "Chimera",
+          "color": "#ffc113",
+          "rankType": "mmr",
+          "shortName": "Y3S1",
+          "seasonName": "Chimera"
+        },
+        "attributes": {
+          "region": "apac",
+          "season": 9,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 2568,
+            "displayValue": "2,568"
+          },
+          "kills": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "deaths": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "maxMmr": {
+            "value": 2629,
+            "displayValue": "2,629"
+          },
+          "kdRatio": {
+            "value": 0,
+            "displayValue": "0.00"
+          },
+          "matchesWon": {
+            "value": 13,
+            "displayValue": "13"
+          },
+          "matchesLost": {
+            "value": 10,
+            "displayValue": "10"
+          },
+          "matchesPlayed": {
+            "value": 24,
+            "displayValue": "24"
+          }
+        },
+        "metadata": {
+          "name": "White Noise",
+          "color": "#006543",
+          "rankType": "mmr",
+          "shortName": "Y2S4",
+          "seasonName": "White Noise"
+        },
+        "attributes": {
+          "region": "apac",
+          "season": 8,
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "overview",
+        "stats": {
+          "kills": {
+            "value": 37398,
+            "displayValue": "37,398"
+          },
+          "deaths": {
+            "value": 27498,
+            "displayValue": "27,498"
+          },
+          "kdRatio": {
+            "value": 1.36,
+            "displayValue": "1.36"
+          },
+          "matchesWon": {
+            "value": 4373,
+            "displayValue": "4,373"
+          },
+          "matchesLost": {
+            "value": 3556,
+            "displayValue": "3,556"
+          },
+          "matchesPlayed": {
+            "value": 7976,
+            "displayValue": "7,976"
+          }
+        },
+        "metadata": {},
+        "attributes": {}
+      },
+      {
+        "type": "gamemode",
+        "stats": {
+          "kills": {
+            "value": 18983,
+            "displayValue": "18,983"
+          },
+          "deaths": {
+            "value": 14287,
+            "displayValue": "14,287"
+          },
+          "kdRatio": {
+            "value": 1.33,
+            "displayValue": "1.33"
+          },
+          "matchesWon": {
+            "value": 1893,
+            "displayValue": "1,893"
+          },
+          "matchesLost": {
+            "value": 886,
+            "displayValue": "886"
+          },
+          "matchesPlayed": {
+            "value": 3653,
+            "displayValue": "3,653"
+          }
+        },
+        "metadata": {},
+        "attributes": {
+          "gamemode": "pvp_ranked",
+          "sessionType": "ranked"
+        }
+      },
+      {
+        "type": "gamemode",
+        "stats": {
+          "kills": {
+            "value": 395,
+            "displayValue": "395"
+          },
+          "deaths": {
+            "value": 296,
+            "displayValue": "296"
+          },
+          "kdRatio": {
+            "value": 1.33,
+            "displayValue": "1.33"
+          },
+          "matchesWon": {
+            "value": 3,
+            "displayValue": "3"
+          },
+          "matchesLost": {
+            "value": 20,
+            "displayValue": "20"
+          },
+          "matchesPlayed": {
+            "value": 23,
+            "displayValue": "23"
+          }
+        },
+        "metadata": {},
+        "attributes": {
+          "gamemode": "pvp_warmup",
+          "sessionType": "arcade"
+        }
+      },
+      {
+        "type": "gamemode",
+        "stats": {
+          "kills": {
+            "value": 567,
+            "displayValue": "567"
+          },
+          "deaths": {
+            "value": 305,
+            "displayValue": "305"
+          },
+          "kdRatio": {
+            "value": 1.86,
+            "displayValue": "1.86"
+          },
+          "matchesWon": {
+            "value": 22,
+            "displayValue": "22"
+          },
+          "matchesLost": {
+            "value": 12,
+            "displayValue": "12"
+          },
+          "matchesPlayed": {
+            "value": 34,
+            "displayValue": "34"
+          }
+        },
+        "metadata": {},
+        "attributes": {
+          "gamemode": "pvp_event",
+          "sessionType": "event"
+        }
+      },
+      {
+        "type": "gamemode",
+        "stats": {
+          "kills": {
+            "value": 13561,
+            "displayValue": "13,561"
+          },
+          "deaths": {
+            "value": 10082,
+            "displayValue": "10,082"
+          },
+          "kdRatio": {
+            "value": 1.35,
+            "displayValue": "1.35"
+          },
+          "matchesWon": {
+            "value": 2038,
+            "displayValue": "2,038"
+          },
+          "matchesLost": {
+            "value": 1488,
+            "displayValue": "1,488"
+          },
+          "matchesPlayed": {
+            "value": 3554,
+            "displayValue": "3,554"
+          }
+        },
+        "metadata": {},
+        "attributes": {
+          "gamemode": "pvp_quickplay",
+          "sessionType": "quickplay"
+        }
+      },
+      {
+        "type": "gamemode",
+        "stats": {
+          "kills": {
+            "value": 415,
+            "displayValue": "415"
+          },
+          "deaths": {
+            "value": 200,
+            "displayValue": "200"
+          },
+          "kdRatio": {
+            "value": 2.08,
+            "displayValue": "2.08"
+          },
+          "matchesWon": {
+            "value": 20,
+            "displayValue": "20"
+          },
+          "matchesLost": {
+            "value": 12,
+            "displayValue": "12"
+          },
+          "matchesPlayed": {
+            "value": 32,
+            "displayValue": "32"
+          }
+        },
+        "metadata": {},
+        "attributes": {
+          "gamemode": "pvp_living_game_mode",
+          "sessionType": "dual-front"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 415,
+            "displayValue": "415"
+          },
+          "deaths": {
+            "value": 200,
+            "displayValue": "200"
+          },
+          "kdRatio": {
+            "value": 2.075,
+            "displayValue": "2.08"
+          },
+          "matchesWon": {
+            "value": 20,
+            "displayValue": "20"
+          },
+          "rankPoints": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 12,
+            "displayValue": "12"
+          },
+          "matchesPlayed": {
+            "value": 32,
+            "displayValue": "32"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Silent Hunt",
+          "color": "#a0daae",
+          "rankType": "rp",
+          "shortName": "Y11S1",
+          "seasonName": "Silent Hunt"
+        },
+        "attributes": {
+          "season": 41,
+          "gamemode": "pvp_living_game_mode",
+          "sessionType": "dual-front"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 474,
+            "displayValue": "474"
+          },
+          "deaths": {
+            "value": 224,
+            "displayValue": "224"
+          },
+          "kdRatio": {
+            "value": 2.1160714285714284,
+            "displayValue": "2.12"
+          },
+          "matchesWon": {
+            "value": 11,
+            "displayValue": "11"
+          },
+          "rankPoints": {
+            "value": null,
+            "displayValue": null
+          },
+          "matchesLost": {
+            "value": 9,
+            "displayValue": "9"
+          },
+          "matchesPlayed": {
+            "value": 20,
+            "displayValue": "20"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Silent Hunt",
+          "color": "#a0daae",
+          "rankType": "rp",
+          "shortName": "Y11S1",
+          "seasonName": "Silent Hunt"
+        },
+        "attributes": {
+          "season": 41,
+          "gamemode": "pvp_event",
+          "sessionType": "event"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 60,
+            "displayValue": "60"
+          },
+          "deaths": {
+            "value": 35,
+            "displayValue": "35"
+          },
+          "kdRatio": {
+            "value": 1.7142857142857142,
+            "displayValue": "1.71"
+          },
+          "matchesWon": {
+            "value": 12,
+            "displayValue": "12"
+          },
+          "rankPoints": {
+            "value": null,
+            "displayValue": null
+          },
+          "matchesLost": {
+            "value": 5,
+            "displayValue": "5"
+          },
+          "matchesPlayed": {
+            "value": 19,
+            "displayValue": "19"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Silent Hunt",
+          "color": "#a0daae",
+          "rankType": "rp",
+          "shortName": "Y11S1",
+          "seasonName": "Silent Hunt"
+        },
+        "attributes": {
+          "season": 41,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 350,
+            "displayValue": "350"
+          },
+          "deaths": {
+            "value": 255,
+            "displayValue": "255"
+          },
+          "kdRatio": {
+            "value": 1.3725490196078431,
+            "displayValue": "1.37"
+          },
+          "matchesWon": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "rankPoints": {
+            "value": null,
+            "displayValue": null
+          },
+          "matchesLost": {
+            "value": 19,
+            "displayValue": "19"
+          },
+          "matchesPlayed": {
+            "value": 20,
+            "displayValue": "20"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Silent Hunt",
+          "color": "#a0daae",
+          "rankType": "rp",
+          "shortName": "Y11S1",
+          "seasonName": "Silent Hunt"
+        },
+        "attributes": {
+          "season": 41,
+          "gamemode": "pvp_warmup",
+          "sessionType": "arcade"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 22,
+            "displayValue": "22"
+          },
+          "deaths": {
+            "value": 15,
+            "displayValue": "15"
+          },
+          "kdRatio": {
+            "value": 1.4666666666666666,
+            "displayValue": "1.47"
+          },
+          "matchesWon": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "rankPoints": {
+            "value": null,
+            "displayValue": null
+          },
+          "matchesLost": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesPlayed": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Tenfold Pursuit",
+          "color": "#8a717a",
+          "rankType": "rp",
+          "shortName": "Y10S4",
+          "seasonName": "Tenfold Pursuit"
+        },
+        "attributes": {
+          "season": 40,
+          "gamemode": "pvp_warmup",
+          "sessionType": "arcade"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 6,
+            "displayValue": "6"
+          },
+          "deaths": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "kdRatio": {
+            "value": 3,
+            "displayValue": "3.00"
+          },
+          "matchesWon": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "rankPoints": {
+            "value": null,
+            "displayValue": null
+          },
+          "matchesLost": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesPlayed": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Tenfold Pursuit",
+          "color": "#8a717a",
+          "rankType": "rp",
+          "shortName": "Y10S4",
+          "seasonName": "Tenfold Pursuit"
+        },
+        "attributes": {
+          "season": 40,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 19,
+            "displayValue": "19"
+          },
+          "deaths": {
+            "value": 12,
+            "displayValue": "12"
+          },
+          "kdRatio": {
+            "value": 1.5833333333333333,
+            "displayValue": "1.58"
+          },
+          "matchesWon": {
+            "value": 5,
+            "displayValue": "5"
+          },
+          "rankPoints": {
+            "value": null,
+            "displayValue": null
+          },
+          "matchesLost": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "matchesPlayed": {
+            "value": 6,
+            "displayValue": "6"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Daybreak",
+          "color": "#e55536",
+          "rankType": "rp",
+          "shortName": "Y10S2",
+          "seasonName": "Daybreak"
+        },
+        "attributes": {
+          "season": 38,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 67,
+            "displayValue": "67"
+          },
+          "deaths": {
+            "value": 50,
+            "displayValue": "50"
+          },
+          "kdRatio": {
+            "value": 1.34,
+            "displayValue": "1.34"
+          },
+          "matchesWon": {
+            "value": 8,
+            "displayValue": "8"
+          },
+          "rankPoints": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 10,
+            "displayValue": "10"
+          },
+          "matchesPlayed": {
+            "value": 20,
+            "displayValue": "20"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Prep Phase",
+          "color": "#e87930",
+          "rankType": "rp",
+          "shortName": "Y10S1",
+          "seasonName": "Prep Phase"
+        },
+        "attributes": {
+          "season": 37,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 26,
+            "displayValue": "26"
+          },
+          "deaths": {
+            "value": 8,
+            "displayValue": "8"
+          },
+          "kdRatio": {
+            "value": 3.25,
+            "displayValue": "3.25"
+          },
+          "matchesWon": {
+            "value": 6,
+            "displayValue": "6"
+          },
+          "rankPoints": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesPlayed": {
+            "value": 6,
+            "displayValue": "6"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Prep Phase",
+          "color": "#e87930",
+          "rankType": "rp",
+          "shortName": "Y10S1",
+          "seasonName": "Prep Phase"
+        },
+        "attributes": {
+          "season": 37,
+          "gamemode": "pvp_standard",
+          "sessionType": "standard"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 8,
+            "displayValue": "8"
+          },
+          "deaths": {
+            "value": 4,
+            "displayValue": "4"
+          },
+          "kdRatio": {
+            "value": 2,
+            "displayValue": "2.00"
+          },
+          "matchesWon": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "rankPoints": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesPlayed": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Collision Point",
+          "color": "#c1922c",
+          "rankType": "rp",
+          "shortName": "Y9S4",
+          "seasonName": "Collision Point"
+        },
+        "attributes": {
+          "season": 36,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 3,
+            "displayValue": "3"
+          },
+          "deaths": {
+            "value": 4,
+            "displayValue": "4"
+          },
+          "kdRatio": {
+            "value": 0.75,
+            "displayValue": "0.75"
+          },
+          "matchesWon": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "rankPoints": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "matchesPlayed": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Twin Shells",
+          "color": "#9e3cc2",
+          "rankType": "rp",
+          "shortName": "Y9S3",
+          "seasonName": "Twin Shells"
+        },
+        "attributes": {
+          "season": 35,
+          "gamemode": "pvp_event",
+          "sessionType": "event"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 10,
+            "displayValue": "10"
+          },
+          "deaths": {
+            "value": 4,
+            "displayValue": "4"
+          },
+          "kdRatio": {
+            "value": 2.5,
+            "displayValue": "2.50"
+          },
+          "matchesWon": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "rankPoints": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "matchesPlayed": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Twin Shells",
+          "color": "#9e3cc2",
+          "rankType": "rp",
+          "shortName": "Y9S3",
+          "seasonName": "Twin Shells"
+        },
+        "attributes": {
+          "season": 35,
+          "gamemode": "pvp_standard",
+          "sessionType": "standard"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 9,
+            "displayValue": "9"
+          },
+          "deaths": {
+            "value": 4,
+            "displayValue": "4"
+          },
+          "kdRatio": {
+            "value": 2.25,
+            "displayValue": "2.25"
+          },
+          "matchesWon": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "rankPoints": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "matchesPlayed": {
+            "value": 3,
+            "displayValue": "3"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Deadly Omen",
+          "color": "#f14b37",
+          "rankType": "rp",
+          "shortName": "Y9S1",
+          "seasonName": "Deadly Omen"
+        },
+        "attributes": {
+          "season": 33,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 4,
+            "displayValue": "4"
+          },
+          "deaths": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "kdRatio": {
+            "value": 2,
+            "displayValue": "2.00"
+          },
+          "matchesWon": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "rankPoints": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesPlayed": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Deadly Omen",
+          "color": "#f14b37",
+          "rankType": "rp",
+          "shortName": "Y9S1",
+          "seasonName": "Deadly Omen"
+        },
+        "attributes": {
+          "season": 33,
+          "gamemode": "pvp_event",
+          "sessionType": "event"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 34,
+            "displayValue": "34"
+          },
+          "deaths": {
+            "value": 18,
+            "displayValue": "18"
+          },
+          "kdRatio": {
+            "value": 1.8888888888888888,
+            "displayValue": "1.89"
+          },
+          "matchesWon": {
+            "value": 7,
+            "displayValue": "7"
+          },
+          "rankPoints": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "matchesPlayed": {
+            "value": 8,
+            "displayValue": "8"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Deep Freeze",
+          "color": "#55a1aa",
+          "rankType": "rp",
+          "shortName": "Y8S4",
+          "seasonName": "Deep Freeze"
+        },
+        "attributes": {
+          "season": 32,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 10,
+            "displayValue": "10"
+          },
+          "deaths": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "kdRatio": {
+            "value": 5,
+            "displayValue": "5.00"
+          },
+          "matchesWon": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "rankPoints": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesPlayed": {
+            "value": 4,
+            "displayValue": "4"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Heavy Mettle",
+          "color": "#fe7e00",
+          "rankType": "rp",
+          "shortName": "Y8S3",
+          "seasonName": "Heavy Mettle"
+        },
+        "attributes": {
+          "season": 31,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "deaths": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "kdRatio": {
+            "value": 0.5,
+            "displayValue": "0.50"
+          },
+          "matchesWon": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "rankPoints": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "matchesPlayed": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Heavy Mettle",
+          "color": "#fe7e00",
+          "rankType": "rp",
+          "shortName": "Y8S3",
+          "seasonName": "Heavy Mettle"
+        },
+        "attributes": {
+          "season": 31,
+          "gamemode": "pvp_event",
+          "sessionType": "event"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 56,
+            "displayValue": "56"
+          },
+          "deaths": {
+            "value": 22,
+            "displayValue": "22"
+          },
+          "kdRatio": {
+            "value": 2.5454545454545454,
+            "displayValue": "2.55"
+          },
+          "matchesWon": {
+            "value": 7,
+            "displayValue": "7"
+          },
+          "rankPoints": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "matchesPlayed": {
+            "value": 10,
+            "displayValue": "10"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Solar Raid",
+          "color": "#d03314",
+          "rankType": "rp",
+          "shortName": "Y7S4",
+          "seasonName": "Solar Raid"
+        },
+        "attributes": {
+          "season": 28,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 4649,
+            "displayValue": "4,649"
+          },
+          "kills": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "deaths": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "kdRatio": {
+            "value": 0,
+            "displayValue": "0.00"
+          },
+          "matchesWon": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesPlayed": {
+            "value": 1,
+            "displayValue": "1"
+          }
+        },
+        "metadata": {
+          "name": "Brutal Swarm",
+          "color": "#dac925",
+          "rankType": "mmr",
+          "shortName": "Y7S3",
+          "seasonName": "Brutal Swarm"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 27,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 4672,
+            "displayValue": "4,672"
+          },
+          "kills": {
+            "value": 3,
+            "displayValue": "3"
+          },
+          "deaths": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "kdRatio": {
+            "value": 1.5,
+            "displayValue": "1.50"
+          },
+          "matchesWon": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesPlayed": {
+            "value": 1,
+            "displayValue": "1"
+          }
+        },
+        "metadata": {
+          "name": "Vector Glare",
+          "color": "#60cdb0",
+          "rankType": "mmr",
+          "shortName": "Y7S2",
+          "seasonName": "Vector Glare"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 26,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3838,
+            "displayValue": "3,838"
+          },
+          "kills": {
+            "value": 11,
+            "displayValue": "11"
+          },
+          "deaths": {
+            "value": 10,
+            "displayValue": "10"
+          },
+          "kdRatio": {
+            "value": 1.1,
+            "displayValue": "1.10"
+          },
+          "matchesWon": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "matchesLost": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesPlayed": {
+            "value": 1,
+            "displayValue": "1"
+          }
+        },
+        "metadata": {
+          "name": "Vector Glare",
+          "color": "#60cdb0",
+          "rankType": "mmr",
+          "shortName": "Y7S2",
+          "seasonName": "Vector Glare"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 26,
+          "gamemode": "pvp_event",
+          "sessionType": "event"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 4668,
+            "displayValue": "4,668"
+          },
+          "kills": {
+            "value": 53,
+            "displayValue": "53"
+          },
+          "deaths": {
+            "value": 34,
+            "displayValue": "34"
+          },
+          "kdRatio": {
+            "value": 1.5588235294117647,
+            "displayValue": "1.56"
+          },
+          "matchesWon": {
+            "value": 11,
+            "displayValue": "11"
+          },
+          "matchesLost": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "matchesPlayed": {
+            "value": 16,
+            "displayValue": "16"
+          }
+        },
+        "metadata": {
+          "name": "Demon Veil",
+          "color": "#ffb52c",
+          "rankType": "mmr",
+          "shortName": "Y7S1",
+          "seasonName": "Demon Veil"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 25,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 2510,
+            "displayValue": "2,510"
+          },
+          "kills": {
+            "value": 23,
+            "displayValue": "23"
+          },
+          "deaths": {
+            "value": 26,
+            "displayValue": "26"
+          },
+          "kdRatio": {
+            "value": 0.8846153846153846,
+            "displayValue": "0.88"
+          },
+          "matchesWon": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "matchesLost": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "matchesPlayed": {
+            "value": 2,
+            "displayValue": "2"
+          }
+        },
+        "metadata": {
+          "name": "Demon Veil",
+          "color": "#ffb52c",
+          "rankType": "mmr",
+          "shortName": "Y7S1",
+          "seasonName": "Demon Veil"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 25,
+          "gamemode": "pvp_warmup",
+          "sessionType": "arcade"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 4252,
+            "displayValue": "4,252"
+          },
+          "kills": {
+            "value": 74,
+            "displayValue": "74"
+          },
+          "deaths": {
+            "value": 63,
+            "displayValue": "63"
+          },
+          "kdRatio": {
+            "value": 1.1746031746031746,
+            "displayValue": "1.17"
+          },
+          "matchesWon": {
+            "value": 9,
+            "displayValue": "9"
+          },
+          "matchesLost": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "matchesPlayed": {
+            "value": 10,
+            "displayValue": "10"
+          }
+        },
+        "metadata": {
+          "name": "Demon Veil",
+          "color": "#ffb52c",
+          "rankType": "mmr",
+          "shortName": "Y7S1",
+          "seasonName": "Demon Veil"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 25,
+          "gamemode": "pvp_event",
+          "sessionType": "event"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 4651,
+            "displayValue": "4,651"
+          },
+          "kills": {
+            "value": 1033,
+            "displayValue": "1,033"
+          },
+          "deaths": {
+            "value": 576,
+            "displayValue": "576"
+          },
+          "kdRatio": {
+            "value": 1.7934027777777777,
+            "displayValue": "1.79"
+          },
+          "matchesWon": {
+            "value": 189,
+            "displayValue": "189"
+          },
+          "matchesLost": {
+            "value": 67,
+            "displayValue": "67"
+          },
+          "matchesPlayed": {
+            "value": 268,
+            "displayValue": "268"
+          }
+        },
+        "metadata": {
+          "name": "High Calibre",
+          "color": "#587624",
+          "rankType": "mmr",
+          "shortName": "Y6S4",
+          "seasonName": "High Calibre"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 24,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 4303,
+            "displayValue": "4,303"
+          },
+          "kills": {
+            "value": 250,
+            "displayValue": "250"
+          },
+          "deaths": {
+            "value": 157,
+            "displayValue": "157"
+          },
+          "kdRatio": {
+            "value": 1.5923566878980893,
+            "displayValue": "1.59"
+          },
+          "matchesWon": {
+            "value": 43,
+            "displayValue": "43"
+          },
+          "matchesLost": {
+            "value": 23,
+            "displayValue": "23"
+          },
+          "matchesPlayed": {
+            "value": 68,
+            "displayValue": "68"
+          }
+        },
+        "metadata": {
+          "name": "Crystal Guard",
+          "color": "#ffa200",
+          "rankType": "mmr",
+          "shortName": "Y6S3",
+          "seasonName": "Crystal Guard"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 23,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3834,
+            "displayValue": "3,834"
+          },
+          "kills": {
+            "value": 38,
+            "displayValue": "38"
+          },
+          "deaths": {
+            "value": 41,
+            "displayValue": "41"
+          },
+          "kdRatio": {
+            "value": 0.926829268292683,
+            "displayValue": "0.93"
+          },
+          "matchesWon": {
+            "value": 10,
+            "displayValue": "10"
+          },
+          "matchesLost": {
+            "value": 8,
+            "displayValue": "8"
+          },
+          "matchesPlayed": {
+            "value": 18,
+            "displayValue": "18"
+          }
+        },
+        "metadata": {
+          "name": "Crystal Guard",
+          "color": "#ffa200",
+          "rankType": "mmr",
+          "shortName": "Y6S3",
+          "seasonName": "Crystal Guard"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 23,
+          "gamemode": "pvp_event",
+          "sessionType": "event"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 4249,
+            "displayValue": "4,249"
+          },
+          "kills": {
+            "value": 1107,
+            "displayValue": "1,107"
+          },
+          "deaths": {
+            "value": 736,
+            "displayValue": "736"
+          },
+          "kdRatio": {
+            "value": 1.5040760869565217,
+            "displayValue": "1.50"
+          },
+          "matchesWon": {
+            "value": 163,
+            "displayValue": "163"
+          },
+          "matchesLost": {
+            "value": 89,
+            "displayValue": "89"
+          },
+          "matchesPlayed": {
+            "value": 273,
+            "displayValue": "273"
+          }
+        },
+        "metadata": {
+          "name": "North Star",
+          "color": "#009cbe",
+          "rankType": "mmr",
+          "shortName": "Y6S2",
+          "seasonName": "North Star"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 22,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3549,
+            "displayValue": "3,549"
+          },
+          "kills": {
+            "value": 51,
+            "displayValue": "51"
+          },
+          "deaths": {
+            "value": 26,
+            "displayValue": "26"
+          },
+          "kdRatio": {
+            "value": 1.9615384615384615,
+            "displayValue": "1.96"
+          },
+          "matchesWon": {
+            "value": 4,
+            "displayValue": "4"
+          },
+          "matchesLost": {
+            "value": 6,
+            "displayValue": "6"
+          },
+          "matchesPlayed": {
+            "value": 12,
+            "displayValue": "12"
+          }
+        },
+        "metadata": {
+          "name": "North Star",
+          "color": "#009cbe",
+          "rankType": "mmr",
+          "shortName": "Y6S2",
+          "seasonName": "North Star"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 22,
+          "gamemode": "pvp_event",
+          "sessionType": "event"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 4120,
+            "displayValue": "4,120"
+          },
+          "kills": {
+            "value": 399,
+            "displayValue": "399"
+          },
+          "deaths": {
+            "value": 251,
+            "displayValue": "251"
+          },
+          "kdRatio": {
+            "value": 1.5896414342629481,
+            "displayValue": "1.59"
+          },
+          "matchesWon": {
+            "value": 45,
+            "displayValue": "45"
+          },
+          "matchesLost": {
+            "value": 27,
+            "displayValue": "27"
+          },
+          "matchesPlayed": {
+            "value": 74,
+            "displayValue": "74"
+          }
+        },
+        "metadata": {
+          "name": "Crimson Heist",
+          "color": "#ac0000",
+          "rankType": "mmr",
+          "shortName": "Y6S1",
+          "seasonName": "Crimson Heist"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 21,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3330,
+            "displayValue": "3,330"
+          },
+          "kills": {
+            "value": 81,
+            "displayValue": "81"
+          },
+          "deaths": {
+            "value": 74,
+            "displayValue": "74"
+          },
+          "kdRatio": {
+            "value": 1.0945945945945945,
+            "displayValue": "1.09"
+          },
+          "matchesWon": {
+            "value": 7,
+            "displayValue": "7"
+          },
+          "matchesLost": {
+            "value": 12,
+            "displayValue": "12"
+          },
+          "matchesPlayed": {
+            "value": 21,
+            "displayValue": "21"
+          }
+        },
+        "metadata": {
+          "name": "Neon Dawn",
+          "color": "#d14007",
+          "rankType": "mmr",
+          "shortName": "Y5S4",
+          "seasonName": "Neon Dawn"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 20,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 4218,
+            "displayValue": "4,218"
+          },
+          "kills": {
+            "value": 6,
+            "displayValue": "6"
+          },
+          "deaths": {
+            "value": 8,
+            "displayValue": "8"
+          },
+          "kdRatio": {
+            "value": 0.75,
+            "displayValue": "0.75"
+          },
+          "matchesWon": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "matchesLost": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesPlayed": {
+            "value": 3,
+            "displayValue": "3"
+          }
+        },
+        "metadata": {
+          "name": "Neon Dawn",
+          "color": "#d14007",
+          "rankType": "mmr",
+          "shortName": "Y5S4",
+          "seasonName": "Neon Dawn"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 20,
+          "gamemode": "pvp_event",
+          "sessionType": "event"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 4559,
+            "displayValue": "4,559"
+          },
+          "kills": {
+            "value": 1044,
+            "displayValue": "1,044"
+          },
+          "deaths": {
+            "value": 647,
+            "displayValue": "647"
+          },
+          "kdRatio": {
+            "value": 1.6136012364760433,
+            "displayValue": "1.61"
+          },
+          "matchesWon": {
+            "value": 117,
+            "displayValue": "117"
+          },
+          "matchesLost": {
+            "value": 73,
+            "displayValue": "73"
+          },
+          "matchesPlayed": {
+            "value": 198,
+            "displayValue": "198"
+          }
+        },
+        "metadata": {
+          "name": "Shadow Legacy",
+          "color": "#6ca511",
+          "rankType": "mmr",
+          "shortName": "Y5S3",
+          "seasonName": "Shadow Legacy"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 19,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3659,
+            "displayValue": "3,659"
+          },
+          "kills": {
+            "value": 112,
+            "displayValue": "112"
+          },
+          "deaths": {
+            "value": 47,
+            "displayValue": "47"
+          },
+          "kdRatio": {
+            "value": 2.382978723404255,
+            "displayValue": "2.38"
+          },
+          "matchesWon": {
+            "value": 13,
+            "displayValue": "13"
+          },
+          "matchesLost": {
+            "value": 7,
+            "displayValue": "7"
+          },
+          "matchesPlayed": {
+            "value": 28,
+            "displayValue": "28"
+          }
+        },
+        "metadata": {
+          "name": "Shadow Legacy",
+          "color": "#6ca511",
+          "rankType": "mmr",
+          "shortName": "Y5S3",
+          "seasonName": "Shadow Legacy"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 19,
+          "gamemode": "pvp_event",
+          "sessionType": "event"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "mmr": {
+            "value": 3677,
+            "displayValue": "3,677"
+          },
+          "kills": {
+            "value": 197,
+            "displayValue": "197"
+          },
+          "deaths": {
+            "value": 81,
+            "displayValue": "81"
+          },
+          "kdRatio": {
+            "value": 2.432098765432099,
+            "displayValue": "2.43"
+          },
+          "matchesWon": {
+            "value": 15,
+            "displayValue": "15"
+          },
+          "matchesLost": {
+            "value": 12,
+            "displayValue": "12"
+          },
+          "matchesPlayed": {
+            "value": 31,
+            "displayValue": "31"
+          }
+        },
+        "metadata": {
+          "name": "Steel Wave",
+          "color": "#2b7f9b",
+          "rankType": "mmr",
+          "shortName": "Y5S2",
+          "seasonName": "Steel Wave"
+        },
+        "attributes": {
+          "region": "global",
+          "season": 18,
+          "gamemode": "pvp_casual",
+          "sessionType": "quick-match"
+        }
+      }
+    ],
+    "platformInfo": {
+      "avatarUrl": "https://ubisoft-avatars.akamaized.net/933f2045-c1a5-4b22-87cb-9dc8eb35e4fb/default_256_256.png",
+      "platformSlug": "ubi",
+      "platformUserId": "933f2045-c1a5-4b22-87cb-9dc8eb35e4fb",
+      "platformUserHandle": "Amlenk"
+    }
+  }
+}
