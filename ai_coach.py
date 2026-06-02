@@ -146,9 +146,11 @@ def get_ai_coaching(player_stats: dict, api_key: str = None) -> str:
     Returns:
         Markdown string with coaching content, or None on failure.
     """
+    env = load_env()
     if not api_key:
-        env = load_env()
         api_key = env.get("GEMINI_API_KEY", "")
+    
+    model_name = env.get("GEMINI_MODEL", "gemini-2.5-pro")
     
     if not api_key:
         print("  [AI Coach] No GEMINI_API_KEY found. Skipping AI coaching.")
@@ -162,11 +164,11 @@ def get_ai_coaching(player_stats: dict, api_key: str = None) -> str:
             import google.generativeai as genai_legacy
             genai_legacy.configure(api_key=api_key)
             model = genai_legacy.GenerativeModel(
-                model_name="gemini-2.0-flash",
+                model_name=model_name,
                 generation_config={"temperature": 0.85, "top_p": 0.95, "max_output_tokens": 3000}
             )
             prompt = _build_coaching_prompt(player_stats)
-            print(f"  [AI Coach] Sending prompt to Gemini (legacy SDK)...")
+            print(f"  [AI Coach] Sending prompt to Gemini ({model_name} - legacy SDK)...")
             response = model.generate_content(prompt)
             return response.text.strip()
         except Exception as e2:
@@ -176,14 +178,14 @@ def get_ai_coaching(player_stats: dict, api_key: str = None) -> str:
     try:
         client = genai.Client(api_key=api_key)
         prompt = _build_coaching_prompt(player_stats)
-        print(f"  [AI Coach] Sending prompt to Gemini (model: gemini-2.0-flash)...")
+        print(f"  [AI Coach] Sending prompt to Gemini (model: {model_name})...")
         
         # Retry up to 3 times for rate limit errors
         import time
         for attempt in range(3):
             try:
                 response = client.models.generate_content(
-                    model="gemini-2.0-flash",
+                    model=model_name,
                     contents=prompt,
                     config=types.GenerateContentConfig(
                         temperature=0.85,
@@ -325,9 +327,11 @@ def get_ai_stack_analysis(stack_stats: list, api_key: str = None) -> str:
     if not stack_stats:
         return None
 
+    env = load_env()
     if not api_key:
-        env = load_env()
         api_key = env.get("GEMINI_API_KEY", "")
+    
+    model_name = env.get("GEMINI_MODEL", "gemini-2.5-pro")
 
     if not api_key:
         print("  [AI Stack Analysis] No GEMINI_API_KEY found. Using static fallback.")
@@ -366,9 +370,9 @@ Format as markdown with clear headers. Be specific and data-grounded.
         from google import genai
         from google.genai import types
         client = genai.Client(api_key=api_key)
-        print(f"  [AI Stack Analysis] Sending stack prompt to Gemini (modern SDK)...")
+        print(f"  [AI Stack Analysis] Sending stack prompt to Gemini ({model_name} - modern SDK)...")
         response = client.models.generate_content(
-            model="gemini-2.0-flash",
+            model=model_name,
             contents=prompt,
             config=types.GenerateContentConfig(
                 temperature=0.85,
@@ -381,8 +385,8 @@ Format as markdown with clear headers. Be specific and data-grounded.
         try:
             import google.generativeai as genai_legacy
             genai_legacy.configure(api_key=api_key)
-            model = genai_legacy.GenerativeModel("gemini-2.0-flash")
-            print(f"  [AI Stack Analysis] Sending stack prompt to Gemini (legacy SDK)...")
+            model = genai_legacy.GenerativeModel(model_name)
+            print(f"  [AI Stack Analysis] Sending stack prompt to Gemini ({model_name} - legacy SDK)...")
             response = model.generate_content(prompt)
             return response.text.strip()
         except Exception as e2:

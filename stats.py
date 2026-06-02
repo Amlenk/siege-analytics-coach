@@ -19,7 +19,8 @@ def process_entry(entry):
         "platform": entry.get("platform", "ubi"),
         "kd": float(entry.get("overall_kd", 0.0)),
         "win_rate": entry.get("win_rate", "0%"),
-        "ranked_rating": entry.get("ranked_rating", "UNRANKED")
+        "ranked_rating": entry.get("ranked_rating", "UNRANKED"),
+        "level": entry.get("lifetime_overall", {}).get("level", entry.get("level", 0))
     }
     
     # Process Operators
@@ -78,6 +79,13 @@ def process_entry(entry):
     maps_raw = entry.get("maps", [])
     processed_maps = []
     
+    COMPETITIVE_MAPS = [
+        "Oregon", "Border", "Kafe Dostoyevsky", "Clubhouse", "Coastline", 
+        "Chalet", "Nighthaven Labs", "Villa", "Consulate", "Bank", 
+        "Kanal", "Skyscraper", "Lair", "Theme Park", "Fortress", 
+        "Outback", "Emerald Plains"
+    ]
+    
     for m in maps_raw:
         name = m.get("name", "").strip()
         
@@ -119,6 +127,29 @@ def process_entry(entry):
             "success_index": success_index
         })
         
+    # Backfill missing competitive maps to guarantee exactly 17 competitive maps
+    for map_name in COMPETITIVE_MAPS:
+        if not any(x["name"].lower() == map_name.lower() for x in processed_maps):
+            processed_maps.append({
+                "name": map_name,
+                "matches": 0,
+                "wins": 0,
+                "losses": 0,
+                "win_rate": "0.0%",
+                "win_rate_float": 0.0,
+                "win_pct": 0.0,
+                "kd_ratio": 0.0,
+                "kd_float": 0.0,
+                "attack_win_rate": "0.0%",
+                "attack_win_pct": 0.0,
+                "defense_win_rate": "0.0%",
+                "defence_win_pct": 0.0,
+                "headshot_percentage": "0.0%",
+                "esr": 0.0,
+                "kills_per_round": 0.0,
+                "success_index": 0.0
+            })
+            
     return {
         "summary": summary,
         "operators": processed_operators,

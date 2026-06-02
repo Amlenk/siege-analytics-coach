@@ -2,44 +2,44 @@
   "data": {
     "metadata": {
       "currentSeason": 41,
-      "clearanceLevel": 702,
-      "battlepassLevel": 449
+      "clearanceLevel": 705,
+      "battlepassLevel": 471
     },
     "segments": [
       {
         "type": "season",
         "stats": {
           "kills": {
-            "value": 3166,
-            "displayValue": "3,166"
+            "value": 3307,
+            "displayValue": "3,307"
           },
           "deaths": {
-            "value": 2352,
-            "displayValue": "2,352"
+            "value": 2441,
+            "displayValue": "2,441"
           },
           "kdRatio": {
-            "value": 1.3460884353741496,
+            "value": 1.3547726341663253,
             "displayValue": "1.35"
           },
           "matchesWon": {
-            "value": 282,
-            "displayValue": "282"
+            "value": 295,
+            "displayValue": "295"
           },
           "rankPoints": {
-            "value": 4516,
-            "displayValue": "4,516"
+            "value": 4525,
+            "displayValue": "4,525"
           },
           "matchesLost": {
-            "value": 296,
-            "displayValue": "296"
+            "value": 305,
+            "displayValue": "305"
           },
           "matchesPlayed": {
-            "value": 579,
-            "displayValue": "579"
+            "value": 601,
+            "displayValue": "601"
           },
           "maxRankPoints": {
-            "value": 4545,
-            "displayValue": "4,545"
+            "value": 4546,
+            "displayValue": "4,546"
           }
         },
         "metadata": {
@@ -1586,28 +1586,28 @@
         "type": "overview",
         "stats": {
           "kills": {
-            "value": 37398,
-            "displayValue": "37,398"
+            "value": 37486,
+            "displayValue": "37,486"
           },
           "deaths": {
-            "value": 27498,
-            "displayValue": "27,498"
+            "value": 27558,
+            "displayValue": "27,558"
           },
           "kdRatio": {
             "value": 1.36,
             "displayValue": "1.36"
           },
           "matchesWon": {
-            "value": 4373,
-            "displayValue": "4,373"
+            "value": 4376,
+            "displayValue": "4,376"
           },
           "matchesLost": {
-            "value": 3556,
-            "displayValue": "3,556"
+            "value": 3560,
+            "displayValue": "3,560"
           },
           "matchesPlayed": {
-            "value": 7976,
-            "displayValue": "7,976"
+            "value": 7981,
+            "displayValue": "7,981"
           }
         },
         "metadata": {},
@@ -1617,28 +1617,28 @@
         "type": "gamemode",
         "stats": {
           "kills": {
-            "value": 18983,
-            "displayValue": "18,983"
+            "value": 19124,
+            "displayValue": "19,124"
           },
           "deaths": {
-            "value": 14287,
-            "displayValue": "14,287"
+            "value": 14376,
+            "displayValue": "14,376"
           },
           "kdRatio": {
             "value": 1.33,
             "displayValue": "1.33"
           },
           "matchesWon": {
-            "value": 1893,
-            "displayValue": "1,893"
+            "value": 1906,
+            "displayValue": "1,906"
           },
           "matchesLost": {
-            "value": 886,
-            "displayValue": "886"
+            "value": 895,
+            "displayValue": "895"
           },
           "matchesPlayed": {
-            "value": 3653,
-            "displayValue": "3,653"
+            "value": 3675,
+            "displayValue": "3,675"
           }
         },
         "metadata": {},
@@ -1719,28 +1719,28 @@
         "type": "gamemode",
         "stats": {
           "kills": {
-            "value": 13561,
-            "displayValue": "13,561"
+            "value": 13508,
+            "displayValue": "13,508"
           },
           "deaths": {
-            "value": 10082,
-            "displayValue": "10,082"
+            "value": 10053,
+            "displayValue": "10,053"
           },
           "kdRatio": {
-            "value": 1.35,
-            "displayValue": "1.35"
+            "value": 1.34,
+            "displayValue": "1.34"
           },
           "matchesWon": {
-            "value": 2038,
-            "displayValue": "2,038"
+            "value": 2028,
+            "displayValue": "2,028"
           },
           "matchesLost": {
-            "value": 1488,
-            "displayValue": "1,488"
+            "value": 1483,
+            "displayValue": "1,483"
           },
           "matchesPlayed": {
-            "value": 3554,
-            "displayValue": "3,554"
+            "value": 3537,
+            "displayValue": "3,537"
           }
         },
         "metadata": {},
@@ -1781,6 +1781,55 @@
         "attributes": {
           "gamemode": "pvp_living_game_mode",
           "sessionType": "dual-front"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 350,
+            "displayValue": "350"
+          },
+          "deaths": {
+            "value": 255,
+            "displayValue": "255"
+          },
+          "kdRatio": {
+            "value": 1.3725490196078431,
+            "displayValue": "1.37"
+          },
+          "matchesWon": {
+            "value": 1,
+            "displayValue": "1"
+          },
+          "rankPoints": {
+            "value": null,
+            "displayValue": null
+          },
+          "matchesLost": {
+            "value": 19,
+            "displayValue": "19"
+          },
+          "matchesPlayed": {
+            "value": 20,
+            "displayValue": "20"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Silent Hunt",
+          "color": "#a0daae",
+          "rankType": "rp",
+          "shortName": "Y11S1",
+          "seasonName": "Silent Hunt"
+        },
+        "attributes": {
+          "season": 41,
+          "gamemode": "pvp_warmup",
+          "sessionType": "arcade"
         }
       },
       {
@@ -1830,6 +1879,55 @@
           "season": 41,
           "gamemode": "pvp_living_game_mode",
           "sessionType": "dual-front"
+        }
+      },
+      {
+        "type": "season",
+        "stats": {
+          "kills": {
+            "value": 7,
+            "displayValue": "7"
+          },
+          "deaths": {
+            "value": 6,
+            "displayValue": "6"
+          },
+          "kdRatio": {
+            "value": 1.1666666666666667,
+            "displayValue": "1.17"
+          },
+          "matchesWon": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "rankPoints": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesLost": {
+            "value": 0,
+            "displayValue": "0"
+          },
+          "matchesPlayed": {
+            "value": 2,
+            "displayValue": "2"
+          },
+          "maxRankPoints": {
+            "value": null,
+            "displayValue": null
+          }
+        },
+        "metadata": {
+          "name": "Silent Hunt",
+          "color": "#a0daae",
+          "rankType": "rp",
+          "shortName": "Y11S1",
+          "seasonName": "Silent Hunt"
+        },
+        "attributes": {
+          "season": 41,
+          "gamemode": "pvp_standard",
+          "sessionType": "standard"
         }
       },
       {
@@ -1928,55 +2026,6 @@
           "season": 41,
           "gamemode": "pvp_casual",
           "sessionType": "quick-match"
-        }
-      },
-      {
-        "type": "season",
-        "stats": {
-          "kills": {
-            "value": 350,
-            "displayValue": "350"
-          },
-          "deaths": {
-            "value": 255,
-            "displayValue": "255"
-          },
-          "kdRatio": {
-            "value": 1.3725490196078431,
-            "displayValue": "1.37"
-          },
-          "matchesWon": {
-            "value": 1,
-            "displayValue": "1"
-          },
-          "rankPoints": {
-            "value": null,
-            "displayValue": null
-          },
-          "matchesLost": {
-            "value": 19,
-            "displayValue": "19"
-          },
-          "matchesPlayed": {
-            "value": 20,
-            "displayValue": "20"
-          },
-          "maxRankPoints": {
-            "value": null,
-            "displayValue": null
-          }
-        },
-        "metadata": {
-          "name": "Silent Hunt",
-          "color": "#a0daae",
-          "rankType": "rp",
-          "shortName": "Y11S1",
-          "seasonName": "Silent Hunt"
-        },
-        "attributes": {
-          "season": 41,
-          "gamemode": "pvp_warmup",
-          "sessionType": "arcade"
         }
       },
       {

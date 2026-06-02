@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate R6 Sensitivity & ADS Focal-Scaling Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@600;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #070913;
+            --bg-secondary: #0e1227;
+            --bg-card: rgba(22, 28, 59, 0.45);
+            --bg-card-hover: rgba(27, 35, 73, 0.6);
+            --border: rgba(74, 144, 226, 0.15);
+            --border-glow: rgba(74, 144, 226, 0.45);
+            --primary: #4a90e2;
+            --primary-glow: rgba(74, 144, 226, 0.3);
+            --accent: #f59e0b;
+            --accent-glow: rgba(245, 158, 11, 0.3);
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-purple: #8b5cf6;
+            --text-primary: #f0f2ff;
+            --text-secondary: #a3b3d9;
+            --text-muted: #5d6e9c;
+            --shadow-glow: 0 0 30px rgba(74, 144, 226, 0.1);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --radius: 16px;
+            --radius-sm: 8px;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(74, 144, 226, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 40%);
+        }
+
+        /* ── Header ── */
+        header {
+            border-bottom: 1px solid var(--border);
+            background: rgba(14, 18, 39, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 1.25rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-title-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-logo {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            color: white;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        header h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            background: linear-gradient(135deg, #ffffff 0%, #a3b3d9 50%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, #3578c8 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+            border-color: var(--border-glow);
+        }
+
+        /* ── Grid Layout ── */
+        .container {
+            max-width: 1560px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1100px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* ── Cards ── */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-card);
+            backdrop-filter: blur(16px);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            border-color: var(--border-glow);
+            box-shadow: var(--shadow-glow), var(--shadow-card);
+        }
+
+        .card-title-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 0.75rem;
+        }
+
+        .card-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title svg {
+            color: var(--primary);
+        }
+
+        /* ── Inputs & UI Components ── */
+        .form-group {
+            margin-bottom: 1.1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.76rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="number"], select {
+            width: 100%;
+            background: rgba(7, 9, 19, 0.6);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 8px 12px;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        input[type="number"]:focus, select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 10px rgba(74, 144, 226, 0.15);
+            background: rgba(7, 9, 19, 0.9);
+        }
+
+        .slider-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--primary);
+            transition: all 0.1s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.25);
+        }
+
+        /* ── Dynamic Stats Displays ── */
+        .stat-banner {
+            background: rgba(74, 144, 226, 0.05);
+            border: 1px dashed rgba(74, 144, 226, 0.2);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .stat-banner-label {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .stat-banner-value {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        /* ── Main Section Grid layout ── */
+        .right-layout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1400px) {
+            .right-layout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── Converter Toggles & Tabs ── */
+        .tabs-header {
+            display: flex;
+            background: rgba(7, 9, 19, 0.4);
+            border: 1px solid var(--border);
+            padding: 4px;
+            border-radius: var(--radius-sm);
+            gap: 4px;
+            margin-bottom: 1.25rem;
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background: var(--bg-secondary);
+            color: var(--primary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            border: 1px solid rgba(74, 144, 226, 0.15);
+        }
+
+        /* ── Diagnostics / Alerts ── */
+        .alert-box {
+            display: flex;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 0.76rem;
+            line-height: 1.4;
+            margin-top: 1rem;
+        }
+
+        .alert-safe {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            color: var(--accent-green);
+        }
+
+        .alert-warning {
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            color: var(--accent);
+        }
+
+        .alert-critical {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            color: var(--accent-red);
+        }
+
+        /* ── Advanced Multiplier Ini Tuner ── */
+        .ini-tuner {
+            background: rgba(7, 9, 19, 0.5);
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .ini-code {
+            background: #03050a;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            color: var(--accent-green);
+            margin-top: 8px;
+            border-left: 3px solid var(--accent-green);
+            overflow-x: auto;
+        }
+
+        /* ── ADS Table Grid ── */
+        .ads-grid {
+            display: grid;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+
+        .ads-row {
+            display: grid;
+            grid-template-columns: 80px 70px 1fr 90px;
+            align-items: center;
+            background: rgba(7, 9, 19, 0.35);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 8px 12px;
+            gap: 12px;
+            transition: all 0.15s ease;
+        }
+
+        .ads-row:hover {
+            background: rgba(7, 9, 19, 0.6);
+            border-color: rgba(74, 144, 226, 0.35);
+        }
+
+        .ads-optic-name {
+            font-family: 'Orbitron', monospace;
+            font-weight: 800;
+            font-size: 0.78rem;
+            color: var(--text-primary);
+        }
+
+        .ads-optic-zoom {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            background: rgba(255,255,255,0.03);
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .ads-output-val {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-align: right;
+            text-shadow: 0 0 10px rgba(74, 144, 226, 0.2);
+        }
+
+        .ads-output-dist {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            text-align: right;
+        }
+
+        /* ── Interactive 3D/2D Simulator Section ── */
+        .simulator-card {
+            grid-column: 1 / -1;
+        }
+
+        .sim-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+            background: #03050a;
+            border-radius: var(--radius-sm);
+            padding: 10px;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        @media (max-width: 900px) {
+            .sim-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .canvas-wrapper {
+            position: relative;
+            background: #070912;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .canvas-hud {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.68rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.05em;
+            text-shadow: 0 1px 4px black;
+        }
+
+        .hud-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        canvas {
+            width: 100%;
+            height: 280px;
+            background: #020306;
+            cursor: crosshair;
+            display: block;
+        }
+
+        .canvas-toolbar {
+            background: rgba(14, 18, 39, 0.9);
+            border-top: 1px solid var(--border);
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .sim-meta-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            justify-content: center;
+        }
+
+        .sim-stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 4px;
+            font-size: 0.74rem;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .sim-stat-label {
+            color: var(--text-secondary);
+        }
+
+        .sim-stat-value {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .sim-tip {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            padding: 8px 10px;
+            background: rgba(74, 144, 226, 0.02);
+            border-radius: 4px;
+            border-left: 2px solid var(--primary);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-title-group">
+            <div class="header-logo">🎯</div>
+            <h1>R6 ADVANCED SENSITIVITY & ADS FOCAL SCALER</h1>
+        </div>
+        <div class="header-nav">
+            <a href="/" class="btn btn-secondary">🚪 Back to Portal</a>
+            <a href="/api/players" class="btn btn-secondary" target="_blank">📊 Raw Stats API</a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- ── Left Column: Configuration inputs ── -->
+        <div class="left-panel">
+            
+            <div class="card">
+                <div class="card-title-group" style="margin-bottom: 1rem;">
+                    <div class="card-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                        Base Mouse Config
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="inputDpi">Mouse DPI</label>
+                    <input type="number" id="inputDpi" value="800" min="100" max="25600" step="50" oninput="calculateAll()">
+                    <div class="slider-group">
+                        <input type="range" id="sliderDpi" min="400" max="3200" step="100" value="800" oninput="syncInputs('Dpi')">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputHipfireV">Vertical Hipfire</label>
+                        <input type="number" id="inputHipfireV" value="10" min="1" max="100" oninput="calculateAll()">
+                        <div class="slider-group">
+                            <input type="range" id="sliderHipfireV" min="1" max="100" value="10" oninput="syncInputs('HipfireV')">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputHipfireH">Horizontal Hipfire</label>
+                        <input type="number" id="inputHipfireH" value="10" min="1" max="100" oninput="calculateAll()">
+                        <div class="slider-group">
+                            <input type="range" id="sliderHipfireH" min="1" max="100" value="10" oninput="syncInputs('HipfireH')">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputMultiplier">Sens Multiplier</label>
+                        <input type="number" id="inputMultiplier" value="0.02" step="0.0001" oninput="calculateAll()">
+                        <select id="selectMultiplierPreset" style="margin-top: 6px;" onchange="applyMultiplierPreset()">
+                            <option value="0.02">0.02 (Default)</option>
+                            <option value="0.00223">0.00223 (CS Match)</option>
+                            <option value="0.002">0.002 (Granular)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputXFactor">XFactorAiming</label>
+                        <input type="number" id="inputXFactor" value="0.02" step="0.0001" oninput="calculateAll()">
+                    </div>
+                </div>
+
+                <div class="stat-banner">
+                    <span class="stat-banner-label">Hipfire Physical Rotation</span>
+                    <span class="stat-banner-value" id="valHipfireCm">19.95 <span style="font-size:0.8rem; font-family:'Inter'">cm/360</span></span>
+                    <span class="stat-banner-label" style="margin-top: 2px;" id="valHipfireIn">7.85 in/360</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title-group" style="margin-bottom: 1rem;">
+                    <div class="card-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+                        Display & FOV
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputFov">Vertical FOV (in-game)</label>
+                    <input type="number" id="inputFov" value="84" min="60" max="90" oninput="calculateAll()">
+                    <div class="slider-group">
+                        <input type="range" id="sliderFov" min="60" max="90" value="84" oninput="syncInputs('Fov')">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="selectAspect">Display Aspect Ratio</label>
+                    <select id="selectAspect" onchange="calculateAll()">
+                        <option value="16:9">16:9 (Default Widescreen)</option>
+                        <option value="16:10">16:10 (More Vertical space)</option>
+                        <option value="4:3">4:3 (Competitive Stretched)</option>
+                        <option value="5:4">5:4 (Ultra Stretched)</option>
+                        <option value="21:9">21:9 (Ultrawide)</option>
+                    </select>
+                </div>
+                
+                <div class="stat-banner" style="background: rgba(139, 92, 246, 0.05); border-color: rgba(139, 92, 246, 0.2);">
+                    <span class="stat-banner-label">Effective Horizontal FOV</span>
+                    <span class="stat-banner-value" style="color: var(--accent-purple);" id="valHorizFov">112.9°</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ── Right Column: Converter and output ADS sliders ── -->
+        <div class="right-panel">
+            
+            <div class="right-layout-grid">
+                
+                <!-- Multi-Game Converter -->
+                <div class="card">
+                    <div class="card-title-group">
+                        <div class="card-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/></svg>
+                            Aim Muscle Memory Matcher
+                        </div>
+                    </div>
+
+                    <div class="tabs-header">
+                        <button class="tab-btn active" onclick="switchConverterTab('valorant')">Valorant</button>
+                        <button class="tab-btn" onclick="switchConverterTab('cs2')">CS2 / Apex</button>
+                        <button class="tab-btn" onclick="switchConverterTab('overwatch')">Overwatch 2</button>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label id="labelConvertSens">Valorant Sensitivity</label>
+                            <input type="number" id="inputConvertSens" value="0.314" step="0.001" oninput="calculateConversion()">
+                        </div>
+                        <div class="form-group">
+                            <label>Source Mouse DPI</label>
+                            <input type="number" id="inputConvertDpi" value="800" min="100" oninput="calculateConversion()">
+                        </div>
+                    </div>
+
+                    <div class="stat-banner" style="background: rgba(245, 158, 11, 0.05); border-color: rgba(245, 158, 11, 0.2);">
+                        <span class="stat-banner-label" id="labelConvertTarget">Target Physical Distance</span>
+                        <span class="stat-banner-value" style="color: var(--accent);" id="valConvertCm">51.98 <span style="font-size:0.8rem; font-family:'Inter'">cm/360</span></span>
+                    </div>
+
+                    <!-- Fine-Tuning Multiplier config tuner -->
+                    <div class="ini-tuner" id="iniTunerPanel">
+                        <span style="font-size:0.72rem; color:var(--text-secondary); font-weight:700; text-transform:uppercase;">Zero-Error config.ini Tuner</span>
+                        <p style="font-size:0.68rem; color:var(--text-muted); margin-top:2px;">To hit this exact distance in Siege with no rounding error, configure your files to:</p>
+                        <div class="ini-code" id="valIniBlock">
+                            [INPUT]<br>
+                            MouseSensitivityMultiplierUnit=0.002014<br>
+                            in-game Slider=78
+                        </div>
+                    </div>
+                    
+                    <!-- Pixel skipping diagnostic alerts -->
+                    <div class="alert-box alert-safe" id="alertPixelSkip">
+                        <div>⚠️</div>
+                        <div><strong>Diagnostics Clean:</strong> DPI & multiplier scale provide excellent precision. No pixel skipping threshold detected.</div>
+                    </div>
+                </div>
+
+                <!-- Advanced ADS focal scaling table -->
+                <div class="card">
+                    <div class="card-title-group">
+                        <div class="card-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+                            Optics ADS Advanced Scaling
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="selectMdmMode">Visuomotor Monitor Distance Match (MDM)</label>
+                        <select id="selectMdmMode" onchange="calculateAll()">
+                            <option value="focal">0% Monitor Distance (Standard 1:1 Focal Scaling)</option>
+                            <option value="vertical">100% Vertical MDM (FOV ratio)</option>
+                            <option value="horizontal">100% Horizontal MDM (Aspect Ratio matched)</option>
+                            <option value="custom">Custom % Monitor Distance Match</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="groupCustomMdm" style="display:none;">
+                        <label for="inputCustomMdm">Custom Match Percentage (%)</label>
+                        <input type="number" id="inputCustomMdm" value="75" min="0" max="500" oninput="calculateAll()">
+                        <div class="slider-group">
+                            <input type="range" id="sliderCustomMdm" min="0" max="200" value="75" oninput="syncCustomMdmSlider()">
+                        </div>
+                    </div>
+
+                    <div class="ads-grid" id="adsGridRows">
+                        <!-- ADS rows populated dynamically by Javascript -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Interactive visual viewport aim simulator canvas -->
+            <div class="card simulator-card">
+                <div class="card-title-group" style="margin-bottom: 0.5rem;">
+                    <div class="card-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                        Interactive Scope & Mousepad Simulator
+                    </div>
+                </div>
+
+                <div class="sim-container">
+                    
+                    <div class="canvas-wrapper">
+                        <div class="canvas-hud">
+                            <div class="hud-left">
+                                <span id="hudOpName">SCOPE: HIPFIRE (1.0x Zoom)</span>
+                                <span id="hudOpFov">FOV: 84.0°</span>
+                            </div>
+                            <div class="hud-right">
+                                <span id="hudPanAngle">ANGLE: 0.0°</span>
+                            </div>
+                        </div>
+                        <canvas id="simCanvas"></canvas>
+                        
+                        <div class="canvas-toolbar">
+                            <div style="display: flex; gap: 8px; align-items: center;">
+                                <label style="margin: 0; white-space: nowrap;">Selected Sight:</label>
+                                <select id="selectSimScope" style="width: 140px; padding: 4px 8px; font-size: 0.75rem;" onchange="updateSimScope()">
+                                    <option value="hipfire">Hipfire</option>
+                                    <option value="1.0x">1.0x (Holo/Reflex)</option>
+                                    <option value="2.5x">2.5x (ACOG)</option>
+                                    <option value="3.0x">3.0x Optic</option>
+                                    <option value="5.0x">5.0x Optic</option>
+                                    <option value="12.0x">12.0x (Kali)</option>
+                                </select>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.7rem;" onclick="resetSimRotation()">🔄 Reset View</button>
+                                <button class="btn btn-primary" style="padding: 4px 10px; font-size: 0.7rem;" id="btnToggleAds" onclick="toggleSimAds()">Aim Down Sights</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sim-meta-panel">
+                        <div class="sim-tip">
+                            🖱️ <strong>Simulator Instructions:</strong> Drag your mouse left/right inside the canvas above to pan the first-person camera. Note how your physical mousepad slide triggers visual turns, and see the exact centimeters of movement scale under ADS!
+                        </div>
+                        <div class="sim-stat-row">
+                            <span class="sim-stat-label">Physical Mouse Moved</span>
+                            <span class="sim-stat-value" id="simMouseMovedCm">0.00 cm</span>
+                        </div>
+                        <div class="sim-stat-row">
+                            <span class="sim-stat-label">Camera Angle Rotated</span>
+                            <span class="sim-stat-value" id="simRotatedDeg">0.0°</span>
+                        </div>
+                        <div class="sim-stat-row" style="border-color: rgba(74, 144, 226, 0.25);">
+                            <span class="sim-stat-label">Required for a 90° Turn</span>
+                            <span class="sim-stat-value" style="color: var(--primary);" id="simRequired90Cm">9.97 cm</span>
+                        </div>
+                        <div class="sim-stat-row">
+                            <span class="sim-stat-label">Required for a 180° Turn</span>
+                            <span class="sim-stat-value" style="color: var(--accent-purple);" id="simRequired180Cm">19.95 cm</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // ─── Core Scope Configurations ───
+        const OPTICS = [
+            { id: "1.0x", name: "1.0x Optic", multiplier: 0.9, sliderVal: 50 },
+            { id: "1.5x", name: "1.5x Optic", multiplier: 0.6, sliderVal: 50 },
+            { id: "2.0x", name: "2.0x Optic", multiplier: 0.5, sliderVal: 50 },
+            { id: "2.5x", name: "2.5x ACOG",  multiplier: 0.42, sliderVal: 50 },
+            { id: "3.0x", name: "3.0x Scope", multiplier: 0.35, sliderVal: 50 },
+            { id: "4.0x", name: "4.0x Scope", multiplier: 0.30, sliderVal: 50 },
+            { id: "5.0x", name: "5.0x Scope", multiplier: 0.25, sliderVal: 50 },
+            { id: "12.0x", name: "12.0x Kali", multiplier: 0.09, sliderVal: 50 }
+        ];
+
+        let currentConverterGame = 'valorant';
+        let currentCalculatedSensValues = {};
+
+        // ─── Init on Page Load ───
+        window.addEventListener('load', () => {
+            renderAdsRows();
+            calculateAll();
+            initSimulator();
+        });
+
+        // ─── UI Sync Helpers ───
+        function syncInputs(prop) {
+            const input = document.getElementById('input' + prop);
+            const slider = document.getElementById('slider' + prop);
+            input.value = slider.value;
+            calculateAll();
+        }
+
+        function syncCustomMdmSlider() {
+            const input = document.getElementById('inputCustomMdm');
+            const slider = document.getElementById('sliderCustomMdm');
+            input.value = slider.value;
+            calculateAll();
+        }
+
+        function applyMultiplierPreset() {
+            const select = document.getElementById('selectMultiplierPreset');
+            const input = document.getElementById('inputMultiplier');
+            input.value = select.value;
+            calculateAll();
+        }
+
+        // ─── Render Scope Rows ───
+        function renderAdsRows() {
+            const container = document.getElementById('adsGridRows');
+            container.innerHTML = '';
+            
+            OPTICS.forEach(opt => {
+                const row = document.createElement('div');
+                row.className = 'ads-row';
+                row.innerHTML = `
+                    <span class="ads-optic-name">${opt.name}</span>
+                    <span class="ads-optic-zoom">${(1 / opt.multiplier).toFixed(2)}x Zoom</span>
+                    <div class="slider-group" style="margin: 0;">
+                        <input type="range" id="sliderOptic_${opt.id.replace('.','_')}" min="1" max="200" value="${opt.sliderVal}" oninput="syncOpticSlider('${opt.id}')">
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <span class="ads-output-val" id="valOptic_${opt.id.replace('.','_')}">${opt.sliderVal}</span>
+                        <span class="ads-output-dist" id="distOptic_${opt.id.replace('.','_')}">0.00 cm</span>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function syncOpticSlider(id) {
+            const replacedId = id.replace('.', '_');
+            const slider = document.getElementById(`sliderOptic_${replacedId}`);
+            const textVal = document.getElementById(`valOptic_${replacedId}`);
+            textVal.textContent = slider.value;
+            
+            // Update local memory value
+            const optic = OPTICS.find(o => o.id === id);
+            if (optic) {
+                optic.sliderVal = parseInt(slider.value);
+            }
+            
+            recalculateAdsDistancesOnly();
+            updateSimulatorPhysics();
+        }
+
+        // ─── Switch Tabs ───
+        function switchConverterTab(game) {
+            currentConverterGame = game;
+            
+            // Active button style toggling
+            document.querySelectorAll('.tabs-header .tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.textContent.toLowerCase().includes(game === 'cs2' ? 'cs2' : game)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Label text update
+            const sensLabel = document.getElementById('labelConvertSens');
+            if (game === 'valorant') {
+                sensLabel.textContent = "Valorant Sensitivity";
+                document.getElementById('inputConvertSens').value = "0.314";
+            } else if (game === 'cs2') {
+                sensLabel.textContent = "CS2 / Apex Sens";
+                document.getElementById('inputConvertSens').value = "1.0";
+            } else if (game === 'overwatch') {
+                sensLabel.textContent = "Overwatch 2 Sens";
+                document.getElementById('inputConvertSens').value = "3.333";
+            }
+
+            calculateConversion();
+        }
+
+        // ─── Core Calculations ───
+        function calculateAll() {
+            // Read UI values
+            const dpi = parseFloat(document.getElementById('inputDpi').value) || 800;
+            const hipfireV = parseFloat(document.getElementById('inputHipfireV').value) || 10;
+            const hipfireH = parseFloat(document.getElementById('inputHipfireH').value) || 10;
+            const multiplierUnit = parseFloat(document.getElementById('inputMultiplier').value) || 0.02;
+            const xFactor = parseFloat(document.getElementById('inputXFactor').value) || 0.02;
+            const vFov = parseFloat(document.getElementById('inputFov').value) || 84;
+            const aspectString = document.getElementById('selectAspect').value;
+            
+            // Sync slider UI elements with input values
+            document.getElementById('sliderDpi').value = dpi;
+            document.getElementById('sliderHipfireV').value = hipfireV;
+            document.getElementById('sliderHipfireH').value = hipfireH;
+            document.getElementById('sliderFov').value = vFov;
+
+            // Aspect ratio decimal calculation
+            const aspectParts = aspectString.split(':');
+            const aspect = parseFloat(aspectParts[0]) / parseFloat(aspectParts[1]);
+
+            // Calculate Effective Horizontal FOV
+            const vFovRad = (vFov * Math.PI) / 180;
+            const hFovRad = 2 * Math.atan(Math.tan(vFovRad / 2) * aspect);
+            const hFov = (hFovRad * 180) / Math.PI;
+            document.getElementById('valHorizFov').textContent = hFov.toFixed(1) + '°';
+
+            // Calculate Hipfire cm/360 & in/360
+            // Degrees per count = Sens * Multiplier * 0.005 radians/count
+            // 360 degrees = 2pi radians. Counts for 360 = 2pi / (Sens * Multiplier * 0.005) = 400pi / (Sens * Multiplier)
+            // Distance (in) = Counts / DPI = 400pi / (DPI * Sens * Multiplier)
+            // Distance (cm) = Distance (in) * 2.54 = 1016pi / (DPI * Sens * Multiplier)
+            const hipfireCm360 = (1016 * Math.PI) / (dpi * hipfireH * multiplierUnit);
+            const hipfireIn360 = hipfireCm360 / 2.54;
+
+            document.getElementById('valHipfireCm').innerHTML = `${hipfireCm360.toFixed(2)} <span style="font-size:0.8rem; font-family:'Inter'">cm/360</span>`;
+            document.getElementById('valHipfireIn').textContent = `${hipfireIn360.toFixed(2)} in/360`;
+
+            // ADS Calculations based on selected Match type
+            const mdmMode = document.getElementById('selectMdmMode').value;
+            const customMdmGroup = document.getElementById('groupCustomMdm');
+            
+            if (mdmMode === 'custom') {
+                customMdmGroup.style.display = 'block';
+            } else {
+                customMdmGroup.style.display = 'none';
+            }
+
+            const customPercent = parseFloat(document.getElementById('inputCustomMdm').value) || 75;
+            document.getElementById('sliderCustomMdm').value = customPercent;
+
+            OPTICS.forEach(opt => {
+                let ratio = opt.multiplier; // 0% focal default
+                
+                if (mdmMode !== 'focal') {
+                    let f = 1.0;
+                    if (mdmMode === 'vertical') f = 1.0;
+                    else if (mdmMode === 'horizontal') f = aspect;
+                    else if (mdmMode === 'custom') f = customPercent / 100;
+                    
+                    const num = Math.atan(f * Math.tan(vFovRad / 2) * opt.multiplier);
+                    const den = Math.atan(f * Math.tan(vFovRad / 2));
+                    ratio = num / den;
+                }
+
+                // Slider = Ratio / (XFactor * scopeMultiplier)
+                const targetSliderVal = Math.round(ratio / (xFactor * opt.multiplier));
+                const clampedSliderVal = Math.max(1, Math.min(200, targetSliderVal));
+
+                // Sync with memory and UI
+                opt.sliderVal = clampedSliderVal;
+                
+                const replacedId = opt.id.replace('.', '_');
+                const sliderInput = document.getElementById(`sliderOptic_${replacedId}`);
+                const textVal = document.getElementById(`valOptic_${replacedId}`);
+                const distVal = document.getElementById(`distOptic_${replacedId}`);
+
+                if (sliderInput && textVal) {
+                    sliderInput.value = clampedSliderVal;
+                    textVal.textContent = clampedSliderVal;
+                }
+
+                // Physical distance calculation under ADS
+                // ADS Rotation = Hipfire Rotation * XFactor * Slider * scopeMultiplier
+                const adsModifier = xFactor * clampedSliderVal * opt.multiplier;
+                const adsCm360 = hipfireCm360 / adsModifier;
+                
+                if (distVal) {
+                    distVal.textContent = `${adsCm360.toFixed(1)} cm`;
+                }
+            });
+
+            // Recalculate Multi-Game conversions
+            calculateConversion();
+            updateSimulatorPhysics();
+        }
+
+        // ─── Recalculate per-optic distances only (triggered on manual slider movement) ───
+        function recalculateAdsDistancesOnly() {
+            const dpi = parseFloat(document.getElementById('inputDpi').value) || 800;
+            const hipfireH = parseFloat(document.getElementById('inputHipfireH').value) || 10;
+            const multiplierUnit = parseFloat(document.getElementById('inputMultiplier').value) || 0.02;
+            const xFactor = parseFloat(document.getElementById('inputXFactor').value) || 0.02;
+
+            const hipfireCm360 = (1016 * Math.PI) / (dpi * hipfireH * multiplierUnit);
+
+            OPTICS.forEach(opt => {
+                const adsModifier = xFactor * opt.sliderVal * opt.multiplier;
+                const adsCm360 = hipfireCm360 / adsModifier;
+                
+                const replacedId = opt.id.replace('.', '_');
+                const distVal = document.getElementById(`distOptic_${replacedId}`);
+                if (distVal) {
+                    distVal.textContent = `${adsCm360.toFixed(1)} cm`;
+                }
+            });
+        }
+
+        // ─── Multi-Game Conversions ───
+        function calculateConversion() {
+            const srcSens = parseFloat(document.getElementById('inputConvertSens').value) || 0.314;
+            const srcDpi = parseFloat(document.getElementById('inputConvertDpi').value) || 800;
+            
+            let srcYaw = 0.022; // Default CS2
+            if (currentConverterGame === 'valorant') {
+                srcYaw = 0.07;
+            } else if (currentConverterGame === 'cs2') {
+                srcYaw = 0.022;
+            } else if (currentConverterGame === 'overwatch') {
+                srcYaw = 0.0066;
+            }
+
+            // Calculate source game cm/360
+            // Rotation per count = Sens * Yaw degrees. 360 / (Sens * Yaw) = Counts
+            // Dist (in) = Counts / DPI. Dist (cm) = (360 * 2.54) / (DPI * Sens * Yaw) = 914.4 / (DPI * Sens * Yaw)
+            const targetCm360 = 914.4 / (srcDpi * srcSens * srcYaw);
+            document.getElementById('valConvertCm').innerHTML = `${targetCm360.toFixed(2)} <span style="font-size:0.8rem; font-family:'Inter'">cm/360</span>`;
+
+            // Convert to R6 Hipfire Sensitivity
+            // Target distance = 1016pi / (R6_DPI * R6_Sens * R6_Multiplier)
+            // R6_Sens = 1016pi / (R6_DPI * R6_Multiplier * Target_Distance)
+            const r6Dpi = parseFloat(document.getElementById('inputDpi').value) || 800;
+            const r6Multiplier = parseFloat(document.getElementById('inputMultiplier').value) || 0.02;
+
+            const idealR6Sens = (1016 * Math.PI) / (r6Dpi * r6Multiplier * targetCm360);
+            const suggestedR6SensInt = Math.round(idealR6Sens);
+
+            // Update convert labels
+            document.getElementById('labelConvertTarget').textContent = `${currentConverterGame.toUpperCase()} Target Distance`;
+
+            // Zero-Error config.ini Tuner logic
+            // We want: r6Dpi * targetSlider * NewMultiplier = 1016pi / Target_Distance
+            // NewMultiplier = 1016pi / (r6Dpi * targetSlider * Target_Distance)
+            // Let's set a logical targetSlider close to 50 for max slider precision
+            const targetSlider = suggestedR6SensInt > 0 ? suggestedR6SensInt : 10;
+            const exactMultiplierForNoRounding = (1016 * Math.PI) / (r6Dpi * targetSlider * targetCm360);
+
+            const iniBlock = document.getElementById('valIniBlock');
+            iniBlock.innerHTML = `[INPUT]<br>MouseSensitivityMultiplierUnit=${exactMultiplierForNoRounding.toFixed(6)}<br>HorizontalSensitivity=${targetSlider}<br>VerticalSensitivity=${targetSlider}`;
+
+            // Pixel Skipping Diagnostics
+            // If angular step is too high (> 0.1 degrees per dot), flag it!
+            const angularStep = suggestedR6SensInt * r6Multiplier * 0.2865; // degrees per count
+            const alertBox = document.getElementById('alertPixelSkip');
+
+            if (angularStep > 0.08) {
+                alertBox.className = "alert-box alert-critical";
+                alertBox.innerHTML = `<div>❌</div><div><strong>High Pixel Skipping Risk:</strong> Your angular step is too coarse (${angularStep.toFixed(3)}°). Flicks will feel "jittery". <em>Solution: Reduce your in-game slider to below 15 and increase your mouse DPI to 1600 or 3200!</em></div>`;
+            } else if (angularStep > 0.04) {
+                alertBox.className = "alert-box alert-warning";
+                alertBox.innerHTML = `<div>⚠️</div><div><strong>Moderate Jitter Threshold:</strong> Your angular step (${angularStep.toFixed(3)}°) is somewhat high. <em>Consider lowering your multiplier unit in GameSettings.ini to 0.002 to gain finer in-game control.</em></div>`;
+            } else {
+                alertBox.className = "alert-box alert-safe";
+                alertBox.innerHTML = `<div>✓</div><div><strong>Aim Precision Optimal:</strong> Angular step is ultra-fine (${angularStep.toFixed(4)}°). Motion is smooth and pixel-perfect.</div>`;
+            }
+        }
+
+        // ─── Visual Aim Simulator ───
+        let canvas, ctx;
+        let isAds = false;
+        let scopeZoom = 1.0; // zoom reduction factor (e.g. 0.9 for 1x, 0.42 for 2.5x)
+        let camYaw = 0; // rotation angle in degrees
+        let mouseX = 0;
+        let isDragging = false;
+        let physicalMovedCm = 0;
+        let dpiScale = 800;
+        let r6MultiplierScale = 0.02;
+        let r6HipfireH = 10;
+        let r6XFactor = 0.02;
+        let r6SliderVal = 50;
+
+        function initSimulator() {
+            canvas = document.getElementById('simCanvas');
+            ctx = canvas.getContext('2d');
+            
+            // Adjust canvas sizes
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = 280;
+
+            // Handle dragging to spin camera
+            canvas.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                mouseX = e.clientX;
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            canvas.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                
+                const deltaX = e.clientX - mouseX;
+                mouseX = e.clientX;
+
+                // Physics conversion: translate screen drag pixels into mouse counts
+                // In standard setups, dragging 1 pixel on a 96 DPI monitor matches ~2-3 counts.
+                // Let's assume 1 pixel of drag = 1 mouse dot count.
+                const counts = deltaX;
+                
+                // Read physics attributes
+                const baseStep = r6HipfireH * r6MultiplierScale * 0.286479; // hipfire degrees per count
+                
+                let actualStep = baseStep;
+                if (isAds) {
+                    actualStep = baseStep * (r6XFactor * r6SliderVal * scopeZoom);
+                }
+
+                // Update Camera Yaw angle (in degrees)
+                camYaw += counts * actualStep;
+                // Keep inside 360
+                if (camYaw > 180) camYaw -= 360;
+                if (camYaw < -180) camYaw += 360;
+
+                // Track physical mousepad movement in cm
+                // Movement (cm) = Counts / DPI * 2.54
+                const stepCm = (counts / dpiScale) * 2.54;
+                physicalMovedCm += Math.abs(stepCm);
+
+                // Update UI readouts
+                document.getElementById('simMouseMovedCm').textContent = physicalMovedCm.toFixed(2) + ' cm';
+                document.getElementById('simRotatedDeg').textContent = Math.abs(camYaw).toFixed(1) + '°';
+                document.getElementById('hudPanAngle').textContent = `ANGLE: ${camYaw.toFixed(1)}°`;
+
+                drawSimulator();
+            });
+
+            // Prevent context menu on right click to support ADS toggle
+            canvas.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                toggleSimAds();
+            });
+
+            // Handle window resizing
+            window.addEventListener('resize', () => {
+                if(canvas) {
+                    canvas.width = canvas.parentElement.clientWidth;
+                    drawSimulator();
+                }
+            });
+
+            // Initial render
+            updateSimulatorPhysics();
+            drawSimulator();
+        }
+
+        function updateSimulatorPhysics() {
+            // Read actual dashboard settings
+            dpiScale = parseFloat(document.getElementById('inputDpi').value) || 800;
+            r6MultiplierScale = parseFloat(document.getElementById('inputMultiplier').value) || 0.02;
+            r6HipfireH = parseFloat(document.getElementById('inputHipfireH').value) || 10;
+            r6XFactor = parseFloat(document.getElementById('inputXFactor').value) || 0.02;
+
+            // Read chosen simulator scope
+            const selectedScope = document.getElementById('selectSimScope').value;
+            
+            if (selectedScope === 'hipfire') {
+                scopeZoom = 1.0;
+                isAds = false;
+                r6SliderVal = 50;
+            } else {
+                const opt = OPTICS.find(o => o.id === selectedScope);
+                if (opt) {
+                    scopeZoom = opt.multiplier;
+                    r6SliderVal = opt.sliderVal;
+                }
+                isAds = true;
+            }
+
+            // Sync toggle button visual text
+            const btn = document.getElementById('btnToggleAds');
+            if (isAds) {
+                btn.textContent = "Exit ADS";
+                btn.className = "btn btn-accent";
+                btn.style.background = "linear-gradient(135deg, var(--accent) 0%, #d97706 100%)";
+                btn.style.color = "#000";
+            } else {
+                btn.textContent = "Aim Down Sights";
+                btn.className = "btn btn-primary";
+                btn.style.background = "linear-gradient(135deg, var(--primary) 0%, #3578c8 100%)";
+                btn.style.color = "white";
+            }
+
+            // Calculate dynamic 90/180 degree distance requirements
+            // cm/360 = (1016 * pi) / (DPI * Sens * Mult * ADSModifier)
+            const baseHipfireCm = (1016 * Math.PI) / (dpiScale * r6HipfireH * r6MultiplierScale);
+            
+            let currentCm360 = baseHipfireCm;
+            if (isAds) {
+                currentCm360 = baseHipfireCm / (r6XFactor * r6SliderVal * scopeZoom);
+            }
+
+            document.getElementById('simRequired90Cm').textContent = (currentCm360 / 4).toFixed(2) + ' cm';
+            document.getElementById('simRequired180Cm').textContent = (currentCm360 / 2).toFixed(2) + ' cm';
+
+            // Update HUD text
+            const vFov = parseFloat(document.getElementById('inputFov').value) || 84;
+            const scopeFovRad = 2 * Math.atan(Math.tan(((vFov * Math.PI) / 180) / 2) * scopeZoom);
+            const scopeFovDeg = (scopeFovRad * 180) / Math.PI;
+
+            document.getElementById('hudOpName').textContent = isAds ? `SCOPE: ADVANCED ADS (${(1 / scopeZoom).toFixed(1)}x Zoom)` : "SCOPE: HIPFIRE (1.0x)";
+            document.getElementById('hudOpFov').textContent = `FOV: ${scopeFovDeg.toFixed(1)}°`;
+
+            drawSimulator();
+        }
+
+        function updateSimScope() {
+            updateSimulatorPhysics();
+        }
+
+        function toggleSimAds() {
+            const select = document.getElementById('selectSimScope');
+            if (isAds) {
+                select.value = 'hipfire';
+            } else {
+                select.value = '2.5x'; // default zoom in to ACOG
+            }
+            updateSimulatorPhysics();
+        }
+
+        function resetSimRotation() {
+            camYaw = 0;
+            physicalMovedCm = 0;
+            document.getElementById('simMouseMovedCm').textContent = '0.00 cm';
+            document.getElementById('simRotatedDeg').textContent = '0.0°';
+            document.getElementById('hudPanAngle').textContent = 'ANGLE: 0.0°';
+            drawSimulator();
+        }
+
+        // ─── Drawing First Person view in simulator ───
+        function drawSimulator() {
+            if (!canvas || !ctx) return;
+            
+            const w = canvas.width;
+            const h = canvas.height;
+            ctx.clearRect(0, 0, w, h);
+
+            // Draw Cyberpunk Grid lines on floor
+            ctx.strokeStyle = 'rgba(74, 144, 226, 0.12)';
+            ctx.lineWidth = 1;
+
+            // Draw horizontal landscape grid lines
+            const gridDensity = 25;
+            for (let i = 0; i < h; i += gridDensity) {
+                ctx.beginPath();
+                ctx.moveTo(0, i);
+                ctx.lineTo(w, i);
+                ctx.stroke();
+            }
+
+            // Render simulated Targets (cylinders spaced at different angular coordinates)
+            const targetAngles = [-90, -45, 0, 45, 90, 180];
+            
+            // Effective horizontal FOV of the camera viewport
+            const baseVfov = parseFloat(document.getElementById('inputFov').value) || 84;
+            const aspect = w / h;
+            const vFovRad = (baseVfov * Math.PI) / 180;
+            
+            // Zoom the FOV if aiming down sights
+            const scopeFovRad = 2 * Math.atan(Math.tan(vFovRad / 2) * scopeZoom);
+            const cameraFovH = (2 * Math.atan(Math.tan(scopeFovRad / 2) * aspect) * 180) / Math.PI;
+
+            targetAngles.forEach(angle => {
+                // Determine target angle relative to camera yaw
+                let relativeAngle = angle - camYaw;
+                
+                // Wrap to -180 to 180
+                while (relativeAngle > 180) relativeAngle -= 360;
+                while (relativeAngle < -180) relativeAngle += 360;
+
+                // Is target inside the horizontal FOV of the viewport?
+                if (Math.abs(relativeAngle) < cameraFovH / 2) {
+                    // Screen position ratio from -0.5 to 0.5
+                    const screenXRatio = relativeAngle / (cameraFovH / 2);
+                    const screenX = w / 2 + (screenXRatio * w) / 2;
+
+                    // Draw a simple target post
+                    ctx.fillStyle = 'rgba(74, 144, 226, 0.2)';
+                    ctx.strokeStyle = 'var(--primary)';
+                    ctx.lineWidth = 2;
+                    
+                    const targetWidth = 40 / scopeZoom; // larger width when zoomed in
+                    const targetHeight = 140 / scopeZoom;
+                    
+                    ctx.beginPath();
+                    ctx.rect(screenX - targetWidth / 2, h / 2 - targetHeight / 2, targetWidth, targetHeight);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    // Target bulls-eye
+                    ctx.fillStyle = 'rgba(239, 68, 68, 0.4)';
+                    ctx.strokeStyle = 'var(--accent-red)';
+                    ctx.beginPath();
+                    ctx.arc(screenX, h / 2, 12 / scopeZoom, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    // Text coordinate label above target
+                    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+                    ctx.font = '8px monospace';
+                    ctx.fillText(`${angle}° Target`, screenX - 20, h / 2 - targetHeight / 2 - 8);
+                }
+            });
+
+            // Crosshair overlay
+            ctx.strokeStyle = 'rgba(239, 68, 68, 0.85)';
+            ctx.lineWidth = 2;
+            
+            // Reticle center dot
+            ctx.fillStyle = 'rgba(239, 68, 68, 0.9)';
+            ctx.beginPath();
+            ctx.arc(w / 2, h / 2, 2.5, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Horizontal crosshair ticks
+            ctx.beginPath();
+            ctx.moveTo(w / 2 - 12, h / 2);
+            ctx.lineTo(w / 2 - 4, h / 2);
+            ctx.moveTo(w / 2 + 4, h / 2);
+            ctx.lineTo(w / 2 + 12, h / 2);
+            // Vertical ticks
+            ctx.moveTo(w / 2, h / 2 - 12);
+            ctx.lineTo(w / 2, h / 2 - 4);
+            ctx.moveTo(w / 2, h / 2 + 4);
+            ctx.lineTo(w / 2, h / 2 + 12);
+            ctx.stroke();
+
+            // Draw a scope border mask under ADS
+            if (isAds) {
+                // Scope silhouette overlay ring
+                ctx.strokeStyle = 'rgba(7, 9, 19, 0.9)';
+                ctx.lineWidth = Math.min(w, h) * 0.15;
+                ctx.beginPath();
+                ctx.arc(w / 2, h / 2, Math.min(w, h) * 0.45, 0, 2 * Math.PI);
+                ctx.stroke();
+
+                // Holographic sight element (outer ring)
+                ctx.strokeStyle = 'rgba(239, 68, 68, 0.3)';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.arc(w / 2, h / 2, Math.min(w, h) * 0.2, 0, 2 * Math.PI);
+                ctx.stroke();
+            }
+        }
+    </script>
+</body>
+</html>

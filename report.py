@@ -87,7 +87,7 @@ COACHING_DATA = {
     },
     "Aruni": {
         "Pros": "Excellent laser gate area denial with {rounds} rounds played, maintaining a K/D of {kd} and {win_rate} win rate.",
-        "Focus_Areas": "Failing to reset Surya Gates after they've been deactivated. Always punch or throw trash utility to reactivate them once the cooldown finishes.",
+        "Focus_Areas": "Failing to reset Surya Gates after they've been deactivated. Always shoot the emitter at the top of the doorframe once the Surya gate's cooldown finishes (green light indicator) to reactivate the laser grid.",
         "Tactical_Strategy": "On Clubhouse, place Surya gates on the main dirt tunnel entrance to block quick basement entries and force attackers to waste utility."
     },
     "Melusi": {
@@ -121,9 +121,114 @@ COACHING_DATA = {
         "Tactical_Strategy": "On Skyscraper, hack Maestro cameras in tea room to turn high-value defensive cameras against the anchors, securing easy plant angles."
     },
     "Rauora": {
-        "Pros": "Solid tactical impact with {rounds} rounds played, securing a {win_rate} win rate and {kd} K/D.",
-        "Focus_Areas": "Coordinate utility timing. Ensure gadget is synchronized with active team entry pushes rather than solo engagements.",
-        "Tactical_Strategy": "On Chalet, utilize your specialized kit to isolate defenders anchoring in trophy room before the main garage push commences."
+        "Pros": "Incredible entry and post-plant area control with the D.O.M. Panel Launcher across {rounds} rounds, maintaining a {win_rate} win rate and {kd} K/D.",
+        "Focus_Areas": "Misplaced mesh panels that block active attacker lines or fail to lock down crucial rotates. Avoid trapping teammates in site corridors during late-round executes.",
+        "Tactical_Strategy": "On Chalet, fire your D.O.M. panels into the kitchen rotations or library double door from a safe distance. This forces defenders to expose themselves to open/close the panel or waste heavy explosives (like Impact Grenades or C4) to clear it, securing a safe flank watch during the main snowmobile garage push."
+    },
+    "Ace": {
+        "Pros": "Highly lethal hard breach contribution, utilizing the S.E.L.M.A. Aqua Breacher over {rounds} rounds to open lines of sight while maintaining a strong {kd} combat K/D.",
+        "Focus_Areas": "Stalling with unused S.E.L.M.A. charges. Ace players often hold onto utility for too long, dying before opening crucial outer walls or hatches.",
+        "Tactical_Strategy": "On Chalet, prioritize opening the 2F Master Bedroom exterior wall. Throw your S.E.L.M.A.s at the top of the wall to deny defenders the ability to impact-trick them from below."
+    },
+    "Rook": {
+        "Pros": "Exceptional team health utility and self-revive capacity, deploying Armor Packs across {rounds} rounds while securing an elite {kd} trade K/D.",
+        "Focus_Areas": "Lazy armor deployment and dry-peeking. Rook provides a significant health buffer, but swinging early without cover makes you an easy target despite the armor.",
+        "Tactical_Strategy": "On Oregon, drop the Armor Pack immediately in the first second of prep phase. Since the MP5 lost the 2.5x ACOG, run a 1x Holo A or Reflex optic with a Flash Hider and Vertical Grip. Play as a site anchor in 2F Dorms or Attic, holding tight pixel angles and relying on the passive damage reduction and self-revive buffs of the armor plates to sustain aggressive push trades."
+    },
+    "Kaid": {
+        "Pros": "Superb vertical and horizontal electro-claw denial, locking down hatches and walls for {rounds} rounds with a steady {kd} K/D.",
+        "Focus_Areas": "Predictable Rtila Electroclaw placement. Placing claws directly in the center of reinforced walls makes them easy targets for Kali, Thatcher, or vertical Twitch drone clears.",
+        "Tactical_Strategy": "On Clubhouse, when holding the Basement, throw your Rtila claw underneath the floorboards of 1F kitchen or hide it in the ceiling rafters near the main hatches to make it immune to Thatcher's horizontal EMP radius."
+    },
+    "Kapkan": {
+        "Pros": "Devastating passive entry denial and psychological pressure, placing Entry Denial Devices (EDDs) across {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Placing traps at eye level or on highly expected doorways. Smart attackers drone out Kapkan traps; placing them predictably yields zero impact.",
+        "Tactical_Strategy": "On Border, place double EDDs on low ankle level on the inside frame of high-traffic entry points like the 1F Customs or 1F Ventilation doors, keeping them hidden from the default outdoor drone view."
+    },
+    "Jäger": {
+        "Pros": "Premier projectile interception and roaming potential, deploying Active Defense Systems (ADS) across {rounds} rounds while securing a {kd} combat K/D.",
+        "Focus_Areas": "Placing ADS devices in easily shootable lines of sight. Ensure your utility is hidden behind structural pillars or doorway frames.",
+        "Tactical_Strategy": "On Chalet, when defending 2F Master Bedroom, place one ADS behind the master bed and another behind the bathroom half-wall to fully protect your active anchor from vertical grenade floods."
+    },
+    "Maestro": {
+        "Pros": "Excellent bulletproof intelligence and passive plant denial, anchoring with Evil Eye cameras over {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Opening the Evil Eye shields too early to shoot. Only open the laser shutter when the attacker is actively planting, distracted by a gunfight, or burning utility.",
+        "Tactical_Strategy": "On Villa, place one Evil Eye high on the 2F Vault wall to overlook the entire Aviator site, and another in 2F Study. Use the high-capacity ALDA 5.56 LMG to suppress attackers pushing the main hallway."
+    },
+    "Warden": {
+        "Pros": "Immunity to flash/smoke executes and stellar horizontal anchor holds, leveraging Glance Smart Glasses over {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Moving while active. Warden's glasses require him to remain perfectly still to see through thick smoke; panicking and moving disables the thermal sight.",
+        "Tactical_Strategy": "On Clubhouse, anchor in the blue hallway or behind the server rack. When attackers drop smoke for a default execute, activate your Glance glasses and hold the line with your MPX or shotgun."
+    },
+    "Castle": {
+        "Pros": "Superb choke-point blocking and map flow manipulation, deploying Armor Panels over {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Blocking off rotates and trapping your own roamers. Never Castle-barricade the main rotates between sites; focus on sealing off exterior windows and long attacker sightlines.",
+        "Tactical_Strategy": "On Consulate, block off the double windows in 2F CEO Office and 2F Meeting Room to force attackers to expend heavy explosive utility (Ash, Zofia, or Sledge) before they can establish angles on site."
+    },
+    "Valkyrie": {
+        "Pros": "Premium invisible intelligence gathering and aggressive runout info, deploying Black Eye cameras across {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Throwing cams in plain sight or pinging attackers repeatedly. Yellow-pinging off Valkyrie cams alerts the enemy, leading to instant camera destruction.",
+        "Tactical_Strategy": "On Coastline, throw one Black Eye cam high into the central courtyard palm trees to monitor all roof rotates, and use silent voice callouts instead of active pinging to protect your camera footprint."
+    },
+    "Hibana": {
+        "Pros": "Elite distance hatch breach and versatile line-of-sight creation, deploying X-KAIROS pellets over {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Wasting pellets on low-value walls. Hibana's primary value is opening multiple reinforced hatches (up to 3) from complete safety.",
+        "Tactical_Strategy": "On Bank, focus entirely on opening the three critical hatches on 1F (lobby, open area, elevator) to flood the basement site with vertical lines of sight and restrict defender anchor rotations."
+    },
+    "IQ": {
+        "Pros": "Precise electronic utility detection and counter-intel, utilizing the RED MK III Spectre scanner across {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Dying with your pistol out while scanning. IQ players often tunnel-vision on their scanner; only scan from behind hard cover or when a teammate holds your cross-angle.",
+        "Tactical_Strategy": "On Oregon, stand on the soft roof above 2F Kids Dorms and scan downward to locate and shoot Valkyrie cameras, Fenrir F-NATTs, or Echo drones through the soft floor before your entry swings."
+    },
+    "Fenrir": {
+        "Pros": "Premium blind area denial and active auditory target acquisition, deploying F-NATT Dread Mines over {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Over-deploying mines or leaving them in vulnerable spots. With only 4 mines total and only 2 activatable simultaneously since his balance pass, and with inactive mines no longer bulletproof, you must hide them in deep shadows and trigger them dynamically based on sound cues.",
+        "Tactical_Strategy": "On Border, place a Dread Mine behind the 2F Break Room wall frame. Trigger it the moment your entry drone hears attackers climbing the main ventilation stairs, then pre-fire the blinded attacker."
+    },
+    "Tubarão": {
+        "Pros": "Elite hard-breach stall and utility freeze, deploying Zoto Canisters across {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Throwing Zoto canisters too early before the hard breacher initiates. Wait for the telltale sound of Maverick, Ace, or Thermite placing their gadgets.",
+        "Tactical_Strategy": "On Chalet, stand in the 1F Wine Cellar. When Thermite attempts to blow the main garage wall, throw a Zoto Canister directly at the wall base to freeze the charge, then coordinate with Bandit to trick it safely."
+    },
+    "Grim": {
+        "Pros": "Dynamic area sweep and roamer tracking, utilizing Kawan Hive Launchers over {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Firing hives directly into defender crossfires without cover. Use soft vertical play or bounce hives off door frames to clear rotates safely.",
+        "Tactical_Strategy": "On Clubhouse, fire your Kawan Hive bees into the blue hallway rotates and server room lanes during the basement execute to freeze roamers and let your planter execute safely."
+    },
+    "Flores": {
+        "Pros": "Remote utility clear and anchor displacement, utilizing RCE-Ratero Charge drones over {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Tunnel-visioning on piloting drones while the clock runs down. Establish a clear plan to destroy specific utility (e.g. Shield, Kaid Claw) in the first 60 seconds.",
+        "Tactical_Strategy": "On Oregon, send your Ratero drones through the drone vents into 1F Kitchen or basement laundry to blow up Azami Kiba barriers or deployable shields, clearing the path for your entry fraggers."
+    },
+    "Osa": {
+        "Pros": "Premium mobile cover and bulletproof pixel-angle creation, deploying Talon-8 Shields over {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Deploying shields in doors that block rotates. Talon shields are double-edged; place them to squeeze defender angles, not choke your own push.",
+        "Tactical_Strategy": "On Coastline, deploy a Talon shield on the 2F Hookah window sill. This lets you hold a safe, bulletproof cross-angle on billiard rotates without being exposed to runouts."
+    },
+    "Twitch": {
+        "Pros": "Lethal electronic disruption and mechanical fragging power, piloting Shock Drones over {rounds} rounds with a high {kd} combat K/D.",
+        "Focus_Areas": "Losing both Shock Drones during prep phase to Mute jammers or laser gates. Keep your drones hidden outside until prep phase ends.",
+        "Tactical_Strategy": "On Clubhouse, drone from the roof or outer walls. Drive your drone into basement ceiling cracks to disable Kaid Rtila claws, allowing your hard breacher to blow the hatch safely."
+    },
+    "Blackbeard": {
+        "Pros": "Elite headshot mitigation in window engagements, leveraging Rifle-Shields over {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Engaging in close-range body-shot duels where your shield's fractional protection is nullified by high-fire-rate defender SMGs.",
+        "Tactical_Strategy": "On Consulate, rappel upside down on the 2F CEO windows. Use your rifle shield to absorb the first defender headshot, giving you the split-second window needed to win the headshot duel."
+    },
+    "Maverick": {
+        "Pros": "Silent breach lines and counter-tricking, utilizing the Breaching Torch over {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Getting headshotted through your own torch holes. Never make eye-level holes in reinforced walls unless you are backed by a teammate covering you.",
+        "Tactical_Strategy": "On Clubhouse, make a long horizontal line at the very bottom of the CCTV wall to safely clear Bandit batteries or Kaid claws without exposing yourself to defender cross-angles."
+    },
+    "Thunderbird": {
+        "Pros": "Excellent automated healing and fast repositioning support, deploying Kóna Stations over {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Placing Kóna stations in open zones where attackers can hack them or use them to heal themselves after taking site.",
+        "Tactical_Strategy": "On Oregon, place a Kóna station deep behind the laundry basket anchor spot or in the 1F Meeting Room closet, ensuring anchors have a safe fallback heal zone."
+    },
+    "Denari": {
+        "Pros": "Superior vertical/horizontal territory slowdown and passive damage using the T.R.I.P. laser connector network over {rounds} rounds with a {kd} K/D.",
+        "Focus_Areas": "Placing T.R.I.P. connectors in direct lines of sight where attackers can easily shoot the emitter nodes, or creating a laser grid that fails to cover high-traffic vault/window entries.",
+        "Tactical_Strategy": "On Bank, throw your T.R.I.P. connectors inside the server room and vault doorway corridors, hiding the emitter nodes behind concrete pillars and desk frames. This creates a multi-layered laser web that forces attackers to slow down and take passive tick damage while attempting a fast basement CCTV execute, giving your anchors easy pre-fire opportunities."
     }
 }
 
@@ -187,6 +292,68 @@ def get_base64_chart(username, chart_name):
         encoded = base64.b64encode(image_file.read()).decode('utf-8')
     return f"data:image/png;base64,{encoded}"
 
+def get_rank_name_r2(rp):
+    if rp is None:
+        return "UNRANKED"
+    rp = int(rp)
+    if rp >= 5000:
+        return f"CHAMPION ({rp:,} RP)"
+    
+    tiers = ["COPPER", "BRONZE", "SILVER", "GOLD", "PLATINUM", "EMERALD", "DIAMOND"]
+    if rp < 1000:
+        div = 5 - (rp // 100)
+        div = max(1, min(5, div))
+        return f"COPPER {div} ({rp:,} RP)"
+    
+    tier_idx = (rp - 1000) // 500
+    if tier_idx >= len(tiers):
+        tier_idx = len(tiers) - 1
+    
+    tier_name = tiers[tier_idx]
+    tier_base = 1000 + tier_idx * 500
+    div = 5 - ((rp - tier_base) // 100)
+    div = max(1, min(5, div))
+    return f"{tier_name} {div} ({rp:,} RP)"
+
+def get_rank_name_r1(mmr):
+    if mmr is None:
+        return "UNRANKED"
+    mmr = int(mmr)
+    if mmr >= 4400:
+        return f"DIAMOND ({mmr:,} MMR)"
+    elif mmr >= 4100:
+        return f"PLATINUM 1 ({mmr:,} MMR)"
+    elif mmr >= 3600:
+        return f"PLATINUM 2 ({mmr:,} MMR)"
+    elif mmr >= 3200:
+        return f"PLATINUM 3 ({mmr:,} MMR)"
+    elif mmr >= 3000:
+        return f"GOLD 1 ({mmr:,} MMR)"
+    elif mmr >= 2800:
+        return f"GOLD 2 ({mmr:,} MMR)"
+    elif mmr >= 2600:
+        return f"GOLD 3 ({mmr:,} MMR)"
+    elif mmr >= 2500:
+        return f"GOLD 4 ({mmr:,} MMR)"
+    elif mmr >= 2300:
+        return f"SILVER 1 ({mmr:,} MMR)"
+    elif mmr >= 2200:
+        return f"SILVER 2 ({mmr:,} MMR)"
+    elif mmr >= 2100:
+        return f"SILVER 3 ({mmr:,} MMR)"
+    elif mmr >= 2000:
+        return f"SILVER 4 ({mmr:,} MMR)"
+    elif mmr >= 1900:
+        return f"BRONZE 1 ({mmr:,} MMR)"
+    elif mmr >= 1800:
+        return f"BRONZE 2 ({mmr:,} MMR)"
+    elif mmr >= 1700:
+        return f"BRONZE 3 ({mmr:,} MMR)"
+    elif mmr >= 1600:
+        return f"BRONZE 4 ({mmr:,} MMR)"
+    else:
+        return f"COPPER ({mmr:,} MMR)"
+
 def diagnose_operator(name, rounds, kd, win_rate_float):
     if rounds < 40:
         return "SAMPLE"
@@ -219,8 +386,68 @@ def main():
     with open(processed_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
-    # Scopes check: prefer y11s1 then lifetime
-    scope = "y11s1" if "y11s1" in data else "lifetime"
+    # Load rank history for the player if raw history exists
+    peak_r1_str = "N/A"
+    peak_r2_str = "N/A"
+    current_rank_str = "UNRANKED"
+    current_level = 0
+    
+    raw_history_path = os.path.join("data", "raw", f"{username}_seasons_history.json")
+    if os.path.exists(raw_history_path):
+        try:
+            with open(raw_history_path, 'r', encoding='utf-8') as f:
+                hist_data = json.load(f)
+            
+            # Extract level from clearanceLevel
+            current_level = int(hist_data.get("data", {}).get("metadata", {}).get("clearanceLevel", 0))
+            
+            segments = hist_data.get("data", {}).get("segments", [])
+            max_r1_mmr = 0
+            max_r2_rp = 0
+            curr_rp = 0
+            
+            for s in segments:
+                if s.get("type") != "season":
+                    continue
+                attr = s.get("attributes", {})
+                if attr.get("gamemode") != "pvp_ranked":
+                    continue
+                
+                season_id = attr.get("season", 0)
+                stats = s.get("stats", {})
+                
+                is_r2 = season_id >= 28
+                
+                max_rp = stats.get("maxRankPoints", {}).get("value")
+                max_mmr = stats.get("maxMmr", {}).get("value")
+                
+                rp_val = stats.get("rankPoints", {}).get("value")
+                
+                if is_r2 and max_rp is not None:
+                    max_r2_rp = max(max_r2_rp, int(max_rp))
+                if not is_r2 and max_mmr is not None:
+                    max_r1_mmr = max(max_r1_mmr, int(max_mmr))
+                
+                if season_id == 41 and rp_val is not None:
+                    curr_rp = int(rp_val)
+            
+            if curr_rp > 0:
+                current_rank_str = get_rank_name_r2(curr_rp)
+            
+            if max_r2_rp > 0:
+                peak_r2_str = get_rank_name_r2(max_r2_rp)
+            if max_r1_mmr > 0:
+                peak_r1_str = get_rank_name_r1(max_r1_mmr)
+        except Exception as e:
+            print(f"[Warning] Could not calculate rank peaks: {e}")
+
+    # Scopes check: prefer y11s1 then lifetime, unless overridden by FORCE_SCOPE env var
+    scope = os.environ.get("FORCE_SCOPE", "").lower().strip()
+    if username.lower() == "fearlesscopper":
+        scope = "lifetime"
+        print("[*] [Report Compiler] Forcing scope to 'lifetime' for FearlessCoppeR.")
+    elif scope not in ["lifetime", "y11s1"] or scope not in data:
+        scope = "y11s1" if "y11s1" in data else "lifetime"
     scope_data = data[scope]
     summary = scope_data["summary"]
     maps = sorted(scope_data["maps"], key=lambda x: x.get('win_pct', 0.0), reverse=True)
@@ -238,6 +465,12 @@ def main():
 
     # deltas compared to lifetime overall
     lifetime_summary = data.get("lifetime", {}).get("summary", summary)
+    
+    # Inject clearance level from raw history if available
+    if current_level > 0:
+        summary["level"] = current_level
+        lifetime_summary["level"] = current_level
+        
     lifetime_kd = float(lifetime_summary.get("kd", 1.0))
     lifetime_wr_str = lifetime_summary.get("win_rate", "50.0%")
     try:
@@ -267,6 +500,8 @@ def main():
     coaching_tier = ""
     custom_intro = ""
     objective_text = ""
+    climbing_tips_header = "Stack Synergy & Trios Climbing Tips"
+    coaching_note_header = "Trio Stack Coordination Note (Amlenk + WamaiDoingThis + Covetous_Demon)"
 
     if username == "Amlenk":
         coaching_tier = "Elite 4,500 RP Champion (Anchor & Flex)"
@@ -299,6 +534,18 @@ def main():
             "Leverage WamaiDoingThis's Mute drone-denial during prep phase to remain undetected. "
             "On attack, initiate the push as Ash, relying on WamaiDoingThis's Nomad Airjabs to secure your back-flank, while Amlenk follows up closely to trade you out and secure the defuser plant."
         )
+    elif username == "FearlessCoppeR":
+        coaching_tier = "Diamond 1 Peak Solo-Flex Entry (Lifetime Overall Audit)"
+        custom_intro = "FearlessCoppeR's lifetime stats represent a highly experienced and high-ceiling tactical veteran. Historically securing Diamond 1 with 4,437 RP and holding a lifetime 1.10 K/D ratio across 6,255 Ranked matches, FearlessCoppeR possesses elite-level individual combat mechanics. This individual audit examines lifetime metrics to establish structured solo/flex climbing routines, independent of standard stack play."
+        objective_text = "Optimize solo/flex impact by leveraging deep lifetime map knowledge, maximizing individual utility value, and utilizing high-lethality combat mechanics to secure opening round picks."
+        climbing_tips_header = "Individual Climbing & Solo/Flex Tips"
+        coaching_note_header = "Individual Tactical Directives Note (FearlessCoppeR - Solo/Flex Audit)"
+        stack_synergy_note = (
+            "As an individual competitive veteran, FearlessCoppeR operates as a high-impact flex-entry player. "
+            "On attack, prioritize entry with Ace/Nomad, using your own entry drones to clear paths and lock down flanks before initiating physical wall breaches. "
+            "On defense, play as a horizontal anchor or active roamer (Bandit/Lesion), using your Gu mines or shock wires to gain auditory intel. "
+            "Always prioritize trading efficiency: position yourself near active teammates to trade them out if they swing aggressively."
+        )
     else:
         coaching_tier = "Tactical Competitive Standing"
         custom_intro = f"Analysis report compiled for competitive Ranked 2.0 player {username}."
@@ -306,6 +553,7 @@ def main():
         stack_synergy_note = "Coordinate closely as a 3-man stack: entry creates space, flex-anchor follows for trades, and utility anchor secures flanks."
 
     avg_esr = sum(m.get('esr', 0.50) for m in maps) / max(len(maps), 1)
+
 
     # ------------------ COMPILING MARKDOWN REPORT ------------------
     # Ensure extremely high numerical density (Rule 7: >= 50 numbers)
@@ -325,7 +573,12 @@ def main():
 
 Their tactical profile is defined by `{coaching_tier}`, showing clear mechanical peaks and distinct coordination challenges. In the lobbies of Ranked 2.0, mechanical carries alone hit a structural wall. An executive tactical analysis reveals a key opportunity: {custom_intro}
 
-**SEASON OBJECTIVE:** {objective_text}"""
+**SEASON OBJECTIVE:** {objective_text}
+
+#### 🛡️ COMPETITIVE RANK HISTORY OVERVIEW
+* **Current Rank (Y11S1):** `{current_rank_str}`
+* **Lifetime Highest Rank 2.0 (Ranked 2.0 peak):** `{peak_r2_str}`
+* **Lifetime Highest Rank 1.0 (Rank 1.0 peak):** `{peak_r1_str}`"""
 
     sec2 = f"""### SECTION 2: TREND ANALYSIS — Y11S1 vs Lifetime
 
@@ -464,12 +717,12 @@ Below is the complete audit of exactly 17 competitive maps in the active Ranked 
 
         # Map-specific tactical knowledge combined with data patterns
         MAP_ATTACK_FIXES = {
-            "Villa": "The 2F study/aviator default is heavily pre-aimed by defenders. Instead of dry-peeking long angles, prioritise vertical play from above through astro hatch and library ceiling to displace anchors before committing to site.",
+            "Villa": "The 2F study/aviator default is heavily pre-aimed by defenders. Instead of dry-peeking horizontal angles, establish vertical pressure from BELOW (1F Kitchen and Dining Room) using soft breachers to displace anchors in vault/desk, while taking 2F Astronomy control and securing the Astro hatch to block late-round roamer rotates.",
             "Kafe Dostoyevsky": "Attack rounds stall when the top-floor push gets contested at white stairs. Run a split execute — pressure reading room from bakery while a second pair takes piano room from terrace — to stretch the defence thin.",
             "Chalet": "Garage-focused attacks are getting read. Mix in kitchen/trophy executes to keep defenders from stacking utility on one side. Drone the wine cellar rotation before committing bodies.",
             "Clubhouse": "CCTV and cash room pushes fail when vertical pressure isn't established first. Take gym control and open hatches before any horizontal push — defenders lose half their angles when the floor is gone.",
             "Coastline": "Hookah/billiards splits are getting stuffed. Use sustained penthouse pressure to draw rotates, then hit the actual site through pool when defenders have already burned their C4s.",
-            "Skyscraper": "The 23.6% attack rate means entries through tea room and geisha are being shut down hard. Run exhibition hall wrap-arounds and force defenders to deal with cross-angles they can't hold simultaneously.",
+            "Skyscraper": "The {att_wr} attack win rate means entries through tea room and geisha are being shut down hard. Run exhibition hall wrap-arounds and force defenders to deal with cross-angles they can't hold simultaneously.",
             "Oregon": "Laundry/meeting hall defaults are predictable. Vary your execute timing — sometimes hit within the first 90 seconds before defender rotations set, other times burn utility slow and hit in the last 45.",
             "Consulate": "Garage pushes need smoke support and a dedicated anchor player holding yellow stairs. Solo entry into visa without top-floor control is suicide.",
             "Bank": "Basement attacks get choked at elevator and server hallway. Secure top floor first, open hatches, and use vertical pressure to force defenders off their anchors before committing below.",
@@ -642,9 +895,9 @@ Execute map-specific corrections to balance the offense-defense discrepancy:
 1. **{prot1['name']}** ({prot1['win_rate']} WR | {prot1['kd_ratio']:.2f} K/D): Premier map comfort. Exceptional horizontal spacing and trade execution. Pick immediately if left open.
 2. **{prot2['name']}** ({prot2['win_rate']} WR | {prot2['kd_ratio']:.2f} K/D): Flawless site anchor layouts and high defensive win rates. Protect and leverage established angles.
 
-#### Stack Synergy & Trios Climbing Tips
+#### {climbing_tips_header}
 > [!IMPORTANT]
-> **Trio Stack Coordination Note (Amlenk + WamaiDoingThis + Covetous_Demon):**
+> **{coaching_note_header}:**
 > {stack_synergy_note}
 
 #### 3 Actionable Climbing Tips
@@ -1017,7 +1270,25 @@ Execute map-specific corrections to balance the offense-defense discrepancy:
                         
                         <div class="mt-6 border-t border-gray-800/80 pt-6">
                             <span class="text-gold font-bold font-outfit uppercase tracking-widest text-xs block mb-1">Season Objective</span>
-                            <p class="text-white font-bold text-lg">{objective_text}</p>
+                            <p class="text-white font-bold text-lg mb-4">{objective_text}</p>
+                        </div>
+                        
+                        <div class="mt-6 border-t border-gray-800/80 pt-6">
+                            <span class="text-gold font-bold font-outfit uppercase tracking-widest text-xs block mb-3 font-outfit">🛡️ Competitive Rank History Overview</span>
+                            <div class="grid grid-cols-3 gap-4 text-center">
+                                <div class="bg-gray-950/60 p-4 rounded-xl border border-gray-900 shadow-inner">
+                                    <div class="text-xs text-gray-500 font-bold uppercase">Current Rank (Y11S1)</div>
+                                    <div class="text-base font-black text-white mt-1 font-outfit">{current_rank_str}</div>
+                                </div>
+                                <div class="bg-gray-950/60 p-4 rounded-xl border border-gray-900 shadow-inner">
+                                    <div class="text-xs text-gray-500 font-bold uppercase">Highest Rank 2.0 (Peak)</div>
+                                    <div class="text-base font-black text-white mt-1 font-outfit">{peak_r2_str}</div>
+                                </div>
+                                <div class="bg-gray-950/60 p-4 rounded-xl border border-gray-900 shadow-inner">
+                                    <div class="text-xs text-gray-500 font-bold uppercase">Highest Rank 1.0 (Peak)</div>
+                                    <div class="text-base font-black text-white mt-1 font-outfit">{peak_r1_str}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -49,16 +49,26 @@ def load_env():
 ENV = load_env()
 
 STACK_MEMBERS = [
-    {"username": m.strip(), "platform": "uplay"}
+    {"username": m.strip(), "platform": "uplay" if m.strip() == "WamaiDoingThis" else "ubi"}
     for m in ENV.get("STACK_MEMBERS", "Amlenk,WamaiDoingThis,Covetous_Demon").split(",")
     if m.strip()
 ]
+
+INDIVIDUAL_PLAYERS = [
+    {"username": m.strip(), "platform": "uplay" if m.strip() == "WamaiDoingThis" else "ubi"}
+    for m in ENV.get("INDIVIDUAL_PLAYERS", "FearlessCoppeR").split(",")
+    if m.strip()
+]
+
+ALL_PLAYERS = STACK_MEMBERS + INDIVIDUAL_PLAYERS
 
 DISPLAY_NAMES = {
     "amlenk": "Amlenk",
     "wamaidoingthis": "WamaiDoingThis (yeetingyeti)",
     "covetous_demon": "Covetous_Demon",
+    "fearlesscopper": "FearlessCoppeR",
 }
+
 
 # ─── App ─────────────────────────────────────────────────────────────────────
 
@@ -176,6 +186,7 @@ def health_check():
         "status": "online",
         "version": "2.0.0",
         "stack_members": [m["username"] for m in STACK_MEMBERS],
+        "individual_players": [m["username"] for m in INDIVIDUAL_PLAYERS],
         "gemini_configured": bool(ENV.get("GEMINI_API_KEY")),
         "r6data_configured": bool(ENV.get("R6DATA_API_KEY"))
     }
@@ -183,8 +194,8 @@ def health_check():
 
 @app.get("/api/players")
 def list_players():
-    """List all stack members and their report status."""
-    return [get_player_report_status(m["username"]) for m in STACK_MEMBERS]
+    """List all players and their report status."""
+    return [get_player_report_status(m["username"]) for m in ALL_PLAYERS]
 
 
 @app.get("/api/coach")
@@ -221,7 +232,7 @@ def run_coach(
 def get_report(username: str):
     """Serve the cached HTML coaching report for a player."""
     # Case-insensitive search
-    for member in STACK_MEMBERS:
+    for member in ALL_PLAYERS:
         if member["username"].lower() == username.lower():
             username = member["username"]
             break
@@ -281,84 +292,104 @@ def stack_analysis():
     return {"analysis_markdown": analysis}
 
 
+@app.get("/sensitivity", response_class=HTMLResponse)
+def sensitivity_dashboard():
+    """Serve the premium interactive sensitivity and ADS scaling dashboard."""
+    html_path = BASE_DIR / "sensitivity_dashboard.html"
+    if not html_path.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="Sensitivity dashboard template file not found."
+        )
+    with open(html_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    return HTMLResponse(content=content)
+
+
 @app.get("/", response_class=HTMLResponse)
 def dashboard():
     """Serve the premium coaching portal dashboard."""
-    players = [get_player_report_status(m["username"]) for m in STACK_MEMBERS]
+    stack_players = [get_player_report_status(m["username"]) for m in STACK_MEMBERS]
+    individual_players = [get_player_report_status(m["username"]) for m in INDIVIDUAL_PLAYERS]
     
-    player_cards = ""
-    for p in players:
-        status_badge = (
-            '<span class="badge badge-ready">✓ Report Ready</span>'
-            if p["has_report"] else
-            '<span class="badge badge-pending">⏳ No Report</span>'
-        )
-        stats_html = ""
-        if p["stats"]:
-            stats_html = f"""
-            <!-- Tab Switcher -->
-            <div class="card-tabs" style="display: flex; gap: 4px; background: rgba(0,0,0,0.25); padding: 3px; border-radius: 10px; margin-bottom: 12px; border: 1px solid var(--border);">
-                <button class="tab-btn active" onclick="switchCardTab(this, 'overall')" style="flex: 1; background: var(--bg-card); border: 1px solid rgba(74, 144, 226, 0.15); color: var(--primary); box-shadow: 0 2px 6px rgba(0,0,0,0.3); padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; cursor: pointer; transition: all 0.2s;">Overall</button>
-                <button class="tab-btn" onclick="switchCardTab(this, 'y11s1')" style="flex: 1; background: transparent; border: none; color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; cursor: pointer; transition: all 0.2s;">Y11S1 Season</button>
-            </div>
+    def make_player_cards(players_list):
+        cards_html = ""
+        for p in players_list:
+            status_badge = (
+                '<span class="badge badge-ready">✓ Report Ready</span>'
+                if p["has_report"] else
+                '<span class="badge badge-pending">⏳ No Report</span>'
+            )
+            stats_html = ""
+            if p["stats"]:
+                stats_html = f"""
+                <!-- Tab Switcher -->
+                <div class="card-tabs" style="display: flex; gap: 4px; background: rgba(0,0,0,0.25); padding: 3px; border-radius: 10px; margin-bottom: 12px; border: 1px solid var(--border);">
+                    <button class="tab-btn active" onclick="switchCardTab(this, 'overall')" style="flex: 1; background: var(--bg-card); border: 1px solid rgba(74, 144, 226, 0.15); color: var(--primary); box-shadow: 0 2px 6px rgba(0,0,0,0.3); padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; cursor: pointer; transition: all 0.2s;">Overall</button>
+                    <button class="tab-btn" onclick="switchCardTab(this, 'y11s1')" style="flex: 1; background: transparent; border: none; color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; cursor: pointer; transition: all 0.2s;">Y11S1 Season</button>
+                </div>
+                
+                <!-- Overall Stats Group -->
+                <div class="stats-overall stats-group" style="display: grid; gap: 8px;">
+                    <div class="stat-row">
+                        <span class="stat-label">Ranked Overall K/D</span>
+                        <span class="stat-value">{p['stats'].get('kd', '—')}</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Overall Win Rate</span>
+                        <span class="stat-value">{p['stats'].get('win_rate', '—')}</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Overall Rank</span>
+                        <span class="stat-value rank-value" style="color: var(--accent); font-weight: 800; font-size: 0.8rem;">{p['stats'].get('ranked_rating', '—')}</span>
+                    </div>
+                </div>
+                
+                <!-- Y11S1 Stats Group -->
+                <div class="stats-y11s1 stats-group" style="display: none; gap: 8px;">
+                    <div class="stat-row">
+                        <span class="stat-label">Y11S1 Season K/D</span>
+                        <span class="stat-value" style="color: var(--accent-purple);">{p['stats'].get('y11_kd', '—')}</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Season Win Rate</span>
+                        <span class="stat-value" style="color: var(--accent-purple);">{p['stats'].get('y11_win_rate', '—')}</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Season Rank</span>
+                        <span class="stat-value rank-value" style="color: var(--accent-purple); font-weight: 800; font-size: 0.8rem;">{p['stats'].get('y11_rating', '—')}</span>
+                    </div>
+                </div>
+                """
             
-            <!-- Overall Stats Group -->
-            <div class="stats-overall stats-group" style="display: grid; gap: 8px;">
-                <div class="stat-row">
-                    <span class="stat-label">Ranked Overall K/D</span>
-                    <span class="stat-value">{p['stats'].get('kd', '—')}</span>
-                </div>
-                <div class="stat-row">
-                    <span class="stat-label">Overall Win Rate</span>
-                    <span class="stat-value">{p['stats'].get('win_rate', '—')}</span>
-                </div>
-                <div class="stat-row">
-                    <span class="stat-label">Overall Rank</span>
-                    <span class="stat-value rank-value" style="color: var(--accent); font-weight: 800; font-size: 0.8rem;">{p['stats'].get('ranked_rating', '—')}</span>
-                </div>
-            </div>
+            report_btn = ""
+            if p["has_report"]:
+                report_btn = f'<a href="/api/report/{p["username"]}" class="btn btn-primary" target="_blank">View Report</a>'
             
-            <!-- Y11S1 Stats Group -->
-            <div class="stats-y11s1 stats-group" style="display: none; gap: 8px;">
-                <div class="stat-row">
-                    <span class="stat-label">Y11S1 Season K/D</span>
-                    <span class="stat-value" style="color: var(--accent-purple);">{p['stats'].get('y11_kd', '—')}</span>
+            run_btn = f'<a href="/api/coach?username={p["username"]}" class="btn btn-secondary" target="_blank">Run Analysis</a>'
+            last_updated = f'<div class="last-updated">Last updated: {p["last_updated"]}</div>' if p["last_updated"] else ""
+            
+            cards_html += f"""
+            <div class="player-card">
+                <div class="card-header">
+                    <div class="player-avatar">{"".join([w[0].upper() for w in p['display_name'].split()[:2]])}</div>
+                    <div class="player-info">
+                        <h3 class="player-name">{p['display_name']}</h3>
+                        <span class="player-username">@{p['username']}</span>
+                    </div>
+                    {status_badge}
                 </div>
-                <div class="stat-row">
-                    <span class="stat-label">Season Win Rate</span>
-                    <span class="stat-value" style="color: var(--accent-purple);">{p['stats'].get('y11_win_rate', '—')}</span>
+                <div class="stats-grid">{stats_html}</div>
+                {last_updated}
+                <div class="card-actions">
+                    {report_btn}
+                    {run_btn}
                 </div>
-                <div class="stat-row">
-                    <span class="stat-label">Season Rank</span>
-                    <span class="stat-value rank-value" style="color: var(--accent-purple); font-weight: 800; font-size: 0.8rem;">{p['stats'].get('y11_rating', '—')}</span>
-                </div>
-            </div>
-            """
+            </div>"""
+        return cards_html
         
-        report_btn = ""
-        if p["has_report"]:
-            report_btn = f'<a href="/api/report/{p["username"]}" class="btn btn-primary" target="_blank">View Report</a>'
-        
-        run_btn = f'<a href="/api/coach?username={p["username"]}" class="btn btn-secondary" target="_blank">Run Analysis</a>'
-        last_updated = f'<div class="last-updated">Last updated: {p["last_updated"]}</div>' if p["last_updated"] else ""
-        
-        player_cards += f"""
-        <div class="player-card">
-            <div class="card-header">
-                <div class="player-avatar">{"".join([w[0].upper() for w in p['display_name'].split()[:2]])}</div>
-                <div class="player-info">
-                    <h3 class="player-name">{p['display_name']}</h3>
-                    <span class="player-username">@{p['username']}</span>
-                </div>
-                {status_badge}
-            </div>
-            <div class="stats-grid">{stats_html}</div>
-            {last_updated}
-            <div class="card-actions">
-                {report_btn}
-                {run_btn}
-            </div>
-        </div>"""
+    stack_player_cards = make_player_cards(stack_players)
+    individual_player_cards = make_player_cards(individual_players)
     
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -776,6 +807,7 @@ def dashboard():
         <h1>SIEGE COACHING<br>PORTAL</h1>
         <p class="hero-subtitle">AI-powered tactical analysis for your competitive stack. Real data, real coaching.</p>
         <div class="hero-actions">
+            <a href="/sensitivity" class="btn btn-primary">🎯 Sensitivity Scaler</a>
             <a href="/api/stack" class="btn btn-accent" target="_blank">🤝 Stack Analysis</a>
             <a href="/docs" class="btn btn-secondary" target="_blank">📖 API Docs</a>
         </div>
@@ -784,12 +816,23 @@ def dashboard():
     <div class="container">
         <div class="section">
             <div class="section-header">
-                <span class="section-title">Stack Members</span>
+                <span class="section-title">Active Trio Stack (Y11S1 Scope)</span>
                 <div class="section-line"></div>
-                <span style="font-size:0.8rem;color:var(--text-muted)">{len(players)} players</span>
+                <span style="font-size:0.8rem;color:var(--text-muted)">{len(stack_players)} players</span>
             </div>
             <div class="cards-grid">
-                {player_cards}
+                {stack_player_cards}
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Individual Audits (Lifetime Scope)</span>
+                <div class="section-line"></div>
+                <span style="font-size:0.8rem;color:var(--text-muted)">{len(individual_players)} player</span>
+            </div>
+            <div class="cards-grid">
+                {individual_player_cards}
             </div>
         </div>
 
@@ -818,6 +861,11 @@ def dashboard():
                     <span class="api-method">GET</span>
                     <span class="api-path">/api/stack</span>
                     <p class="api-desc">AI-powered team stack analysis and role assignments</p>
+                </a>
+                <a class="api-card" href="/sensitivity" target="_blank">
+                    <span class="api-method">GET</span>
+                    <span class="api-path">/sensitivity</span>
+                    <p class="api-desc">Interactive Sensitivity & ADS Focal-Scaling Dashboard</p>
                 </a>
                 <a class="api-card" href="/api/status" target="_blank">
                     <span class="api-method">GET</span>
@@ -874,7 +922,8 @@ def dashboard():
 # ─── Entry Point ─────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    print(r"""
+    members_str = " · ".join(m["username"] for m in STACK_MEMBERS)
+    print(rf"""
    _____ ___ ___  ____ _____    ____  ___  ____  _____ _   _  ____
   / ___||_ _| __|/ ___| ____|  |  _ \/ _ \|  _ \|_   _| | | |/ ___|
   \___ \ | || |_ | |  |  _|    | |_) | | | | |_) | | | | |_| | |
@@ -882,7 +931,7 @@ if __name__ == "__main__":
   |____/|___|_|   \____|_____|  |_|    \___/|_| \_\ |_| |_| |_|\____|
 
         Siege Coaching Portal API v2.0
-        Stack: Amlenk · WamaiDoingThis · Covetous_Demon
+        Stack: {members_str}
     """)
     uvicorn.run(
         "app:app",

@@ -39,48 +39,22 @@ def get_rank_name(rp):
     rp = int(rp)
     if rp >= 5000:
         return "CHAMPION"
-    elif rp >= 4400:
-        return "DIAMOND 1"
-    elif rp >= 4200:
-        return "DIAMOND 2"
-    elif rp >= 4000:
-        return "DIAMOND 3"
-    elif rp >= 3800:
-        return "EMERALD 1"
-    elif rp >= 3600:
-        return "EMERALD 2"
-    elif rp >= 3400:
-        return "EMERALD 3"
-    elif rp >= 3200:
-        return "PLATINUM 1"
-    elif rp >= 3000:
-        return "PLATINUM 2"
-    elif rp >= 2800:
-        return "PLATINUM 3"
-    elif rp >= 2600:
-        return "GOLD 1"
-    elif rp >= 2400:
-        return "GOLD 2"
-    elif rp >= 2200:
-        return "GOLD 3"
-    elif rp >= 2000:
-        return "SILVER 1"
-    elif rp >= 1800:
-        return "SILVER 2"
-    elif rp >= 1600:
-        return "SILVER 3"
-    elif rp >= 1400:
-        return "BRONZE 1"
-    elif rp >= 1200:
-        return "BRONZE 2"
-    elif rp >= 1000:
-        return "BRONZE 3"
-    elif rp >= 800:
-        return "COPPER 1"
-    elif rp >= 600:
-        return "COPPER 2"
-    else:
-        return "COPPER 3"
+    
+    tiers = ["COPPER", "BRONZE", "SILVER", "GOLD", "PLATINUM", "EMERALD", "DIAMOND"]
+    if rp < 1000:
+        div = 5 - (rp // 100)
+        div = max(1, min(5, div))
+        return f"COPPER {div}"
+    
+    tier_idx = (rp - 1000) // 500
+    if tier_idx >= len(tiers):
+        tier_idx = len(tiers) - 1
+    
+    tier_name = tiers[tier_idx]
+    tier_base = 1000 + tier_idx * 500
+    div = 5 - ((rp - tier_base) // 100)
+    div = max(1, min(5, div))
+    return f"{tier_name} {div}"
 
 class R6DataClient:
     def __init__(self, api_key):
@@ -497,6 +471,22 @@ def main():
                                 rp_val = int(rp_info.get("value", 0))
                                 rank_name = rp_info.get("metadata", {}).get("rank", get_rank_name(rp_val))
                                 ranked_rating = f"{rp_val:,} RP ({rank_name})"
+        
+        # Fallback to seasons_history_raw for current season 41 (Y11S1) if not parsed
+        if ranked_rating == "UNRANKED" and seasons_history_raw:
+            segments = []
+            if isinstance(seasons_history_raw, dict):
+                segments = seasons_history_raw.get("data", {}).get("segments", [])
+            elif isinstance(seasons_history_raw, list):
+                segments = seasons_history_raw
+            
+            for s in segments:
+                attr = s.get("attributes", {})
+                if attr.get("gamemode") == "pvp_ranked" and attr.get("season") == 41:
+                    rp_val = int(s.get("stats", {}).get("rankPoints", {}).get("value", 0))
+                    if rp_val > 0:
+                        ranked_rating = f"{rp_val:,} RP ({get_rank_name(rp_val)})"
+                        break
     except Exception as e:
         print(f"  [Warning] Could not parse ranked rating: {e}")
 

@@ -1,0 +1,32 @@
+{
+  "account": {
+    "xp": 0,
+    "level": 847,
+    "profile": {
+      "xp": 0,
+      "level": 847
+    },
+    "profiles": [
+      {
+        "platformType": "uplay",
+        "nameOnPlatform": "FearlessCoppeR"
+      }
+    ],
+    "profilePicture": "https://avatars.ubisoft.com/cbac31cf-ff6e-4483-b920-bee33e2bea17/default_146_146.png"
+  },
+  "seasonal": {
+    "data": {
+      "history": {
+        "data": [],
+        "metadata": {
+          "key": "RankPoints",
+          "name": "Rank Points",
+          "description": null
+        }
+      },
+      "expiryDate": "0001-01-01T00:00:00+00:00",
+      "bestMatches": null,
+      "leaderboard": null
+    }
+  }
+}

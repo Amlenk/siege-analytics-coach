@@ -289,6 +289,13 @@ def main():
     if len(sys.argv) > 1:
         username_arg = sys.argv[1].strip()
         
+    scope_arg = None
+    if len(sys.argv) > 2:
+        scope_arg = sys.argv[2].strip().lower()
+        if scope_arg in ["lifetime", "y11s1"]:
+            os.environ["FORCE_SCOPE"] = scope_arg
+            print(f"[+] Forcing pipeline scope to: {scope_arg}")
+        
     total_start_time = time.time()
     
     if username_arg.lower() == "all":

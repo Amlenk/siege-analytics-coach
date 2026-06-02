@@ -546,8 +546,12 @@ def main():
     with open(data_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
         
-    # Check both scopes, prefer 'y11s1' then 'lifetime'
-    y11s1 = data.get('y11s1', data.get('lifetime', {}))
+    # Check both scopes, prefer 'y11s1' then 'lifetime', unless overridden by FORCE_SCOPE env var
+    scope_env = os.environ.get("FORCE_SCOPE", "").lower().strip()
+    if scope_env in ['y11s1', 'lifetime'] and scope_env in data:
+        y11s1 = data[scope_env]
+    else:
+        y11s1 = data.get('y11s1', data.get('lifetime', {}))
     # Resiliency fallback
     if not y11s1:
         for scope_name, scope_content in data.items():
@@ -559,13 +563,23 @@ def main():
         print("[!] Error: No valid statistical scope with operators/maps found!")
         sys.exit(1)
         
+    # Resolve username
+    if not username:
+        for scope_name in ["y11s1", "lifetime"]:
+            if scope_name in data and "summary" in data[scope_name]:
+                username = data[scope_name]["summary"].get("username", "")
+                if username:
+                    break
+        if not username:
+            username = "Unknown"
+
+    if username.lower() == "fearlesscopper":
+        print("[*] [Charts Generator] Forcing scope to 'lifetime' for FearlessCoppeR.")
+        y11s1 = data.get("lifetime", y11s1)
+
     operators = y11s1.get('operators', [])
     maps = y11s1.get('maps', [])
     summary = y11s1.get('summary', {})
-    
-    # Resolve username
-    if not username:
-        username = summary.get('username', 'Unknown')
         
     print(f"[*] [Charts Generator] Rendering 8 Premium Charts for {username}")
     print(f"[*] [Charts Generator] Active Map Count: {len(maps)} | Operator Pool: {len(operators)}")
