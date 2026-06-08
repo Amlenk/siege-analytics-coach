@@ -1,39 +1,39 @@
 [
   {
     "name": "Kafe Dostoyevsky",
-    "matches": 62,
-    "win_rate": "58.1%",
-    "wins": 36,
-    "losses": 26,
-    "kd_ratio": 1.58,
-    "attack_win_rate": "43.3%",
-    "defense_win_rate": "61.1%",
+    "matches": 60,
+    "win_rate": "58.3%",
+    "wins": 35,
+    "losses": 25,
+    "kd_ratio": 1.59,
+    "attack_win_rate": "43.2%",
+    "defense_win_rate": "61.4%",
     "headshot_percentage": "54.3%",
-    "esr": 0.68
+    "esr": 0.69
   },
   {
     "name": "Oregon",
-    "matches": 60,
-    "win_rate": "46.7%",
-    "wins": 28,
+    "matches": 59,
+    "win_rate": "45.8%",
+    "wins": 27,
     "losses": 32,
-    "kd_ratio": 1.4,
-    "attack_win_rate": "40.4%",
-    "defense_win_rate": "58.2%",
-    "headshot_percentage": "60.9%",
+    "kd_ratio": 1.38,
+    "attack_win_rate": "39.8%",
+    "defense_win_rate": "58.3%",
+    "headshot_percentage": "60.8%",
     "esr": 0.5
   },
   {
     "name": "Border",
-    "matches": 59,
-    "win_rate": "55.9%",
-    "wins": 33,
-    "losses": 26,
-    "kd_ratio": 1.27,
-    "attack_win_rate": "45.1%",
-    "defense_win_rate": "58.8%",
-    "headshot_percentage": "55.0%",
-    "esr": 0.68
+    "matches": 57,
+    "win_rate": "56.1%",
+    "wins": 32,
+    "losses": 25,
+    "kd_ratio": 1.28,
+    "attack_win_rate": "43.8%",
+    "defense_win_rate": "59.3%",
+    "headshot_percentage": "54.7%",
+    "esr": 0.67
   },
   {
     "name": "Clubhouse",
@@ -60,30 +60,6 @@
     "esr": 0.73
   },
   {
-    "name": "Villa",
-    "matches": 50,
-    "win_rate": "46.0%",
-    "wins": 23,
-    "losses": 27,
-    "kd_ratio": 1.35,
-    "attack_win_rate": "37.1%",
-    "defense_win_rate": "61.4%",
-    "headshot_percentage": "55.5%",
-    "esr": 0.64
-  },
-  {
-    "name": "Chalet",
-    "matches": 49,
-    "win_rate": "55.1%",
-    "wins": 27,
-    "losses": 22,
-    "kd_ratio": 1.37,
-    "attack_win_rate": "41.8%",
-    "defense_win_rate": "61.5%",
-    "headshot_percentage": "52.7%",
-    "esr": 0.58
-  },
-  {
     "name": "Coastline",
     "matches": 49,
     "win_rate": "40.8%",
@@ -96,14 +72,26 @@
     "esr": 0.6
   },
   {
-    "name": "Bank",
-    "matches": 38,
-    "win_rate": "60.5%",
+    "name": "Villa",
+    "matches": 49,
+    "win_rate": "46.9%",
     "wins": 23,
-    "losses": 15,
+    "losses": 26,
     "kd_ratio": 1.35,
-    "attack_win_rate": "45.6%",
-    "defense_win_rate": "62.4%",
+    "attack_win_rate": "37.7%",
+    "defense_win_rate": "61.6%",
+    "headshot_percentage": "55.4%",
+    "esr": 0.63
+  },
+  {
+    "name": "Chalet",
+    "matches": 48,
+    "win_rate": "54.2%",
+    "wins": 26,
+    "losses": 22,
+    "kd_ratio": 1.35,
+    "attack_win_rate": "40.9%",
+    "defense_win_rate": "61.2%",
     "headshot_percentage": "51.9%",
     "esr": 0.58
   },
@@ -120,27 +108,27 @@
     "esr": 0.52
   },
   {
-    "name": "Lair",
-    "matches": 24,
-    "win_rate": "54.2%",
-    "wins": 13,
-    "losses": 10,
-    "kd_ratio": 1.4,
-    "attack_win_rate": "45.9%",
-    "defense_win_rate": "56.6%",
-    "headshot_percentage": "60.3%",
-    "esr": 0.78
+    "name": "Bank",
+    "matches": 37,
+    "win_rate": "59.5%",
+    "wins": 22,
+    "losses": 15,
+    "kd_ratio": 1.38,
+    "attack_win_rate": "45.1%",
+    "defense_win_rate": "61.8%",
+    "headshot_percentage": "51.6%",
+    "esr": 0.58
   },
   {
     "name": "Fortress",
-    "matches": 22,
-    "win_rate": "50.0%",
-    "wins": 11,
+    "matches": 21,
+    "win_rate": "47.6%",
+    "wins": 10,
     "losses": 11,
-    "kd_ratio": 1.08,
-    "attack_win_rate": "38.3%",
-    "defense_win_rate": "59.4%",
-    "headshot_percentage": "58.8%",
+    "kd_ratio": 1.1,
+    "attack_win_rate": "37.9%",
+    "defense_win_rate": "58.1%",
+    "headshot_percentage": "58.9%",
     "esr": 0.55
   },
   {
@@ -156,6 +144,18 @@
     "esr": 0.67
   },
   {
+    "name": "Lair",
+    "matches": 20,
+    "win_rate": "50.0%",
+    "wins": 10,
+    "losses": 10,
+    "kd_ratio": 1.29,
+    "attack_win_rate": "44.8%",
+    "defense_win_rate": "54.3%",
+    "headshot_percentage": "62.4%",
+    "esr": 0.75
+  },
+  {
     "name": "Skyscraper",
     "matches": 18,
     "win_rate": "38.9%",
@@ -166,18 +166,6 @@
     "defense_win_rate": "66.7%",
     "headshot_percentage": "50.5%",
     "esr": 0.53
-  },
-  {
-    "name": "Theme Park",
-    "matches": 10,
-    "win_rate": "40.0%",
-    "wins": 4,
-    "losses": 6,
-    "kd_ratio": 1.38,
-    "attack_win_rate": "41.4%",
-    "defense_win_rate": "60.6%",
-    "headshot_percentage": "40.7%",
-    "esr": 0.55
   },
   {
     "name": "Outback",
@@ -192,63 +180,27 @@
     "esr": 0.3
   },
   {
+    "name": "Theme Park",
+    "matches": 9,
+    "win_rate": "33.3%",
+    "wins": 3,
+    "losses": 6,
+    "kd_ratio": 1.33,
+    "attack_win_rate": "39.3%",
+    "defense_win_rate": "58.1%",
+    "headshot_percentage": "42.3%",
+    "esr": 0.55
+  },
+  {
     "name": "Emerald Plains",
-    "matches": 2,
-    "win_rate": "50.0%",
-    "wins": 1,
-    "losses": 1,
-    "kd_ratio": 1.83,
-    "attack_win_rate": "50.0%",
-    "defense_win_rate": "60.0%",
-    "headshot_percentage": "63.6%",
-    "esr": 0.5
-  },
-  {
-    "name": "Stadium Bravo",
-    "matches": 2,
-    "win_rate": "50.0%",
-    "wins": 1,
-    "losses": 0,
-    "kd_ratio": 0.0,
-    "attack_win_rate": "100.0%",
-    "defense_win_rate": "100.0%",
-    "headshot_percentage": "0.0%",
-    "esr": 0.0
-  },
-  {
-    "name": "House",
-    "matches": 1,
-    "win_rate": "100.0%",
-    "wins": 1,
-    "losses": 0,
-    "kd_ratio": 5.0,
-    "attack_win_rate": "100.0%",
-    "defense_win_rate": "100.0%",
-    "headshot_percentage": "40.0%",
-    "esr": 0.0
-  },
-  {
-    "name": "Stadium Alpha",
-    "matches": 1,
-    "win_rate": "100.0%",
-    "wins": 1,
-    "losses": 0,
-    "kd_ratio": 0.33,
-    "attack_win_rate": "50.0%",
-    "defense_win_rate": "100.0%",
-    "headshot_percentage": "100.0%",
-    "esr": 0.0
-  },
-  {
-    "name": "Tower",
     "matches": 1,
     "win_rate": "0.0%",
     "wins": 0,
     "losses": 1,
-    "kd_ratio": 1.0,
-    "attack_win_rate": "0.0%",
+    "kd_ratio": 1.25,
+    "attack_win_rate": "33.3%",
     "defense_win_rate": "0.0%",
-    "headshot_percentage": "33.3%",
+    "headshot_percentage": "40.0%",
     "esr": 1.0
   }
 ]

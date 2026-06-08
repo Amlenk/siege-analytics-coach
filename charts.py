@@ -427,8 +427,9 @@ def generate_skill_radar(summary, operators, maps, username, output_paths):
     ax.plot(angles, diamond_values, color='#8b949e', linewidth=1.5, linestyle='--', label='Diamond Baseline (70)', zorder=2)
     ax.fill(angles, diamond_values, color='#8b949e', alpha=0.1, zorder=2)
     
+    season_year = summary.get('season', 'Y11S2')
     # Plot Player profile
-    ax.plot(angles, player_values, color='#10b981', linewidth=2.5, linestyle='-', label=f"{username} (Y11S1)", zorder=3)
+    ax.plot(angles, player_values, color='#10b981', linewidth=2.5, linestyle='-', label=f"{username} ({season_year})", zorder=3)
     ax.fill(angles, player_values, color='#10b981', alpha=0.25, zorder=3)
     
     # Axes configuration

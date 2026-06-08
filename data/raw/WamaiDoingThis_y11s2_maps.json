@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Border",
+    "matches": 2,
+    "win_rate": "50.0%",
+    "wins": 1,
+    "losses": 1,
+    "kd_ratio": 0.27,
+    "attack_win_rate": "42.9%",
+    "defense_win_rate": "50.0%",
+    "headshot_percentage": "66.7%",
+    "esr": 1.0
+  },
+  {
+    "name": "Calypso Casino",
+    "matches": 2,
+    "win_rate": "0.0%",
+    "wins": 0,
+    "losses": 1,
+    "kd_ratio": 0.62,
+    "attack_win_rate": "0.0%",
+    "defense_win_rate": "50.0%",
+    "headshot_percentage": "20.0%",
+    "esr": 1.0
+  },
+  {
+    "name": "Clubhouse",
+    "matches": 2,
+    "win_rate": "50.0%",
+    "wins": 1,
+    "losses": 1,
+    "kd_ratio": 0.5,
+    "attack_win_rate": "50.0%",
+    "defense_win_rate": "50.0%",
+    "headshot_percentage": "0.0%",
+    "esr": 0.0
+  },
+  {
+    "name": "Coastline",
+    "matches": 1,
+    "win_rate": "100.0%",
+    "wins": 1,
+    "losses": 0,
+    "kd_ratio": 0.8,
+    "attack_win_rate": "100.0%",
+    "defense_win_rate": "33.3%",
+    "headshot_percentage": "50.0%",
+    "esr": 0.0
+  },
+  {
+    "name": "Fortress",
+    "matches": 1,
+    "win_rate": "100.0%",
+    "wins": 1,
+    "losses": 0,
+    "kd_ratio": 0.67,
+    "attack_win_rate": "66.7%",
+    "defense_win_rate": "100.0%",
+    "headshot_percentage": "50.0%",
+    "esr": 0.0
+  },
+  {
+    "name": "Nighthaven Labs",
+    "matches": 1,
+    "win_rate": "0.0%",
+    "wins": 0,
+    "losses": 1,
+    "kd_ratio": 0.38,
+    "attack_win_rate": "40.0%",
+    "defense_win_rate": "50.0%",
+    "headshot_percentage": "100.0%",
+    "esr": 0.0
+  },
+  {
+    "name": "Oregon",
+    "matches": 1,
+    "win_rate": "0.0%",
+    "wins": 0,
+    "losses": 1,
+    "kd_ratio": 1.4,
+    "attack_win_rate": "25.0%",
+    "defense_win_rate": "50.0%",
+    "headshot_percentage": "42.9%",
+    "esr": 0.0
+  }
+]

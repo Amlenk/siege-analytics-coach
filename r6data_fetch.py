@@ -179,6 +179,19 @@ def _scrape_page_text(url):
             EC.presence_of_element_located((By.CLASS_NAME, "v3-tabs__item"))
         )
         time.sleep(5)
+        
+        # Click the 'Ranked' button/tab to ensure we only get ranked map stats
+        try:
+            spans = driver.find_elements(By.XPATH, "//span[text()='Ranked']")
+            if spans:
+                ranked_span = spans[0]
+                parent = ranked_span.find_element(By.XPATH, "..")
+                driver.execute_script("arguments[0].click();", parent)
+                print(f"  [Scraper] Successfully clicked the 'Ranked' button to filter maps.")
+                time.sleep(4)
+        except Exception as e:
+            print(f"  [Scraper] Warning: Failed to click 'Ranked' button: {e}")
+            
         return driver.find_element(By.TAG_NAME, "body").text
     finally:
         if driver:
@@ -243,13 +256,13 @@ def scrape_maps_for_player(username, platform="ubi", season_id=41):
     """
     Scrape map stats from tracker.gg for a player.
     Returns (lifetime_ranked_maps, seasonal_ranked_maps) tuple.
-    Both use gamemode=pvp_ranked to get ranked-only data.
+    Both use playlist=ranked to get ranked-only data.
     """
     tracker_platform = "ubi" if platform in ["uplay", "ubi", "uplayconnect", "pc", "uplay_pc"] else platform
     base_maps_url = f"https://r6.tracker.network/r6siege/profile/{tracker_platform}/{username}/maps"
 
     # Scrape Lifetime Ranked maps
-    lifetime_url = f"{base_maps_url}?gamemode=pvp_ranked"
+    lifetime_url = f"{base_maps_url}?playlist=ranked"
     print(f"  -> Scraping lifetime ranked maps: {lifetime_url}")
     try:
         lt_text = _scrape_page_text(lifetime_url)
@@ -259,13 +272,13 @@ def scrape_maps_for_player(username, platform="ubi", season_id=41):
         print(f"     [Error] Lifetime maps scrape failed: {e}")
         lifetime_maps = []
 
-    # Scrape Seasonal Ranked maps (Y11S1)
-    seasonal_url = f"{base_maps_url}?season={season_id}&gamemode=pvp_ranked"
-    print(f"  -> Scraping Y11S1 ranked maps: {seasonal_url}")
+    # Scrape Seasonal Ranked maps (Y11S2)
+    seasonal_url = f"{base_maps_url}?season={season_id}&playlist=ranked"
+    print(f"  -> Scraping Y11S2 ranked maps: {seasonal_url}")
     try:
         s_text = _scrape_page_text(seasonal_url)
         seasonal_maps = _parse_maps_text(s_text)
-        print(f"     Parsed {len(seasonal_maps)} Y11S1 ranked maps.")
+        print(f"     Parsed {len(seasonal_maps)} Y11S2 ranked maps.")
     except Exception as e:
         print(f"     [Error] Seasonal maps scrape failed: {e}")
         seasonal_maps = []
@@ -448,11 +461,43 @@ def main():
     print(f"  -> Fetching seasons stats history...")
     seasons_history_raw = client.get_seasons_history(username, platform)
     
-    # --- Step 4: Lifetime and Y11S1 Operator stats ---
+    # Determine the latest season dynamically
+    current_season_id = 42
+    current_season_year = "Y11S2"
+    current_season_name = "System Override"
+    try:
+        if seasons_history_raw:
+            segments = []
+            if isinstance(seasons_history_raw, dict):
+                segments = seasons_history_raw.get("data", {}).get("segments", [])
+            elif isinstance(seasons_history_raw, list):
+                segments = seasons_history_raw
+                
+            active_seasons = []
+            for s in segments:
+                attr = s.get("attributes", {})
+                if attr.get("gamemode") == "pvp_ranked":
+                    s_id = attr.get("season")
+                    if s_id is not None:
+                        active_seasons.append(int(s_id))
+            if active_seasons:
+                current_season_id = max(active_seasons)
+                
+            for s in segments:
+                if s.get("type") == "season" and s.get("attributes", {}).get("season") == current_season_id:
+                    current_season_year = s.get("metadata", {}).get("shortName", current_season_year)
+                    current_season_name = s.get("metadata", {}).get("name", current_season_name)
+                    break
+    except Exception as e:
+        print(f"  [Warning] Dynamic season resolution failed: {e}")
+        
+    print(f"  Dynamic current season resolved: Season {current_season_id} ({current_season_name}, {current_season_year})")
+
+    # --- Step 4: Lifetime and Seasonal Operator stats ---
     print(f"  -> Fetching lifetime operator stats...")
     ops_lifetime_raw = client.get_operator_stats(username, platform, season_year=None, modes="ranked")
-    print(f"  -> Fetching Y11S1 seasonal operator stats...")
-    ops_seasonal_raw = client.get_operator_stats(username, platform, season_year="Y11S1", modes="ranked")
+    print(f"  -> Fetching {current_season_year} seasonal operator stats...")
+    ops_seasonal_raw = client.get_operator_stats(username, platform, season_year=current_season_year, modes="ranked")
 
     # ---- Parse rank points from seasonal stats ----
     ranked_rating = "UNRANKED"
@@ -472,7 +517,7 @@ def main():
                                 rank_name = rp_info.get("metadata", {}).get("rank", get_rank_name(rp_val))
                                 ranked_rating = f"{rp_val:,} RP ({rank_name})"
         
-        # Fallback to seasons_history_raw for current season 41 (Y11S1) if not parsed
+        # Fallback to seasons_history_raw for current season if not parsed
         if ranked_rating == "UNRANKED" and seasons_history_raw:
             segments = []
             if isinstance(seasons_history_raw, dict):
@@ -482,7 +527,7 @@ def main():
             
             for s in segments:
                 attr = s.get("attributes", {})
-                if attr.get("gamemode") == "pvp_ranked" and attr.get("season") == 41:
+                if attr.get("gamemode") == "pvp_ranked" and attr.get("season") == current_season_id:
                     rp_val = int(s.get("stats", {}).get("rankPoints", {}).get("value", 0))
                     if rp_val > 0:
                         ranked_rating = f"{rp_val:,} RP ({get_rank_name(rp_val)})"
@@ -525,8 +570,8 @@ def main():
                 # Lifetime ranked segment: season is None
                 if attr.get("season") is None:
                     lifetime_ranked_stats = s.get("stats", {})
-                # Seasonal ranked segment: season 41 or metadata shortName is Y11S1
-                elif attr.get("season") == 41 or s.get("metadata", {}).get("shortName") == "Y11S1":
+                # Seasonal ranked segment: current_season_id or metadata shortName matching
+                elif attr.get("season") == current_season_id or s.get("metadata", {}).get("shortName") == current_season_year:
                     seasonal_ranked_stats = s.get("stats", {})
 
         # Fallback to highest season if Y11S1 not explicitly tagged
@@ -596,16 +641,16 @@ def main():
 
     # ---- Scrape maps from tracker.gg (ranked-only, per scope) ----
     print(f"\n  Scraping map stats from tracker.gg for {username}...")
-    lifetime_maps, seasonal_maps = scrape_maps_for_player(username, platform, season_id=41)
+    lifetime_maps, seasonal_maps = scrape_maps_for_player(username, platform, season_id=current_season_id)
 
     # Save player-specific map files
     os.makedirs('data/raw', exist_ok=True)
     with open(f'data/raw/{username}_maps.json', 'w', encoding='utf-8') as f:
         json.dump(lifetime_maps, f, indent=2, ensure_ascii=False)
-    with open(f'data/raw/{username}_y11s1_maps.json', 'w', encoding='utf-8') as f:
+    with open(f'data/raw/{username}_{current_season_year.lower()}_maps.json', 'w', encoding='utf-8') as f:
         json.dump(seasonal_maps, f, indent=2, ensure_ascii=False)
     print(f"  Saved lifetime ranked maps -> data/raw/{username}_maps.json ({len(lifetime_maps)} maps)")
-    print(f"  Saved Y11S1 ranked maps   -> data/raw/{username}_y11s1_maps.json ({len(seasonal_maps)} maps)")
+    print(f"  Saved {current_season_year} ranked maps   -> data/raw/{username}_{current_season_year.lower()}_maps.json ({len(seasonal_maps)} maps)")
 
     # ---- Build lifetime summary ----
     lifetime_entry = {
@@ -635,7 +680,8 @@ def main():
     y11s1_entry = {
         "username": username,
         "platform": platform,
-        "season": "Y11S1",
+        "season": current_season_year,
+        "season_name": current_season_name,
         "overall_kd": seasonal_kd,
         "win_rate": seasonal_wr_str,
         "headshot_pct": seasonal_hs_pct,

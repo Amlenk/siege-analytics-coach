@@ -19,6 +19,48 @@
       "history": {
         "data": [
           [
+            "2026-05-31T17:44:17.394+00:00",
+            {
+              "value": 4534,
+              "metadata": {
+                "rank": "Champion",
+                "color": "#d0073c",
+                "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+              },
+              "displayName": "Rank Points",
+              "displayType": "Number",
+              "displayValue": "4,534"
+            }
+          ],
+          [
+            "2026-05-31T17:02:57.994+00:00",
+            {
+              "value": 4519,
+              "metadata": {
+                "rank": "Champion",
+                "color": "#d0073c",
+                "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+              },
+              "displayName": "Rank Points",
+              "displayType": "Number",
+              "displayValue": "4,519"
+            }
+          ],
+          [
+            "2026-05-31T16:14:05.589+00:00",
+            {
+              "value": 4540,
+              "metadata": {
+                "rank": "Champion",
+                "color": "#d0073c",
+                "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/champion.webp"
+              },
+              "displayName": "Rank Points",
+              "displayType": "Number",
+              "displayValue": "4,540"
+            }
+          ],
+          [
             "2026-05-31T13:36:00.185+00:00",
             {
               "value": 4525,
@@ -2844,90 +2886,6 @@
               "displayName": "Rank Points",
               "displayType": "Number",
               "displayValue": "4,467"
-            }
-          ],
-          [
-            "2026-05-01T19:33:23.757+00:00",
-            {
-              "value": 4450,
-              "metadata": {
-                "rank": "Diamond 1",
-                "color": "#b093ff",
-                "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
-              },
-              "displayName": "Rank Points",
-              "displayType": "Number",
-              "displayValue": "4,450"
-            }
-          ],
-          [
-            "2026-05-01T18:51:04.366+00:00",
-            {
-              "value": 4470,
-              "metadata": {
-                "rank": "Diamond 1",
-                "color": "#b093ff",
-                "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
-              },
-              "displayName": "Rank Points",
-              "displayType": "Number",
-              "displayValue": "4,470"
-            }
-          ],
-          [
-            "2026-05-01T18:02:02.309+00:00",
-            {
-              "value": 4453,
-              "metadata": {
-                "rank": "Diamond 1",
-                "color": "#b093ff",
-                "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
-              },
-              "displayName": "Rank Points",
-              "displayType": "Number",
-              "displayValue": "4,453"
-            }
-          ],
-          [
-            "2026-05-01T17:27:50.109+00:00",
-            {
-              "value": 4473,
-              "metadata": {
-                "rank": "Diamond 1",
-                "color": "#b093ff",
-                "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
-              },
-              "displayName": "Rank Points",
-              "displayType": "Number",
-              "displayValue": "4,473"
-            }
-          ],
-          [
-            "2026-05-01T15:06:28.306+00:00",
-            {
-              "value": 4456,
-              "metadata": {
-                "rank": "Diamond 1",
-                "color": "#b093ff",
-                "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
-              },
-              "displayName": "Rank Points",
-              "displayType": "Number",
-              "displayValue": "4,456"
-            }
-          ],
-          [
-            "2026-05-01T14:49:11.302+00:00",
-            {
-              "value": 4438,
-              "metadata": {
-                "rank": "Diamond 1",
-                "color": "#b093ff",
-                "imageUrl": "https://r6data.com/assets/img/r6_ranks_img/diamond-1.webp"
-              },
-              "displayName": "Rank Points",
-              "displayType": "Number",
-              "displayValue": "4,438"
             }
           ]
         ],

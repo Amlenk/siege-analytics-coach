@@ -14,13 +14,21 @@ def clean_percentage(pct_str):
 
 def process_entry(entry):
     # Summary
+    overall = entry.get("lifetime_overall", {})
     summary = {
         "username": entry.get("username", "Unknown"),
         "platform": entry.get("platform", "ubi"),
         "kd": float(entry.get("overall_kd", 0.0)),
         "win_rate": entry.get("win_rate", "0%"),
         "ranked_rating": entry.get("ranked_rating", "UNRANKED"),
-        "level": entry.get("lifetime_overall", {}).get("level", entry.get("level", 0))
+        "level": overall.get("level", entry.get("level", 0)),
+        "season": entry.get("season", "Y11S2"),
+        "season_name": entry.get("season_name", "System Override"),
+        "matches": int(overall.get("matches", 0)),
+        "wins": int(overall.get("wins", 0)),
+        "losses": int(overall.get("losses", 0)),
+        "kills": int(overall.get("kills", 0)),
+        "deaths": int(overall.get("deaths", 0))
     }
     
     # Process Operators
@@ -89,9 +97,8 @@ def process_entry(entry):
     for m in maps_raw:
         name = m.get("name", "").strip()
         
-        # Filter map list: remove non-ranked/non-competitive maps to ensure exactly 17 active competitive Ranked maps
-        name_lower = name.lower()
-        if name_lower in ["house", "presidential plane", "tower", "yacht", "favela", "hereford base"] or "stadium" in name_lower:
+        # Filter map list: only include active competitive Ranked maps (exactly 17 maps)
+        if not any(comp_map.lower() == name.lower() for comp_map in COMPETITIVE_MAPS):
             continue
             
         matches = int(m.get("matches", 0))

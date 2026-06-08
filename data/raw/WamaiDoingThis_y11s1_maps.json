@@ -1,15 +1,15 @@
 [
   {
     "name": "Clubhouse",
-    "matches": 34,
-    "win_rate": "32.4%",
-    "wins": 11,
+    "matches": 35,
+    "win_rate": "34.3%",
+    "wins": 12,
     "losses": 23,
     "kd_ratio": 0.4,
     "attack_win_rate": "32.4%",
-    "defense_win_rate": "46.8%",
-    "headshot_percentage": "50.0%",
-    "esr": 0.43
+    "defense_win_rate": "48.5%",
+    "headshot_percentage": "49.3%",
+    "esr": 0.44
   },
   {
     "name": "Border",
@@ -24,6 +24,30 @@
     "esr": 0.3
   },
   {
+    "name": "Chalet",
+    "matches": 31,
+    "win_rate": "48.4%",
+    "wins": 15,
+    "losses": 16,
+    "kd_ratio": 0.42,
+    "attack_win_rate": "32.6%",
+    "defense_win_rate": "63.0%",
+    "headshot_percentage": "49.2%",
+    "esr": 0.22
+  },
+  {
+    "name": "Coastline",
+    "matches": 31,
+    "win_rate": "35.5%",
+    "wins": 11,
+    "losses": 19,
+    "kd_ratio": 0.46,
+    "attack_win_rate": "35.4%",
+    "defense_win_rate": "55.9%",
+    "headshot_percentage": "53.8%",
+    "esr": 0.32
+  },
+  {
     "name": "Kafe Dostoyevsky",
     "matches": 31,
     "win_rate": "64.5%",
@@ -36,52 +60,28 @@
     "esr": 0.38
   },
   {
-    "name": "Chalet",
-    "matches": 30,
-    "win_rate": "46.7%",
-    "wins": 14,
-    "losses": 16,
-    "kd_ratio": 0.44,
-    "attack_win_rate": "31.3%",
-    "defense_win_rate": "62.9%",
-    "headshot_percentage": "49.2%",
-    "esr": 0.22
-  },
-  {
-    "name": "Coastline",
-    "matches": 30,
-    "win_rate": "33.3%",
-    "wins": 10,
-    "losses": 19,
-    "kd_ratio": 0.48,
-    "attack_win_rate": "34.9%",
-    "defense_win_rate": "55.1%",
-    "headshot_percentage": "53.2%",
-    "esr": 0.32
-  },
-  {
     "name": "Nighthaven Labs",
-    "matches": 27,
-    "win_rate": "48.1%",
-    "wins": 13,
+    "matches": 28,
+    "win_rate": "50.0%",
+    "wins": 14,
     "losses": 14,
-    "kd_ratio": 0.5,
-    "attack_win_rate": "42.3%",
-    "defense_win_rate": "58.4%",
-    "headshot_percentage": "50.9%",
-    "esr": 0.24
+    "kd_ratio": 0.51,
+    "attack_win_rate": "42.0%",
+    "defense_win_rate": "60.0%",
+    "headshot_percentage": "51.7%",
+    "esr": 0.25
   },
   {
     "name": "Oregon",
-    "matches": 27,
-    "win_rate": "51.9%",
-    "wins": 14,
+    "matches": 28,
+    "win_rate": "53.6%",
+    "wins": 15,
     "losses": 13,
-    "kd_ratio": 0.6,
-    "attack_win_rate": "42.0%",
-    "defense_win_rate": "57.5%",
-    "headshot_percentage": "42.9%",
-    "esr": 0.32
+    "kd_ratio": 0.59,
+    "attack_win_rate": "42.2%",
+    "defense_win_rate": "59.0%",
+    "headshot_percentage": "43.1%",
+    "esr": 0.35
   },
   {
     "name": "Villa",
@@ -145,15 +145,15 @@
   },
   {
     "name": "Skyscraper",
-    "matches": 13,
-    "win_rate": "46.2%",
+    "matches": 14,
+    "win_rate": "42.9%",
     "wins": 6,
-    "losses": 7,
-    "kd_ratio": 0.52,
-    "attack_win_rate": "32.5%",
-    "defense_win_rate": "63.6%",
+    "losses": 8,
+    "kd_ratio": 0.47,
+    "attack_win_rate": "29.5%",
+    "defense_win_rate": "64.6%",
     "headshot_percentage": "58.8%",
-    "esr": 0.67
+    "esr": 0.6
   },
   {
     "name": "Lair",

@@ -64,7 +64,7 @@ ALL_PLAYERS = STACK_MEMBERS + INDIVIDUAL_PLAYERS
 
 DISPLAY_NAMES = {
     "amlenk": "Amlenk",
-    "wamaidoingthis": "WamaiDoingThis (yeetingyeti)",
+    "wamaidoingthis": "WamaiDoingThis",
     "covetous_demon": "Covetous_Demon",
     "fearlesscopper": "FearlessCoppeR",
 }

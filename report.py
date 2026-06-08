@@ -406,6 +406,17 @@ def main():
             max_r2_rp = 0
             curr_rp = 0
             
+            # Find the latest season ID dynamically
+            active_seasons = []
+            for s in segments:
+                if s.get("type") == "season":
+                    attr = s.get("attributes", {})
+                    if attr.get("gamemode") == "pvp_ranked":
+                        s_id = attr.get("season")
+                        if s_id is not None:
+                            active_seasons.append(int(s_id))
+            latest_season_id = max(active_seasons) if active_seasons else 42
+            
             for s in segments:
                 if s.get("type") != "season":
                     continue
@@ -428,7 +439,7 @@ def main():
                 if not is_r2 and max_mmr is not None:
                     max_r1_mmr = max(max_r1_mmr, int(max_mmr))
                 
-                if season_id == 41 and rp_val is not None:
+                if season_id == latest_season_id and rp_val is not None:
                     curr_rp = int(rp_val)
             
             if curr_rp > 0:
@@ -450,6 +461,8 @@ def main():
         scope = "y11s1" if "y11s1" in data else "lifetime"
     scope_data = data[scope]
     summary = scope_data["summary"]
+    season_year = summary.get("season", "Y11S2")
+    season_name = summary.get("season_name", "System Override")
     maps = sorted(scope_data["maps"], key=lambda x: x.get('win_pct', 0.0), reverse=True)
     operators_raw = sorted(scope_data["operators"], key=lambda x: x.get('rounds_played', 0), reverse=True)
     operators = [o for o in operators_raw if o['rounds_played'] >= 10]
@@ -463,7 +476,21 @@ def main():
     except Exception:
         win_rate_float = 0.50
 
-    # deltas compared to lifetime overall
+    matches = int(summary.get("matches", 0))
+    kills = int(summary.get("kills", 0))
+    deaths = int(summary.get("deaths", 0))
+
+    # ALWAYS load seasonal stats from the seasonal scope (y11s1) for comparisons
+    seasonal_data_dict = data.get("y11s1", scope_data)
+    seasonal_summary = seasonal_data_dict.get("summary", summary)
+    seasonal_kd = float(seasonal_summary.get("kd", 0.58))
+    seasonal_wr_str = seasonal_summary.get("win_rate", "40.0%")
+    try:
+        seasonal_wr_float = float(seasonal_wr_str.replace('%', '').strip()) / 100.0
+    except Exception:
+        seasonal_wr_float = 0.40
+
+    # Load lifetime summary
     lifetime_summary = data.get("lifetime", {}).get("summary", summary)
     
     # Inject clearance level from raw history if available
@@ -471,18 +498,77 @@ def main():
         summary["level"] = current_level
         lifetime_summary["level"] = current_level
         
-    lifetime_kd = float(lifetime_summary.get("kd", 1.0))
-    lifetime_wr_str = lifetime_summary.get("win_rate", "50.0%")
+    lifetime_kd = float(lifetime_summary.get("kd", 0.70))
+    lifetime_wr_str = lifetime_summary.get("win_rate", "49.8%")
     try:
         lifetime_wr_float = float(lifetime_wr_str.replace('%', '').strip()) / 100.0
     except Exception:
         lifetime_wr_float = 0.50
 
-    delta_kd = kd - lifetime_kd
-    delta_wr = (win_rate_float - lifetime_wr_float) * 100.0
+    delta_kd = seasonal_kd - lifetime_kd
+    delta_wr = (seasonal_wr_float - lifetime_wr_float) * 100.0
 
     delta_kd_str = f"+{delta_kd:.2f}" if delta_kd >= 0 else f"{delta_kd:.2f}"
     delta_wr_str = f"+{delta_wr:.1f}%" if delta_wr >= 0 else f"{delta_wr:.1f}%"
+
+    # Calculate dynamic RP delta comparing current seasonal RP with peak lifetime RP
+    curr_rp_val = 0
+    peak_rp_val = 0
+    try:
+        curr_rp_val = int(summary.get("ranked_rating", "0").split(" ")[0].replace(",", ""))
+    except Exception:
+        pass
+    try:
+        peak_rp_val = int(peak_r2_str.split(" ")[0].replace(",", ""))
+    except Exception:
+        pass
+        
+    delta_rp = curr_rp_val - peak_rp_val
+    delta_rp_str = f"{delta_rp:+,} RP" if peak_rp_val > 0 else "N/A"
+
+    # Dynamic snapshot strings
+    if scope == "lifetime":
+        snapshot_campaign_type = "career overall Ranked campaign"
+        snapshot_rounds_played = f"**{matches:,} matches** played (comprising **{kills:,} kills** and **{deaths:,} deaths**)"
+        snapshot_kd_type = "lifetime K/D"
+    else:
+        snapshot_campaign_type = f"seasonal competitive campaign for {season_name} ({season_year})"
+        snapshot_rounds_played = f"**{matches:,} matches** played (comprising **{kills:,} kills** and **{deaths:,} deaths**)"
+        snapshot_kd_type = "seasonal K/D"
+
+    # Actionable climbing tips configuration
+    if username == "WamaiDoingThis":
+        climbing_tips_content = f"""1. **Castle & Mute Rotations Flow (Y11S2 Setup):** Leverage your high win rates with Mute (60.6% WR) and Castle (53.9% WR). Deploy Castle armor panels on critical exterior entries (like CEO windows on Consulate) and place Mute jammers underneath to deny breach utility, allowing you to anchor safely off-site.
+2. **Close the Attack-Defense Win Rate Gap (System Override):** Your defense win rate is highly dominant (e.g. 70.0% on Lair, 63.7% on Kafe, 63.1% on Oregon), but your attack win rate lags behind (e.g. 32.0% on Chalet). In Y11S2, switch from dry entry pushes to utility-supported executions using Nomad flank-watch airjabs to secure trade lanes for your entries (Covetous_Demon and Amlenk).
+3. **Combat survival index adjustments (K/D stabilization):** Your current season K/D sits at 0.58 compared to your lifetime 0.70 K/D. Maximize your survival time. Avoid taking early peeking duels with Mute or Castle; instead, stay tucked behind cover in site anchors to allow your devices (Razorblooms/Jammers) to accumulate round value."""
+        html_climbing_tips = """                        <div class="border-l-2 border-gold pl-4">
+                            <strong class="text-gold text-base block mb-1">1. Castle & Mute Rotations Flow (Y11S2 Setup)</strong>
+                            <p class="text-gray-400">Leverage your high win rates with Mute (60.6% WR) and Castle (53.9% WR). Deploy Castle armor panels on critical exterior entries (like CEO windows on Consulate) and place Mute jammers underneath to deny breach utility, allowing you to anchor safely off-site.</p>
+                        </div>
+                        <div class="border-l-2 border-gold pl-4">
+                            <strong class="text-gold text-base block mb-1">2. Close the Attack-Defense Win Rate Gap (System Override)</strong>
+                            <p class="text-gray-400">Your defense win rate is highly dominant (e.g. 70.0% on Lair, 63.7% on Kafe, 63.1% on Oregon), but your attack win rate lags behind (e.g. 32.0% on Chalet). In Y11S2, switch from dry entry pushes to utility-supported executions using Nomad flank-watch airjabs to secure trade lanes for your entries (Covetous_Demon and Amlenk).</p>
+                        </div>
+                        <div class="border-l-2 border-gold pl-4">
+                            <strong class="text-gold text-base block mb-1">3. Combat survival index adjustments (K/D stabilization)</strong>
+                            <p class="text-gray-400">Your current season K/D sits at 0.58 compared to your lifetime 0.70 K/D. Maximize your survival time. Avoid taking early peeking duels with Mute or Castle; instead, stay tucked behind cover in site anchors to allow your devices (Razorblooms/Jammers) to accumulate round value.</p>
+                        </div>"""
+    else:
+        climbing_tips_content = """1. **Hidden MMR Coordinated Queueing:** Pre-stack with your trio instead of solo-queuing, which penalizes individual MMR in Ranked 2.0 matchmaking systems.
+2. **Utility-First Attack Executes:** Establish drone routes to clear defender utility before the 1:15 mark, securing safe entries.
+3. **Breach-Denial Tricking:** Coordinate active Jäger/Wamai interceptors to protect Bandit/Kaid wall denial from vertical hatches."""
+        html_climbing_tips = """                        <div class="border-l-2 border-gold pl-4">
+                            <strong class="text-gold text-base block mb-1">1. Hidden MMR Coordinated Queueing</strong>
+                            <p class="text-gray-400">Pre-stack with your trio instead of solo-queuing, which heavily penalizes individual MMR in Ranked 2.0 matchmaking systems.</p>
+                        </div>
+                        <div class="border-l-2 border-gold pl-4">
+                            <strong class="text-gold text-base block mb-1">2. Utility-First Attack Executes</strong>
+                            <p class="text-gray-400">Establish drone routes to clear defender utility before the 1:15 mark, securing safe entries.</p>
+                        </div>
+                        <div class="border-l-2 border-gold pl-4">
+                            <strong class="text-gold text-base block mb-1">3. Breach-Denial Tricking</strong>
+                            <p class="text-gray-400">Coordinate active Jäger/Wamai interceptors to protect Bandit/Kaid wall denial from vertical hatches.</p>
+                        </div>"""
 
     # Base64 charts encoding
     print("[*] Base64 encoding visual charts for standalone HTML reports...")
@@ -504,7 +590,7 @@ def main():
     coaching_note_header = "Trio Stack Coordination Note (Amlenk + WamaiDoingThis + Covetous_Demon)"
 
     if username == "Amlenk":
-        coaching_tier = "Elite 4,500 RP Champion (Anchor & Flex)"
+        coaching_tier = f"{current_rank_str} (Anchor & Flex)"
         custom_intro = "Amlenk's season represents a masterclass in raw mechanical execution and flex anchoring. In the elite lobbies of Ranked 2.0, mechanical supremacy alone hits a ceiling. An executive tactical analysis reveals a critical bottleneck: while Amlenk's defensive anchoring is near-impenetrable, their offensive executes are frequently plagued by stalled momentum, slow utility clears, and late-round post-plant collapses."
         objective_text = "Systematically bridge the tactical execution gap to achieve a dominant 58.0%+ win rate and secure top-100 Champion status."
         stack_synergy_note = (
@@ -514,9 +600,9 @@ def main():
             "Ensure WamaiDoingThis's flank watch is secure before committing to site swings."
         )
     elif username == "WamaiDoingThis":
-        coaching_tier = "2,450 RP Silver 1 (Utility Anchor & Flank Watch)"
-        custom_intro = "WamaiDoingThis (yeetingyeti) represents the critical structural backbone of the stack. While posting a lower individual K/D of 0.61, their massive utility presence with Mute (637 rounds, 60.6% Win Rate) and Aruni (249 rounds, 60.2% Win Rate) actively wins rounds in the background. In Ranked 2.0, support play must be highly disciplined: avoiding early visual gunfights and maximizing gadget uptime."
-        objective_text = "Increase individual survival rate to 55%+ and achieve Gold 2 by leveraging Mute/Nomad utility setups."
+        coaching_tier = f"{current_rank_str} (Utility Anchor & Flank Watch)"
+        custom_intro = f"WamaiDoingThis represents the critical structural backbone of the stack. While posting a lower individual lifetime ranked K/D of {lifetime_kd:.2f} and a current season K/D of {seasonal_kd:.2f}, their massive utility presence with Mute (637 rounds, 60.6% Win Rate) and Aruni (249 rounds, 60.2% Win Rate) actively wins rounds in the background. In Ranked 2.0, support play must be highly disciplined: avoiding early visual gunfights and maximizing gadget uptime."
+        objective_text = f"Increase individual survival rate to 55%+ and achieve a higher standing in {season_name} by leveraging Mute/Nomad utility setups."
         stack_synergy_note = (
             "Since WamaiDoingThis acts as the team's vital anchor, his survival is key to blocking intelligence and denying plants. "
             "On defense, play close to Amlenk's anchors (such as Azami/Lesion), allowing the Champion MMR of Amlenk to trade him out if pushed. "
@@ -525,7 +611,7 @@ def main():
             "Place Airjabs to lock down runouts, allowing Amlenk and Covetous_Demon to focus entirely on mechanical site entry."
         )
     elif username == "Covetous_Demon":
-        coaching_tier = "3,450 RP Emerald 2 (Entry Fragger & Roamer)"
+        coaching_tier = f"{current_rank_str} (Entry Fragger & Roamer)"
         custom_intro = "Covetous_Demon serves as the team's primary visual clear and space-creator. Posting high seasonal impact on Ash and Bandit, they excel at winning initial opening duels. However, in Emerald and Diamond lobbies, uncoordinated roaming or over-aggression leads to early deaths, leaving the stack in high-stress 4v5 scenarios. Disciplined roaming routes and trading paths are required."
         objective_text = "Achieve Diamond 5 by raising entry success rate to 58.0%+ and securing structured trade paths."
         stack_synergy_note = (
@@ -569,28 +655,28 @@ def main():
 
 ![Skill Radar](charts/skill_radar.png)
 
-{username}'s seasonal competitive campaign represents a highly structured effort in competitive ranking. Across a total of **420 rounds** played, they have achieved an individual K/D of **{kd:.2f}** and a win rate of **{win_rate_str}**, operating as a critical force in the competitive hierarchy of their team.
+{username}'s {snapshot_campaign_type} represents a highly structured effort in competitive ranking. Across a total of {snapshot_rounds_played}, they have achieved an individual {snapshot_kd_type} of **{kd:.2f}** and a win rate of **{win_rate_str}**, operating as a critical force in the competitive hierarchy of their team.
 
 Their tactical profile is defined by `{coaching_tier}`, showing clear mechanical peaks and distinct coordination challenges. In the lobbies of Ranked 2.0, mechanical carries alone hit a structural wall. An executive tactical analysis reveals a key opportunity: {custom_intro}
 
 **SEASON OBJECTIVE:** {objective_text}
 
 #### 🛡️ COMPETITIVE RANK HISTORY OVERVIEW
-* **Current Rank (Y11S1):** `{current_rank_str}`
+* **Current Rank ({season_year}):** `{current_rank_str}`
 * **Lifetime Highest Rank 2.0 (Ranked 2.0 peak):** `{peak_r2_str}`
 * **Lifetime Highest Rank 1.0 (Rank 1.0 peak):** `{peak_r1_str}`"""
 
-    sec2 = f"""### SECTION 2: TREND ANALYSIS — Y11S1 vs Lifetime
+    sec2 = f"""### SECTION 2: TREND ANALYSIS — {season_year} vs Lifetime
 
 A precise comparison between {username}'s seasonal statistics and their Lifetime performance highlights progression paths and coordination gaps:
 
 | Performance Metric | Seasonal Scope | Lifetime Overall | Exact Delta | Progress Verdict |
 | :--- | :---: | :---: | :---: | :--- |
-| **Kill/Death Ratio (K/D)** | **{kd:.2f}** | {lifetime_kd:.2f} | **{delta_kd_str}** | Maintaining stable fragging power under competitive pressure. |
-| **Win Rate (WR)** | **{win_rate_str}** | {lifetime_wr_str} | **{delta_wr_str}** | Clear indication of stack execute and round conversion efficiency. |
-| **Ranked RP Tier** | **{summary.get("ranked_rating", "Silver 1")}** | Level {lifetime_summary.get("level", 250)} | Delta: +150 RP | Standing confirmed in the highly competitive bracket. |
+| **Kill/Death Ratio (K/D)** | **{seasonal_kd:.2f}** | {lifetime_kd:.2f} | **{delta_kd_str}** | Maintaining stable fragging power under competitive pressure. |
+| **Win Rate (WR)** | **{seasonal_wr_str}** | {lifetime_wr_str} | **{delta_wr_str}** | Clear indication of stack execute and round conversion efficiency. |
+| **Ranked RP Tier** | **{summary.get("ranked_rating", "Silver 2")}** | Peak: {peak_r2_str} | Delta: {delta_rp_str} | Standing confirmed in the active competitive bracket. |
 
-**TACTICAL INSIGHT:** The seasonal win rate of {win_rate_str} represents an exact delta of {delta_wr_str} compared to lifetime performance, confirming that individual combat mechanics (K/D: {kd:.2f}) must be integrated into team support systems. In Ranked 2.0, round conversion is the ultimate metric of success."""
+**TACTICAL INSIGHT:** The seasonal win rate of {seasonal_wr_str} represents an exact delta of {delta_wr_str} compared to lifetime performance, confirming that individual combat mechanics (K/D: {seasonal_kd:.2f}) must be integrated into team support systems. In Ranked 2.0, round conversion is the ultimate metric of success."""
 
     # Map Table
     map_rows = []
@@ -847,8 +933,15 @@ Execute map-specific corrections to balance the offense-defense discrepancy:
 ![Defender K/D](charts/defender_kd.png)"""
 
     # Section 6: Coaching Engine
+    coached_ops = operators[:8]
+    if username == "WamaiDoingThis":
+        castle_op = next((o for o in operators if o['name'] == 'Castle'), None)
+        if castle_op and castle_op not in coached_ops:
+            coached_ops = list(coached_ops)
+            coached_ops[7] = castle_op
+            
     cards = []
-    for o in operators[:8]:
+    for o in coached_ops:
         name = o['name']
         rounds = o['rounds_played']
         role = get_role(name)
@@ -885,7 +978,7 @@ Execute map-specific corrections to balance the offense-defense discrepancy:
     prot1 = maps[0]
     prot2 = maps[1]
 
-    sec8 = f"""### SECTION 8: BAN & VETO STRATEGY (Y11S1 — Ranked 2.0)
+    sec8 = f"""### SECTION 8: BAN & VETO STRATEGY ({season_year} — Ranked 2.0)
 
 #### Top 2 Maps to Ban
 1. **{ban1['name']}** ({ban1['win_rate']} WR | {ban1['kd_ratio']:.2f} K/D): Statistically the poorest map. Uncoordinated vertical sweeps lead to structural site defeats. Ban immediately in drafting phase.
@@ -908,7 +1001,7 @@ Execute map-specific corrections to balance the offense-defense discrepancy:
 ![Map Ban Spectrum](charts/map_ban_spectrum.png)"""
 
     # Full MD output
-    full_report = f"""# Rainbow Six Siege Elite Coaching Report (Y11S1)
+    full_report = f"""# Rainbow Six Siege Elite Coaching Report ({season_year})
 
 **Prepared For:** `{username}`
 **Ubisoft Platform:** `{platform}`
@@ -1023,7 +1116,7 @@ Execute map-specific corrections to balance the offense-defense discrepancy:
         """
 
     html_coaching_cards = ""
-    for o in operators[:8]:
+    for o in coached_ops:
         name = o['name']
         rounds = o['rounds_played']
         role = get_role(name)
@@ -1277,7 +1370,7 @@ Execute map-specific corrections to balance the offense-defense discrepancy:
                             <span class="text-gold font-bold font-outfit uppercase tracking-widest text-xs block mb-3 font-outfit">🛡️ Competitive Rank History Overview</span>
                             <div class="grid grid-cols-3 gap-4 text-center">
                                 <div class="bg-gray-950/60 p-4 rounded-xl border border-gray-900 shadow-inner">
-                                    <div class="text-xs text-gray-500 font-bold uppercase">Current Rank (Y11S1)</div>
+                                    <div class="text-xs text-gray-500 font-bold uppercase">Current Rank ({season_year})</div>
                                     <div class="text-base font-black text-white mt-1 font-outfit">{current_rank_str}</div>
                                 </div>
                                 <div class="bg-gray-950/60 p-4 rounded-xl border border-gray-900 shadow-inner">
@@ -1551,7 +1644,7 @@ Execute map-specific corrections to balance the offense-defense discrepancy:
             
             <!-- Section 8: Strategy -->
             <section id="strategy" class="mb-16 pt-6">
-                <h3 class="text-2xl font-bold text-white mb-6 uppercase tracking-wider font-outfit border-b border-gray-800 pb-2">Ban & Veto Strategy (Y11S1 — Ranked 2.0)</h3>
+                <h3 class="text-2xl font-bold text-white mb-6 uppercase tracking-wider font-outfit border-b border-gray-800 pb-2">Ban & Veto Strategy ({season_year} — Ranked 2.0)</h3>
                 
                 <div class="grid grid-cols-2 gap-8 mb-8">
                     <!-- Maps to Ban -->
@@ -1611,18 +1704,7 @@ Execute map-specific corrections to balance the offense-defense discrepancy:
                 <div class="glass-card p-6 rounded-2xl border border-gray-800/80 mb-8 shadow-lg">
                     <h4 class="text-xl font-bold text-white mb-4 uppercase tracking-wider font-outfit">3 Actionable Climbing Tips</h4>
                     <div class="space-y-6 text-sm">
-                        <div class="border-l-2 border-gold pl-4">
-                            <strong class="text-gold text-base block mb-1">1. Hidden MMR Coordinated Queueing</strong>
-                            <p class="text-gray-400">Pre-stack with your trio instead of solo-queuing, which heavily penalizes individual MMR in Ranked 2.0 matchmaking systems.</p>
-                        </div>
-                        <div class="border-l-2 border-gold pl-4">
-                            <strong class="text-gold text-base block mb-1">2. Utility-First Attack Executes</strong>
-                            <p class="text-gray-400">Establish drone routes to clear defender utility before the 1:15 mark, securing safe entries.</p>
-                        </div>
-                        <div class="border-l-2 border-gold pl-4">
-                            <strong class="text-gold text-base block mb-1">3. Breach-Denial Tricking</strong>
-                            <p class="text-gray-400">Coordinate active Jäger/Wamai interceptors to protect Bandit/Kaid wall denial from vertical hatches.</p>
-                        </div>
+{html_climbing_tips}
                     </div>
                 </div>
                 
