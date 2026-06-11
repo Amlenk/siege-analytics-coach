@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+requests
+matplotlib
+numpy
+pandas
+google-genai
+google-generativeai
+selenium
+webdriver-manager

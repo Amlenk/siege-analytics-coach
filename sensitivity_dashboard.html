@@ -568,6 +568,40 @@
         }
 
     </style>
+    
+    <!-- Custom Funnel Analytics Tracking -->
+    <script>
+        (function() {
+            let sessionId = sessionStorage.getItem('siege_session_id');
+            if (!sessionId) {
+                sessionId = 'sess_' + Math.random().toString(36).substring(2, 15) + '_' + Date.now();
+                sessionStorage.setItem('siege_session_id', sessionId);
+            }
+            const urlParams = new URLSearchParams(window.location.search);
+            const utm_source = urlParams.get('utm_source');
+            const utm_medium = urlParams.get('utm_medium');
+            const utm_campaign = urlParams.get('utm_campaign');
+            const referrer = document.referrer;
+
+            window.trackSiegeEvent = function(eventName, meta = {}) {
+                meta.session_id = sessionId;
+                fetch('/api/track', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        event_name: eventName,
+                        url: window.location.href,
+                        referrer: referrer,
+                        utm_source: utm_source,
+                        utm_medium: utm_medium,
+                        utm_campaign: utm_campaign,
+                        metadata: meta
+                    })
+                }).catch(err => console.error('Tracking failed:', err));
+            };
+            window.trackSiegeEvent('page_view', { page: 'sensitivity_dashboard' });
+        })();
+    </script>
 </head>
 <body>
 
@@ -925,6 +959,11 @@
         function switchConverterTab(game) {
             currentConverterGame = game;
             
+            // Track converter tab switch
+            if(window.trackSiegeEvent) {
+                window.trackSiegeEvent('use_sensitivity_calculator', { action: 'switch_tab', game: game });
+            }
+            
             // Active button style toggling
             document.querySelectorAll('.tabs-header .tab-btn').forEach(btn => {
                 btn.classList.remove('active');
@@ -1281,6 +1320,12 @@
 
         function toggleSimAds() {
             const select = document.getElementById('selectSimScope');
+            
+            // Track simulator ADS toggle
+            if(window.trackSiegeEvent) {
+                window.trackSiegeEvent('use_sensitivity_calculator', { action: 'toggle_ads', target_state: !isAds });
+            }
+            
             if (isAds) {
                 select.value = 'hipfire';
             } else {

@@ -16,6 +16,7 @@ import sys
 import time
 from pathlib import Path
 from typing import Optional
+from pydantic import BaseModel
 
 try:
     from fastapi import FastAPI, HTTPException, Query, BackgroundTasks
@@ -28,12 +29,18 @@ except ImportError:
 
 # ─── Config ─────────────────────────────────────────────────────────────────
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent.resolve()
 OUTPUT_DIR = BASE_DIR / "output"
 DATA_DIR = BASE_DIR / "data"
 
+# Ensure data and output dirs exist
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
 def load_env():
     env_vars = {}
+    # Load system env vars first (crucial for Vercel deployment)
+    env_vars.update(dict(os.environ))
     env_path = BASE_DIR / ".env"
     if env_path.exists():
         with open(env_path, 'r') as f:
@@ -44,6 +51,8 @@ def load_env():
                 if '=' in line:
                     key, val = line.split('=', 1)
                     env_vars[key.strip()] = val.strip()
+    # Merge system env vars again to let system environment take precedence
+    env_vars.update(dict(os.environ))
     return env_vars
 
 ENV = load_env()
@@ -92,19 +101,20 @@ def run_pipeline(username: str, platform: str = "uplay") -> dict:
     Execute the full analysis pipeline for a player.
     Returns a dict with status and any errors.
     """
+    # Use sys.executable to ensure we run the scripts with the correct Python interpreter on Vercel
     steps = [
-        (f'python r6data_fetch.py "{username}" "{platform}"', "Fetching stats via R6Data API"),
-        (f'python stats.py "{username}"', "Processing stats"),
-        (f'python charts.py "{username}"', "Generating lifetime charts"),
-        (f'python generate_charts_y11s1.py "{username}"', "Generating Y11S1 charts"),
-        (f'python report.py "{username}"', "Generating coaching report"),
+        (f'"{sys.executable}" r6data_fetch.py "{username}" "{platform}"', "Fetching stats via R6Data API"),
+        (f'"{sys.executable}" stats.py "{username}"', "Processing stats"),
+        (f'"{sys.executable}" charts.py "{username}"', "Generating lifetime charts"),
+        (f'"{sys.executable}" generate_charts_y11s1.py "{username}"', "Generating Y11S1 charts"),
+        (f'"{sys.executable}" report.py "{username}"', "Generating coaching report"),
     ]
     
     results = []
     for cmd, desc in steps:
         start = time.time()
         result = subprocess.run(
-            cmd, shell=True, capture_output=True, text=True, cwd=str(BASE_DIR)
+            cmd, shell=True, capture_output=True, text=True, cwd=str(BASE_DIR), env=os.environ
         )
         duration = round(time.time() - start, 1)
         step_result = {
@@ -212,6 +222,8 @@ def run_coach(
         platform = 'uplay'
     
     print(f"\n[API] Running pipeline for {username} ({platform})...")
+    # Track the pipeline start event on backend
+    track_event_backend("run_pipeline", username)
     pipeline_result = run_pipeline(username, platform)
     
     report_md = ""
@@ -244,6 +256,9 @@ def get_report(username: str):
             status_code=404,
             detail=f"No report found for '{username}'. Run /api/coach?username={username} first."
         )
+    
+    # Track the report view event on backend
+    track_event_backend("view_report", username)
     
     with open(html_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -284,6 +299,8 @@ def stack_analysis():
         )
     
     api_key = ENV.get("GEMINI_API_KEY", "")
+    # Track the stack analysis event on backend
+    track_event_backend("view_stack")
     analysis = get_ai_stack_analysis(stack_stats, api_key=api_key)
     
     if not analysis:
@@ -295,6 +312,277 @@ def stack_analysis():
 @app.get("/sensitivity", response_class=HTMLResponse)
 def sensitivity_dashboard():
     """Serve the premium interactive sensitivity and ADS scaling dashboard."""
+    # Track the sensitivity view event on backend
+    track_event_backend("view_sensitivity")
+    
+    html_path = BASE_DIR / "sensitivity_dashboard.html"
+    if not html_path.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="Sensitivity dashboard template file not found."
+        )
+    with open(html_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    return HTMLResponse(content=content)
+
+
+# ─── Custom Tracking & Funnel Analytics ──────────────────────────────────────
+
+class TrackEvent(BaseModel):
+    event_name: str
+    url: str
+    referrer: Optional[str] = None
+    utm_source: Optional[str] = None
+    utm_medium: Optional[str] = None
+    utm_campaign: Optional[str] = None
+    metadata: Optional[dict] = None
+
+
+def track_event_backend(event_name: str, username: Optional[str] = None, meta: Optional[dict] = None):
+    """Log tracking events from backend endpoints."""
+    events_path = DATA_DIR / "analytics_events.json"
+    events = []
+    if events_path.exists():
+        try:
+            with open(events_path, "r", encoding="utf-8") as f:
+                events = json.load(f)
+        except Exception:
+            pass
+            
+    event_data = {
+        "event_name": event_name,
+        "url": f"/api/coach/{username}" if username else f"/api/{event_name}",
+        "referrer": "backend",
+        "utm_source": None,
+        "utm_medium": None,
+        "utm_campaign": None,
+        "metadata": {**(meta or {}), "session_id": "backend_session"},
+        "timestamp": time.time(),
+        "date": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime())
+    }
+    events.append(event_data)
+    try:
+        with open(events_path, "w", encoding="utf-8") as f:
+            json.dump(events, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"Error saving backend tracking event: {e}")
+
+
+@app.post("/api/track")
+def track_event(event: TrackEvent):
+    """Log tracking events for acquisition and engagement funnel."""
+    events_path = DATA_DIR / "analytics_events.json"
+    
+    # Read existing events
+    events = []
+    if events_path.exists():
+        try:
+            with open(events_path, "r", encoding="utf-8") as f:
+                events = json.load(f)
+        except Exception:
+            pass
+            
+    # Add new event
+    event_data = {
+        "event_name": event.event_name,
+        "url": event.url,
+        "referrer": event.referrer or "direct",
+        "utm_source": event.utm_source,
+        "utm_medium": event.utm_medium,
+        "utm_campaign": event.utm_campaign,
+        "metadata": event.metadata or {},
+        "timestamp": time.time(),
+        "date": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime())
+    }
+    events.append(event_data)
+    
+    # Save back
+    try:
+        with open(events_path, "w", encoding="utf-8") as f:
+            json.dump(events, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"Error saving tracking event: {e}")
+        
+    return {"status": "success"}
+
+
+@app.get("/analytics", response_class=HTMLResponse)
+def analytics_dashboard():
+    """Serve the premium interactive analytics and acquisition funnel dashboard."""
+    events_path = DATA_DIR / "analytics_events.json"
+    events = []
+    if events_path.exists():
+        try:
+            with open(events_path, "r", encoding="utf-8") as f:
+                events = json.load(f)
+        except Exception:
+            pass
+
+    # Aggregations
+    total_events = len(events)
+    sessions = set()
+    page_views = 0
+    pipeline_runs = 0
+    report_views = 0
+    sensitivity_views = 0
+    stack_views = 0
+    
+    referrers = {}
+    utm_sources = {}
+    utm_campaigns = {}
+    
+    session_stages = {}
+    recent_events = []
+    
+    # Process events in reverse chronological order for recent log
+    for ev in reversed(events):
+        if len(recent_events) < 15:
+            recent_events.append({
+                "time": ev.get("date", "—"),
+                "event": ev.get("event_name", "—"),
+                "referrer": ev.get("referrer", "direct") or "direct",
+                "utm_source": ev.get("utm_source") or "—",
+                "session": ev.get("metadata", {}).get("session_id", "—")[:12] + "..." if ev.get("metadata", {}).get("session_id") else "—"
+            })
+            
+    for ev in events:
+        sess_id = ev.get("metadata", {}).get("session_id", "anonymous")
+        sessions.add(sess_id)
+        
+        ev_name = ev.get("event_name")
+        if ev_name == "page_view":
+            page_views += 1
+        elif ev_name in ["run_pipeline", "run_pipeline_click"]:
+            pipeline_runs += 1
+        elif ev_name in ["view_report", "view_report_click"]:
+            report_views += 1
+        elif ev_name in ["view_sensitivity", "view_sensitivity_click"]:
+            sensitivity_views += 1
+        elif ev_name in ["view_stack", "view_stack_click"]:
+            stack_views += 1
+            
+        if sess_id not in session_stages:
+            session_stages[sess_id] = set()
+        session_stages[sess_id].add(ev_name)
+        
+        # Referrers
+        ref = ev.get("referrer", "direct")
+        if not ref or ref == "None":
+            ref = "direct"
+        if "://" in ref:
+            try:
+                ref = ref.split("://")[1].split("/")[0]
+            except Exception:
+                pass
+        referrers[ref] = referrers.get(ref, 0) + 1
+        
+        # UTM
+        utm_s = ev.get("utm_source")
+        if utm_s:
+            utm_sources[utm_s] = utm_sources.get(utm_s, 0) + 1
+        utm_c = ev.get("utm_campaign")
+        if utm_c:
+            utm_campaigns[utm_c] = utm_campaigns.get(utm_c, 0) + 1
+
+    total_sessions = len(sessions)
+    
+    # Calculate Funnel Counts
+    s1_count = len(session_stages)
+    
+    # Stage 2: Engaged (Sessions with interaction/tool use)
+    s2_sessions = {
+        s for s, stages in session_stages.items()
+        if any(st in stages for st in ["interact_tabs", "view_sensitivity", "view_stack", "view_sensitivity_click", "view_stack_click"])
+    }
+    s2_count = len(s2_sessions)
+    
+    # Stage 3: Triggered Pipeline
+    s3_sessions = {
+        s for s, stages in session_stages.items()
+        if any(st in stages for st in ["run_pipeline", "run_pipeline_click"])
+    }
+    s3_count = len(s3_sessions)
+    
+    # Stage 4: Viewed Report
+    s4_sessions = {
+        s for s, stages in session_stages.items()
+        if any(st in stages for st in ["view_report", "view_report_click"])
+    }
+    s4_count = len(s4_sessions)
+    
+    # Percentages
+    s1_pct = 100.0 if s1_count > 0 else 0.0
+    s2_pct = round((s2_count / s1_count) * 100, 1) if s1_count > 0 else 0.0
+    s3_pct = round((s3_count / s1_count) * 100, 1) if s1_count > 0 else 0.0
+    s4_pct = round((s4_count / s1_count) * 100, 1) if s1_count > 0 else 0.0
+
+    # Sort Referrers & UTMs
+    sorted_referrers = sorted(referrers.items(), key=lambda x: x[1], reverse=True)[:5]
+    sorted_utm = sorted(utm_sources.items(), key=lambda x: x[1], reverse=True)[:5]
+
+    referrers_html = "".join(f"<tr><td>{r}</td><td class='val'>{c}</td></tr>" for r, c in sorted_referrers)
+    if not referrers_html:
+        referrers_html = "<tr><td colspan='2' style='text-align:center;color:var(--text-muted)'>No referrer data yet</td></tr>"
+        
+    utm_html = "".join(f"<tr><td>{u}</td><td class='val'>{c}</td></tr>" for u, c in sorted_utm)
+    if not utm_html:
+        utm_html = "<tr><td colspan='2' style='text-align:center;color:var(--text-muted)'>No campaign data yet</td></tr>"
+
+    recent_html = "".join(f"""
+        <tr>
+            <td>{x['time']}</td>
+            <td><span class='badge-event'>{x['event']}</span></td>
+            <td>{x['referrer']}</td>
+            <td>{x['utm_source']}</td>
+            <td style='font-family:monospace;font-size:0.75rem'>{x['session']}</td>
+        </tr>
+    """ for x in recent_events)
+    if not recent_html:
+        recent_html = "<tr><td colspan='5' style='text-align:center;color:var(--text-muted)'>No events recorded yet</td></tr>"
+
+    html_path = BASE_DIR / "analytics_dashboard.html"
+    if not html_path.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="Analytics dashboard template file not found."
+        )
+        
+    with open(html_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # Simple variable replacement mapping
+    replacements = {
+        "{{total_sessions}}": str(total_sessions),
+        "{{page_views}}": str(page_views),
+        "{{pipeline_runs}}": str(pipeline_runs),
+        "{{s4_pct}}": str(s4_pct),
+        "{{s1_pct}}": str(s1_pct),
+        "{{s2_pct}}": str(s2_pct),
+        "{{s3_pct}}": str(s3_pct),
+        "{{s1_count}}": str(s1_count),
+        "{{s2_count}}": str(s2_count),
+        "{{s3_count}}": str(s3_count),
+        "{{s4_count}}": str(s4_count),
+        "{{sensitivity_views}}": str(sensitivity_views),
+        "{{stack_views}}": str(stack_views),
+        "{{report_views}}": str(report_views),
+        "{{referrers_html}}": referrers_html,
+        "{{utm_html}}": utm_html,
+        "{{recent_html}}": recent_html
+    }
+    
+    for k, v in replacements.items():
+        content = content.replace(k, v)
+        
+    return HTMLResponse(content=content)
+
+
+@app.get("/sensitivity", response_class=HTMLResponse)
+def sensitivity_dashboard():
+    """Serve the premium interactive sensitivity and ADS scaling dashboard."""
+    # Track the sensitivity view event on backend
+    track_event_backend("view_sensitivity")
+    
     html_path = BASE_DIR / "sensitivity_dashboard.html"
     if not html_path.exists():
         raise HTTPException(
@@ -364,9 +652,9 @@ def dashboard():
             
             report_btn = ""
             if p["has_report"]:
-                report_btn = f'<a href="/api/report/{p["username"]}" class="btn btn-primary" target="_blank">View Report</a>'
+                report_btn = f'<a href="/api/report/{p["username"]}" class="btn btn-primary" target="_blank" onclick="if(window.trackSiegeEvent) window.trackSiegeEvent(\'view_report_click\', {{ player: \'{p["username"]}\' }})">View Report</a>'
             
-            run_btn = f'<a href="/api/coach?username={p["username"]}" class="btn btn-secondary" target="_blank">Run Analysis</a>'
+            run_btn = f'<a href="/api/coach?username={p["username"]}" class="btn btn-secondary" target="_blank" onclick="if(window.trackSiegeEvent) window.trackSiegeEvent(\'run_pipeline_click\', {{ player: \'{p["username"]}\' }})">Run Analysis</a>'
             last_updated = f'<div class="last-updated">Last updated: {p["last_updated"]}</div>' if p["last_updated"] else ""
             
             cards_html += f"""
@@ -400,6 +688,41 @@ def dashboard():
     <meta name="description" content="AI-powered Rainbow Six Siege tactical coaching portal for your competitive stack.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom Funnel Analytics Tracking -->
+    <script>
+        (function() {{
+            let sessionId = sessionStorage.getItem('siege_session_id');
+            if (!sessionId) {{
+                sessionId = 'sess_' + Math.random().toString(36).substring(2, 15) + '_' + Date.now();
+                sessionStorage.setItem('siege_session_id', sessionId);
+            }}
+            const urlParams = new URLSearchParams(window.location.search);
+            const utm_source = urlParams.get('utm_source');
+            const utm_medium = urlParams.get('utm_medium');
+            const utm_campaign = urlParams.get('utm_campaign');
+            const referrer = document.referrer;
+
+            window.trackSiegeEvent = function(eventName, meta = {{}}) {{
+                meta.session_id = sessionId;
+                fetch('/api/track', {{
+                    method: 'POST',
+                    headers: {{ 'Content-Type': 'application/json' }},
+                    body: JSON.stringify({{
+                        event_name: eventName,
+                        url: window.location.href,
+                        referrer: referrer,
+                        utm_source: utm_source,
+                        utm_medium: utm_medium,
+                        utm_campaign: utm_campaign,
+                        metadata: meta
+                    }})
+                }}).catch(err => console.error('Tracking failed:', err));
+            }};
+            window.trackSiegeEvent('page_view');
+        }})();
+    </script>
+
     <style>
         :root {{
             --bg-primary: #0a0b0f;
@@ -807,9 +1130,10 @@ def dashboard():
         <h1>SIEGE COACHING<br>PORTAL</h1>
         <p class="hero-subtitle">AI-powered tactical analysis for your competitive stack. Real data, real coaching.</p>
         <div class="hero-actions">
-            <a href="/sensitivity" class="btn btn-primary">🎯 Sensitivity Scaler</a>
-            <a href="/api/stack" class="btn btn-accent" target="_blank">🤝 Stack Analysis</a>
-            <a href="/docs" class="btn btn-secondary" target="_blank">📖 API Docs</a>
+            <a href="/sensitivity" class="btn btn-primary" onclick="if(window.trackSiegeEvent) window.trackSiegeEvent('view_sensitivity_click')">🎯 Sensitivity Scaler</a>
+            <a href="/api/stack" class="btn btn-accent" target="_blank" onclick="if(window.trackSiegeEvent) window.trackSiegeEvent('view_stack_click')">🤝 Stack Analysis</a>
+            <a href="/analytics" class="btn btn-secondary" onclick="if(window.trackSiegeEvent) window.trackSiegeEvent('view_analytics_click')">📊 Analytics</a>
+            <a href="/docs" class="btn btn-secondary" target="_blank" onclick="if(window.trackSiegeEvent) window.trackSiegeEvent('view_docs_click')">📖 API Docs</a>
         </div>
     </div>
 
@@ -888,6 +1212,12 @@ def dashboard():
     <script>
         function switchCardTab(btn, tabType) {{
             const card = btn.closest('.player-card');
+            
+            // Track tab interaction
+            if (window.trackSiegeEvent) {{
+                const playerName = card.querySelector('.player-name').textContent;
+                window.trackSiegeEvent('interact_tabs', {{ player: playerName, tab: tabType }});
+            }}
             
             // Toggle active button style
             card.querySelectorAll('.tab-btn').forEach(b => {{

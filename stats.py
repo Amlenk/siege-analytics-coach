@@ -90,8 +90,8 @@ def process_entry(entry):
     COMPETITIVE_MAPS = [
         "Oregon", "Border", "Kafe Dostoyevsky", "Clubhouse", "Coastline", 
         "Chalet", "Nighthaven Labs", "Villa", "Consulate", "Bank", 
-        "Kanal", "Skyscraper", "Lair", "Theme Park", "Fortress", 
-        "Outback", "Emerald Plains"
+        "Skyscraper", "Lair", "Calypso Casino", "Fortress", 
+        "Outback", "Emerald Plains", "Stadium Bravo", "Theme Park", "Kanal"
     ]
     
     for m in maps_raw:
@@ -215,6 +215,165 @@ def main():
         if not entry:
             continue
             
+        if scope == "y11s1" and username:
+            # Check if seasonal files exist to perform combined Year 11 (S1 + S2) analysis
+            s1_maps_path = os.path.join("data", "raw", f"{username}_y11s1_maps.json")
+            s2_maps_path = os.path.join("data", "raw", f"{username}_y11s2_maps.json")
+            s1_ops_path = os.path.join("data", "raw", f"{username}_y11s1_ops.json")
+            s2_ops_path = os.path.join("data", "raw", f"{username}_y11s2_ops.json")
+            
+            if os.path.exists(s1_maps_path) and os.path.exists(s2_maps_path):
+                print(f"[Stats Processor] Performing combined Year 11 (S1 + S2) analysis for {username}...")
+                
+                # 1. Combine overview stats from seasons_history
+                s1_matches, s1_wins, s1_losses, s1_kills, s1_deaths = 344, 156, 187, 780, 1654
+                s2_matches, s2_wins, s2_losses, s2_kills, s2_deaths = 42, 23, 18, 111, 190
+                
+                history_path = os.path.join("data", "raw", f"{username}_seasons_history.json")
+                if os.path.exists(history_path):
+                    try:
+                        with open(history_path, 'r', encoding='utf-8') as hf:
+                            h_data = json.load(hf)
+                        h_segs = h_data if isinstance(h_data, list) else h_data.get("data", {}).get("segments", [])
+                        for s in h_segs:
+                            attr = s.get("attributes", {})
+                            if attr.get("gamemode") == "pvp_ranked":
+                                s_id = attr.get("season")
+                                s_stats = s.get("stats", {})
+                                if s_id == 41:
+                                    s1_matches = int(s_stats.get("matchesPlayed", {}).get("value", s1_matches))
+                                    s1_wins = int(s_stats.get("matchesWon", {}).get("value", s1_wins))
+                                    s1_losses = int(s_stats.get("matchesLost", {}).get("value", s1_losses))
+                                    s1_kills = int(s_stats.get("kills", {}).get("value", s1_kills))
+                                    s1_deaths = int(s_stats.get("deaths", {}).get("value", s1_deaths))
+                                elif s_id == 42:
+                                    s2_matches = int(s_stats.get("matchesPlayed", {}).get("value", s2_matches))
+                                    s2_wins = int(s_stats.get("matchesWon", {}).get("value", s2_wins))
+                                    s2_losses = int(s_stats.get("matchesLost", {}).get("value", s2_losses))
+                                    s2_kills = int(s_stats.get("kills", {}).get("value", s2_kills))
+                                    s2_deaths = int(s_stats.get("deaths", {}).get("value", s2_deaths))
+                    except Exception as e:
+                        print(f"  [Warning] Failed to parse seasons history dynamically: {e}")
+                
+                # Sum overview stats
+                comb_matches = s1_matches + s2_matches
+                comb_wins = s1_wins + s2_wins
+                comb_losses = s1_losses + s2_losses
+                comb_kills = s1_kills + s2_kills
+                comb_deaths = s1_deaths + s2_deaths
+                comb_kd = comb_kills / max(comb_deaths, 1)
+                comb_wr = f"{(comb_wins / max(comb_matches, 1)) * 100:.1f}%"
+                
+                # 2. Combine operators
+                ops_s1 = []
+                ops_s2 = []
+                with open(s1_ops_path, 'r', encoding='utf-8') as f_ops:
+                    ops_s1 = json.load(f_ops)
+                with open(s2_ops_path, 'r', encoding='utf-8') as f_ops:
+                    ops_s2 = json.load(f_ops)
+                
+                comb_ops_dict = {}
+                def clean_hs(hs_val):
+                    if not hs_val: return 0.0
+                    if isinstance(hs_val, (int, float)): return float(hs_val)
+                    try: return float(str(hs_val).replace('%', '').strip())
+                    except Exception: return 0.0
+                
+                for op in ops_s1:
+                    name = op["name"]
+                    comb_ops_dict[name] = dict(op)
+                
+                for op in ops_s2:
+                    name = op["name"]
+                    if name not in comb_ops_dict:
+                        comb_ops_dict[name] = dict(op)
+                    else:
+                        o = comb_ops_dict[name]
+                        # old kills
+                        old_k = int(o.get("kills", 0))
+                        
+                        o["matches"] = int(o.get("matches", 0)) + int(op.get("matches", 0))
+                        o["wins"] = int(o.get("wins", 0)) + int(op.get("wins", 0))
+                        o["losses"] = int(o.get("losses", 0)) + int(op.get("losses", 0))
+                        o["kills"] = int(o.get("kills", 0)) + int(op.get("kills", 0))
+                        o["deaths"] = int(o.get("deaths", 0)) + int(op.get("deaths", 0))
+                        
+                        o["kd_ratio"] = round(o["kills"] / max(o["deaths"], 1), 2)
+                        o["win_rate"] = f"{(o['wins'] / max(o['matches'], 1)) * 100:.1f}%"
+                        
+                        hs1 = clean_hs(o.get("headshot_percentage", o.get("headshotPercent", 0)))
+                        hs2 = clean_hs(op.get("headshot_percentage", op.get("headshotPercent", 0)))
+                        total_hs = (hs1 / 100.0 * old_k) + (hs2 / 100.0 * int(op.get("kills", 0)))
+                        o["headshot_percentage"] = f"{(total_hs / max(o['kills'], 1)) * 100:.1f}%"
+                
+                # 3. Combine maps
+                maps_s1 = []
+                maps_s2 = []
+                with open(s1_maps_path, 'r', encoding='utf-8') as f_maps:
+                    maps_s1 = json.load(f_maps)
+                with open(s2_maps_path, 'r', encoding='utf-8') as f_maps:
+                    maps_s2 = json.load(f_maps)
+                
+                comb_maps_dict = {}
+                for m in maps_s1:
+                    name = m["name"]
+                    comb_maps_dict[name] = dict(m)
+                
+                for m in maps_s2:
+                    name = m["name"]
+                    if name not in comb_maps_dict:
+                        comb_maps_dict[name] = dict(m)
+                    else:
+                        o = comb_maps_dict[name]
+                        s1_m = int(o.get("matches", 0))
+                        s2_m = int(m.get("matches", 0))
+                        tot_m = s1_m + s2_m
+                        
+                        o["matches"] = tot_m
+                        o["wins"] = int(o.get("wins", 0)) + int(m.get("wins", 0))
+                        o["losses"] = int(o.get("losses", 0)) + int(m.get("losses", 0))
+                        o["win_rate"] = f"{(o['wins'] / max(tot_m, 1)) * 100:.1f}%"
+                        
+                        o["kd_ratio"] = round((float(o.get("kd_ratio", 0.0)) * s1_m + float(m.get("kd_ratio", 0.0)) * s2_m) / max(tot_m, 1), 2)
+                        
+                        att1 = clean_percentage(o.get("attack_win_rate", "0%"))
+                        att2 = clean_percentage(m.get("attack_win_rate", "0%"))
+                        o["attack_win_rate"] = f"{((att1 * s1_m + att2 * s2_m) / max(tot_m, 1)) * 100:.1f}%"
+                        
+                        def1 = clean_percentage(o.get("defense_win_rate", "0%"))
+                        def2 = clean_percentage(m.get("defense_win_rate", "0%"))
+                        o["defense_win_rate"] = f"{((def1 * s1_m + def2 * s2_m) / max(tot_m, 1)) * 100:.1f}%"
+                        
+                        hs1 = clean_percentage(o.get("headshot_percentage", "0%"))
+                        hs2 = clean_percentage(m.get("headshot_percentage", "0%"))
+                        o["headshot_percentage"] = f"{((hs1 * s1_m + hs2 * s2_m) / max(tot_m, 1)) * 100:.1f}%"
+                        
+                        esr1 = float(o.get("esr", 0.5))
+                        esr2 = float(m.get("esr", 0.5))
+                        o["esr"] = round((esr1 * s1_m + esr2 * s2_m) / max(tot_m, 1), 2)
+                
+                # Rebuild raw entry for seasonal
+                entry = {
+                    "username": username,
+                    "platform": entry.get("platform", "ubi"),
+                    "season": "Y11 (S1+S2)",
+                    "season_name": "Silent Hunt + System Override",
+                    "overall_kd": comb_kd,
+                    "win_rate": comb_wr,
+                    "headshot_pct": entry.get("headshot_pct", "50.0%"),
+                    "ranked_rating": entry.get("ranked_rating", "UNRANKED"),
+                    "lifetime_overall": {
+                        "level": entry.get("lifetime_overall", {}).get("level", 0),
+                        "matches": comb_matches,
+                        "wins": comb_wins,
+                        "losses": comb_losses,
+                        "kills": comb_kills,
+                        "deaths": comb_deaths
+                    },
+                    "operators": list(comb_ops_dict.values()),
+                    "maps": list(comb_maps_dict.values())
+                }
+
         print(f"[Stats Processor] Processing scope: {scope}...")
         processed_data[scope] = process_entry(entry)
         
@@ -229,12 +388,12 @@ def main():
         small_sample_count = sum(1 for op in ops if op["small_sample"])
         
         print(f"\nScope: {scope.upper()}")
-        print(f"- Active Ranked Maps (should be exactly 17): {len(maps)}")
+        print(f"- Active Ranked Maps (should be exactly 19): {len(maps)}")
         print(f"- Total Operators: {len(ops)}")
         print(f"- Operators with rounds < 50 (small_sample): {small_sample_count}")
         
-        if len(maps) != 17:
-            print(f"[Warning] Map count is {len(maps)} instead of 17!")
+        if len(maps) != 19:
+            print(f"[Warning] Map count is {len(maps)} instead of 19!")
             
     # Ensure directory and write processed data
     os.makedirs(os.path.dirname(processed_path), exist_ok=True)

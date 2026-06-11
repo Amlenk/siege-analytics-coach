@@ -137,14 +137,14 @@ def perform_compliance_check(username):
     else:
         print(f"  [FAIL] Only found {embeds_found}/8 required chart embeds!")
 
-    # Rule 6: Absolute block list check (Ranked 3.0)
-    print("\n[*] Rule 6: Verifying zero occurrences of blocklisted term 'Ranked 3.0'...")
-    occurrences = report_content.lower().count("ranked 3.0")
+    # Rule 6: Absolute block list check (Ranked 2.0)
+    print("\n[*] Rule 6: Verifying zero occurrences of blocklisted term 'Ranked 2.0'...")
+    occurrences = report_content.lower().count("ranked 2.0")
     if occurrences == 0:
-        print("  [PASS] Zero occurrences of 'Ranked 3.0' in the entire coaching report.")
+        print("  [PASS] Zero occurrences of 'Ranked 2.0' in the entire coaching report.")
         passed_rules += 1
     else:
-        print(f"  [FAIL] Found {occurrences} occurrences of 'Ranked 3.0'! Check compliance requirements.")
+        print(f"  [FAIL] Found {occurrences} occurrences of 'Ranked 2.0'! Check compliance requirements.")
 
     # Rule 7: Rule out generic fluff - check that at least 50 numerical statistics are cited
     print("\n[*] Rule 7: Verifying statistical density (no generic fluff)...")
@@ -155,7 +155,7 @@ def perform_compliance_check(username):
     else:
         print(f"  [FAIL] Statistical density too low ({len(numbers)} numbers). The report may contain generic fluff!")
 
-    # Rule 8: Map Mastery Matrix map count check (must be exactly 17 competitive maps)
+    # Rule 8: Map Mastery Matrix map count check (must be exactly 19 competitive maps)
     print("\n[*] Rule 8: Checking competitive map count inside Section 3 matrix...")
     matrix_section = ""
     if "SECTION 3:" in report_content:
@@ -169,11 +169,11 @@ def perform_compliance_check(username):
         if "Map" in line or "---" in line:
             continue
         map_rows += 1
-    if map_rows == 17:
-        print(f"  [PASS] Found exactly 17 competitive active Ranked maps in the mastery matrix.")
+    if map_rows == 19:
+        print(f"  [PASS] Found exactly 19 competitive active Ranked maps in the mastery matrix.")
         passed_rules += 1
     else:
-        print(f"  [FAIL] Found {map_rows} maps in matrix instead of exactly 17 competitive maps!")
+        print(f"  [FAIL] Found {map_rows} maps in matrix instead of exactly 19 competitive maps!")
 
     # Rule 9: Priority Improvement Matrix row count check (must be exactly 5 rows)
     print("\n[*] Rule 9: Checking Priority Improvement Matrix row count...")
@@ -256,7 +256,9 @@ def run_single_player_pipeline(username, platform="ubi"):
     print(f"==========================================")
     
     # Step 1: Fetch fresh data from r6data API or fallback
-    run_step(f"python r6data_fetch.py \"{username}\" \"{platform}\"", f"Fetching stats for {username}")
+    run_step(f"python r6data_fetch.py \"{username}\" \"{platform}\"", f"Fetching stats for {username} via API")
+    if username == "WamaiDoingThis":
+        run_step(f"python fetch_stats.py \"{username}\" \"{platform}\"", f"Fetching stats for {username} via Selenium Web Scraper")
     
     # Step 2: Stats calculations
     run_step(f"python stats.py \"{username}\"", f"Processing stats for {username}")

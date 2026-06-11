@@ -1,0 +1,15 @@
+[
+  {
+    "event_name": "page_view",
+    "url": "http://localhost:8000/",
+    "referrer": "google.com",
+    "utm_source": "test_suite",
+    "utm_medium": "email",
+    "utm_campaign": "launch",
+    "metadata": {
+      "session_id": "test_sess_123"
+    },
+    "timestamp": 1781165572.1342382,
+    "date": "2026-06-11 08:12:52 UTC"
+  }
+]

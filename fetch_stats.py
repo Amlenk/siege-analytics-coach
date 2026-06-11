@@ -236,7 +236,11 @@ def main():
         current_season_seg = max(season_segments, key=lambda x: x.get("attributes", {}).get("season", 0))
         current_season_id = current_season_seg.get("attributes", {}).get("season", 41)
         current_season_name = current_season_seg.get("metadata", {}).get("name", "Silent Hunt")
-        print(f"Dynamic current season resolved: Season {current_season_id} ({current_season_name})")
+        if current_season_id >= 37:
+            current_season_year = f"Y{10 + (current_season_id - 37) // 4}S{1 + (current_season_id - 37) % 4}"
+        else:
+            current_season_year = "Y11S1"
+        print(f"Dynamic current season resolved: Season {current_season_id} ({current_season_name}) -> {current_season_year}")
         
         # Extract Lifetime Overall data
         overview_stats = overview_seg.get("stats", {})
@@ -319,7 +323,7 @@ def main():
         y11s1_scraped_data = {
             "username": username,
             "platform": platform,
-            "season": "Y11S1",
+            "season": current_season_year,
             "overall_kd": seasonal_kd,
             "win_rate": seasonal_wr,
             "headshot_pct": seasonal_hs,
@@ -559,9 +563,9 @@ def main():
     print(f"LIFETIME STATS:")
     print(f"- Operators Found:              {ops_found}")
     print(f"- Maps Found (excluding Yacht):  {maps_found}")
-    print(f"Y11S1 STATS:")
-    print(f"- Y11S1 Operators Found:        {y11s1_ops}")
-    print(f"- Y11S1 Maps (excluding Yacht):  {y11s1_maps}")
+    print(f"{current_season_year} STATS:")
+    print(f"- {current_season_year} Operators Found:        {y11s1_ops}")
+    print(f"- {current_season_year} Maps (excluding Yacht):  {y11s1_maps}")
     print(f"==========================================\n")
 
 if __name__ == '__main__':
